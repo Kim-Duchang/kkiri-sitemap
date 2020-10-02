@@ -11,7 +11,7 @@ const tbodyContent = [
     pageName: "로그인",
     link: "./done/login/login.html",
     image: "",
-    done: false,
+    done: true,
   },
   {
     pageName: "아이디 비밀번호 찾기",
