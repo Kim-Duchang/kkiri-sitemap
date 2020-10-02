@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./login.css" rel="stylesheet" type="text/css" />
+    <title>끼리 - 로그인</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="login_wrap">
+        <h1>Kkiri</h1>
+        <div class="login_box">
+          <h2>간편 로그인</h2>
+          <div>
+            <a href="#"
+              ><img class="kakao" src="./icons/kakao_login_large_wide.png"
+            /></a>
+          </div>
+        </div>
+        <div class="login_box">
+          <h2>이메일 로그인</h2>
+          <form class="login_form">
+            <p>
+              <input type="text" id="userid" autocomplete="off" required />
+              <label class="label_name" for="userid">
+                <span class="content_name">아이디(이메일)</span>
+              </label>
+            </p>
+            <p>
+              <input type="password" id="password" required />
+              <label class="label_name" for="password">
+                <span class="content_name">비밀번호</span>
+              </label>
+            </p>
+            <a href="#" class="find_pw">비밀번호 찾기</a>
+            <button>로그인</button>
+            <button class="signup_btn">회원가입</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
