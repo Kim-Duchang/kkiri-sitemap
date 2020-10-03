@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./findUserInfomation.css" rel="stylesheet" type="text/css" />
+    <title>끼리 - 아이디 / 비밀번호 찾기</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Kkiri</h1>
+      <div class="find_wrap">
+        <h2>아이디(이메일) 찾기</h2>
+        <form class="id_form">
+          <div>
+            <p>
+              <input type="text" id="name" autocomplete="off" required />
+              <label for="name" class="label_name">
+                <span class="content_name">이름</span>
+              </label>
+            </p>
+            <p>
+              <input type="text" id="birth" autocomplete="off" required />
+              <label for="birth" class="label_name">
+                <span class="content_name">생년월일</span>
+              </label>
+            </p>
+          </div>
+          <button>아이디 찾기</button>
+        </form>
+        <div class="id_result">
+          <!-- <p class="result">아이디(이메일) : dongki***@naver.com</p> -->
+          <p class="noResult">
+            입력하신 정보로 가입되어 있는 아이디가 없습니다.
+          </p>
+          <p class="noResult">👉회원가입 하기!</p>
+        </div>
+      </div>
+      <div class="find_wrap">
+        <h2>비밀번호 찾기</h2>
+        <form>
+          <p>
+            <input type="text" id="email" autocomplete="off" required />
+            <label for="email" class="label_name">
+              <span class="content_name">아이디(이메일)</span>
+            </label>
+          </p>
+          <button>비밀번호 찾기</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

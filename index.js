@@ -15,9 +15,9 @@ const tbodyContent = [
   },
   {
     pageName: "아이디 비밀번호 찾기",
-    link: "",
+    link: "./done/findUserInfomation.html",
     image: "",
-    done: false,
+    done: true,
   },
   {
     pageName: "비밀번호 찾기",
