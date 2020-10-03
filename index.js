@@ -53,7 +53,7 @@ const tbodyContent = [
     pageName: "메인",
     link: "./done/main/Krikri.html",
     image: "",
-    done: false,
+    done: true,
   },
   {
     pageName: "메인 - 설정",

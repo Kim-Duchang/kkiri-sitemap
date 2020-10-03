@@ -110,7 +110,12 @@ button:hover {
 button:active {
   background: #f5689e;
 }
-
+.find_pw {
+  font-size: 14px;
+  text-align: right;
+  color: #7c7c7c;
+  margin-bottom: 10px;
+}
 .signup_btn {
   margin-top: 12px;
   border: 2px solid #f58cb4;
@@ -139,12 +144,15 @@ button:active {
 .login_box a .kakao {
   width: 100%;
 }
-.login_box a .google {
+.mini_sns {
+  display: flex;
+  justify-content: space-between;
   width: 100%;
+  margin-top: 20px;
 }
-.find_pw {
-  font-size: 14px;
-  text-align: right;
-  color: #7c7c7c;
-  margin-bottom: 10px;
+.mini_sns div {
+  width: 70px;
+  height: 70px;
+  background-color: #9e9e9e;
+  border-radius: 8px;
 }
