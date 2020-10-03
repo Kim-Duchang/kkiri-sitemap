@@ -15,15 +15,15 @@ const tbodyContent = [
   },
   {
     pageName: "아이디 비밀번호 찾기",
-    link: "./done/findUserInfomation.html",
+    link: "./done/findUserInfomation/findUserInfomation.html",
     image: "",
     done: true,
   },
   {
     pageName: "비밀번호 찾기",
-    link: "",
+    link: "./done/findPassword/findPassword.html",
     image: "",
-    done: false,
+    done: true,
   },
   {
     pageName: "간편 회원가입",
