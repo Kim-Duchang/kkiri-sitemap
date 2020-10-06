@@ -26,10 +26,16 @@ const tbodyContent = [
     done: true,
   },
   {
-    pageName: "간편 회원가입",
-    link: "",
+    pageName: "비밀번호 변경",
+    link: "./done/resetPassword/resetPassword.html",
     image: "",
-    done: false,
+    done: true,
+  },
+  {
+    pageName: "간편 회원가입",
+    link: "./done/signup/signup.html",
+    image: "",
+    done: true,
   },
   {
     pageName: "가입정보 입력(이메일)",
@@ -202,9 +208,24 @@ const tbodyContent = [
     done: false,
   },
   {
-    pageName: "채팅",
+    pageName: "채팅 - 전체화면",
     link: "",
-    image: "",
+    image:
+      "https://drive.google.com/file/d/1tFkxKNe0YDVksgIEcZvFOWHf_bksNZS5/view?usp=sharing",
+    done: false,
+  },
+  {
+    pageName: "채팅 - 사진보내기 (전체화면)",
+    link: "",
+    image:
+      "https://drive.google.com/file/d/18n1o1MOX992DOje4yFHPF9eviaCVCkkK/view?usp=sharing",
+    done: false,
+  },
+  {
+    pageName: "채팅 - 하단 추가",
+    link: "",
+    image:
+      "https://drive.google.com/file/d/1fqdbSzc6ahSn6xLcI2bZH4oHXcSoGJZQ/view?usp=sharing",
     done: false,
   },
 ];
