@@ -1,0 +1,1045 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+/* 전체 사이즈 */
+.Krikri-Page {
+    width: 99vw;
+    height: 100vh;
+    display: flex;
+}
+/* --------------------------------------- 사이드 바 시작 ----------------------------------------------- */
+/* 사이드 바 */
+.Side-Bar {
+    width: 8vw;
+    height: 100vh;
+}
+/* 사이드 바 우측 라인 */
+.Side-Bar-Line {
+    width: 8vw;
+    height: 95vh;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    border-right: 0.5vw solid rgba(244, 245, 249, 1);
+}
+/* 사이드 바 로고 */
+.Logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 4vh;
+    color: rgba(255, 131, 141, 1);
+    overflow: hidden;
+}
+/* 사이드 바 메뉴 */
+.Menu-List {
+    width: 8vw;
+    height: 60vh;
+    margin-top: 15vh;
+}
+/* 사이드 바 메뉴 이미지 */
+.Menu-List-Links {
+    width: 8vw;
+    height: 12.5vh;
+    text-align: center;
+}
+/* 사이드 바 메뉴:hover */
+.Menu-List-Links:hover {
+    transition: 400ms linear;
+    border-right: 0.5vw solid rgba(255, 131, 141, 1);
+}
+/* 사이드 바 메뉴 이미지 사이즈 */
+.Links {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* 사이드 바 로그아웃 */
+.Logout {
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 7vh;
+    color: black;
+}
+/* --------------------------------------- 사이드 바 부분 끝 ---------------------------------------------*/
+/* --------------------------------------- 메인 페이지 시작 --------------------------------------------- */
+/* 메인 페이지 */
+.Krikri-Main-Page {
+    width: 100%;
+    height: 100vh;
+    margin-left: 1.2vw;
+    /* background-color: yellowgreen; */
+}
+/* --------------------------------------- Header 시작 -------------------------------------------------- */
+/* 메인 Header 부분 */
+.Krikri-Main-Header {
+    width: 100%;
+    height: 17vh;
+    display: flex;
+}
+/* 메인 Header-Left부분 */
+.Header-Left {
+    width: 43%;
+    height: 100%;
+}
+/* Header-Left-Select div 부분 */
+.Krikri-Select {
+    width: 89.5%;
+    height: 50px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 auto;
+    border: 3px solid rgba(255, 170, 177, 1);
+    border-radius: 30px;
+    margin-right: 28px;
+}
+/* 검색 부분 */
+.Search {
+    width: 100%;
+    height: 50px;
+    display: flex;
+}
+/* 검색 버튼 부분 */
+.Img-Button {
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: transparent;
+    font-size: 1.125rem;
+    outline: none;
+}
+/* 검색 이미지 사이즈 부분 */
+.Img-Button img {
+    width: 25px;
+    height: 25px;
+    margin: 10px 0 0 15px;
+}
+/* 검색 이미지 hover 부분 */
+.Img-Button img:hover {
+    cursor: pointer;
+}
+/* 검색 input 부분 */
+.Search-Keyword {
+    width: 90%;
+    height: 45px;
+    position: relative;
+    top: 3px;
+    margin-left: 2.5%;
+    font-size: 1.2rem;
+    border: none;
+    vertical-align: middle;
+    border-radius: 0px 30px 30px 0px / 30px 30px 30px 30px;
+}
+/* 검색 input:focus 부분 */
+.Search-Keyword:focus {
+    outline: none;
+}
+/* 메인 Header-Right 부분 */
+.Header-Right {
+    width: 57%;
+    height: 100%;
+    background-color: #fff;
+}
+/* Header-Right-Header 부분 */
+.Krikri-Header {
+    width: 94.5%;
+    height: 60px;
+    position: relative;
+    top: 29%;
+    display: flex;
+    margin-left: 28px;
+} 
+/* Header-Right-Header 부분 */
+.Krikri-Title {
+    width: 85%;
+    margin-left: 10px;
+}
+/* Right-Header 제목 알림 부분 */
+.Krikri-Title h2 {
+    white-space: nowrap;
+    margin-bottom: 5px;
+}
+/* Right-Header 날짜 알림 부분 */
+.Krikri-Title span {
+    font-size: 1.1rem;
+    font-weight: normal;
+    color: rgba(181, 181, 183, 1);
+}
+/* Right-Header 프로필, 알림 부분 */
+.Krikri-Alram {
+    width: 8%;
+    display: flex;
+    margin: auto;
+}
+/* Right-Header 프로필, 알림 이미지 사이즈 부분 */
+.Krikri-Alram img {
+    width: 35px;
+    height: 35px;
+    margin-left: 2px;
+}
+/* Right-Header 프로필, 알림 이미지 마지막 사이즈 부분 */
+.Krikri-Alram img:last-child {
+    margin-left: 15px;
+}
+/* ---------------------------------------- Header 부분 끝 ---------------------------------------------- */
+/* ---------------------------------------- 본 메뉴 시작 ------------------------------------------------ */
+/* 커플 사진과 앨범, 캘린더등등 보여지는 Div */
+.Krikri-Main {
+    width: 100%;
+    height: 83%;
+    display: flex;
+}
+/* ----------------------------------- 본 메뉴 좌측 커플 사진 Div --------------------------------------- */
+.Left-Main {
+    width: 43%;
+    height: 100%;
+}
+/* 커플 사진 이미지 Div */
+.Krikri-Love {
+    width: 90%;
+    height: 80.5vh;
+    position: relative;
+    margin: 0 auto;
+    margin-right: 28px;
+    border-radius: 20px;
+}
+/* 커플 사진 이미지 사이즈 */
+.Krikri-Love img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+/* 커플 사진 텍스트 부분 */
+.Date-Love {
+    text-align: center;
+    position: relative;
+    top: -85%;
+}
+/* 우리함께한지 부분 */
+.Love-Text {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+/* 커플 사진 하트 부분 */
+.Date-Love img {
+    position: relative;
+    top: -65%;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0px;
+}
+/* 몇일 사귄 날짜 */
+.Date {
+    font-size: 2rem;
+    font-weight: bold;
+}
+/* 개인 사진 Div */
+.Love-Face {
+    width: 100%;
+    height: 120px;
+    position: relative;
+    top: -78%;
+    display: flex;
+}
+/* 개인 사진 프로필 Div 부분 */
+.Left-Face, .Right-Face {
+    width: 50%;
+    height: 130px;
+    text-align: center;
+}
+/* 개인 사진 프로필 Div 부분 */
+.L-Face, .R-Face {
+    width: 50%;
+    height: 130px;
+    margin: 0 auto;
+}
+/* 프로필 부분 */
+.Face {
+    width: 100%;
+    height: 130px;
+}
+/* 프로필 이미지 부분 */
+.Face img {
+    width: 100%;
+    height: 130px;
+    border-radius: 50%;
+}
+/* 프로필 이름 부분 */
+.Name {
+    width: 100%;
+    height: 30px;
+    font-size: 1.5rem;
+    margin-top: 5px;
+}
+.Krikri-Weather {
+    width: 100%;
+    position: relative;
+    top: -68%;
+    height: 130px;
+    display: flex;
+}
+.Left-Weather {
+    width: 50%;
+    height: 100%;
+}
+.Right-Weather {
+    width: 50%;
+    height: 100%;
+}
+.Show-Weather {
+    width: 50%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: rgba(236, 226, 226, 0.4);
+    text-align: center;
+} 
+.Local {
+    width: 100%;
+    height: 25%;
+}
+.Weather-Image {
+    width: 100%;
+    height: 50%;
+}
+.temperature {
+    width: 100%;
+    height: 25%;
+}
+
+/* ---------------------------------------- 본 메뉴 좌측 부분 끝 ---------------------------------------- */
+/* ----------------------------------------- 본 메뉴 우측 부분 ------------------------------------------ */
+/* 우측 슬라이더, 캘린더, 앨범 전체 Div */
+.Right-Main {
+    width: 57%;
+    height: 100%;
+    background-color: rgba(244, 245, 249, 1);
+}
+/* 우측 슬라이더 부분 */
+.Krikri-Mall {
+    width: 94%;
+    height: 25vh;
+    position: relative;
+    top: 0%;
+    margin: 0 auto;
+    display: flex;
+    margin-left: 28px;
+}
+/* 슬라이더 이름 부분 */
+.Left-Mall h3, .Right-Mall h3 {
+    color: rgba(255, 131, 141, 1);
+}
+/* 좌측 클릭 슬라이더 사이즈 부분 */
+.Left-Mall {
+    width: 50%;
+    height: 107%;
+    overflow: hidden;
+}
+/* 좌측 클릭 슬라이더 부분 */
+.New-Issue {
+    width: 500%;
+    height: 90%;
+    margin-top: 10px;
+    display: flex;
+}
+/* 좌측 클릭 슬라이더 부분 */
+.New-Issue input {
+    display: none;
+}
+/* 좌측 클릭 슬라이더 부분 */
+.slide {
+    width: 20%;
+    transition: 2s;
+}
+/* 좌측 클릭 슬라이더 이미지 부분 */
+.slide img {
+    width: 100%;
+    height: 100%;
+}
+/* 좌측 클릭 슬라이더 부분 */
+.navigation-manual {
+    position: relative;
+    width: 100%;
+    margin-top: -40px;
+    display: flex;
+    justify-content: flex-end;
+}
+/* 좌측 클릭 슬라이더 버튼 부분 */
+.manual-btn {
+    border: 2px solid #fff;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+/* 좌측 클릭 슬라이더 버튼 부분 */
+.manual-btn:not(:last-child){
+    margin-right: 10px;
+}
+/* 좌측 클릭 슬라이더 버튼 부분 */
+.manual-btn:last-child {
+    margin-right: 10px;
+}
+/* 좌측 클릭 슬라이더 버튼 hover 부분 */
+.manual-btn:hover {
+    background: #fff;
+}
+/* 좌측 클릭 슬라이더 버튼 체크 부분 */
+#radio1:checked ~ .first {
+    margin-left: 0;
+}
+#radio2:checked ~ .first {
+    margin-left: -20%;
+}
+#radio3:checked ~ .first {
+    margin-left: -40%;
+}
+#radio4:checked ~ .first {
+    margin-left: -60%;
+}
+/* 우측 자동 슬라이더 사이즈 부분 */
+.Right-Mall {
+    width: 50%;
+    height: 107%;
+    overflow: hidden;
+    margin-left: 18px;
+}
+/* 우측 자동 슬라이더 사이즈 부분 */
+.Date-Recommend {
+    width: 500%;
+    height: 90%;
+    margin-top: 10px;
+    display: flex;
+}
+/* 우측 자동 슬라이더 사이즈 부분 */
+.Date-Recommend input {
+    display: none;
+}
+/* 우측 자동 슬라이더 사이즈 부분 */
+.auto-slide {
+    width: 20%;
+    transition: 2s;
+}
+/* 우측 자동 슬라이더 이미지 부분 */
+.auto-slide img {
+    width: 100%;
+    height: 80%;
+    display: flex;
+}
+/* 슬라이더 이미지 내용 부분 */
+.auto-slide-text {
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    padding-top: 2px;
+    padding-left: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    background-color: black;
+    color: rgba(255, 170, 177, 1);
+}
+/* 우측 자동 슬라이더 부분 */
+.auto-navigation-manual {
+    position: relative;
+    width: 100%;
+    margin-top: -40px;
+    display: flex;
+    justify-content: flex-end;
+}
+/* 우측 자동 슬라이더 버튼 부분 */
+.auto-manual-btn {
+    border: 2px solid #fff;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+    display: none;
+}
+/* 우측 자동 슬라이더 버튼 사이즈 부분 */
+.auto-manual-btn:not(:last-child){
+    margin-right: 10px;
+}
+/* 우측 자동 슬라이더 버튼 사이즈 부분 */
+.auto-manual-btn:last-child {
+    margin-right: 10px;
+}
+/* 우측 자동 슬라이더 버튼 hover 부분 */
+.auto-manual-btn:hover {
+    background: #fff;
+}
+/* 우측 자동 슬라이더 버튼 체크 부분 */
+#auto-radio1:checked ~ .first2 {
+    margin-left: 0;
+}
+#auto-radio2:checked ~ .first2 {
+    margin-left: -20%;
+}
+#auto-radio3:checked ~ .first2 {
+    margin-left: -40%;
+}
+#auto-radio4:checked ~ .first2 {
+    margin-left: -60%;
+}
+/* 우측 자동 슬라이더 부분 */
+.A-navigation-auto {
+    position: absolute;
+    display: flex;
+    background: chartreuse;
+    justify-content: center;
+    margin-top: 100px;
+    display: none;
+}
+/* 우측 자동 슬라이더 부분 */
+.A-navigation-auto div {
+    border: 2px solid #fff;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 1s;
+}
+/* 우측 자동 슬라이더 부분 */
+#auto-radio1:checked ~.A-navigation-auto .A-auto-btn1{
+    background: #fff;
+}
+#auto-radio2:checked ~.A-navigation-auto .A-auto-btn2{
+    background: #fff;
+}
+#auto-radio3:checked ~.A-navigation-auto .A-auto-btn3{
+    background: #fff;
+}
+#auto-radio4:checked ~.A-navigation-auto .A-auto-btn4{
+    background: #fff;
+}
+/* ------------------------------------------ 슬라이더 부분 끝 ------------------------------------------ */
+/* 캘린더 부분 */
+.Krikri-Calendar {
+    width: 94%;
+    height: 25vh;
+    position: relative;
+    margin-left: 28px;
+    margin-top: 28px;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
+}
+/* 캘린더 제목 부분 */
+.Krikri-Calendar h3 {
+    margin-left: 28px;
+    padding-top: 18px;
+    color: rgba(255, 131, 141, 1);
+}
+/* 캘린더 알림 표시 Div 부분 */
+.To-Calendar {
+    width: 93%;
+    height: 70%;
+    margin: 0 auto;
+    display: flex;
+}
+/* 캘린더 좌측 알림 표시 부분 */
+.Left-List {
+    width: 50%;
+    height: 100%;
+    border-right: 3px solid rgba(115, 115, 115, 1);
+    overflow: hidden;
+}
+/* 캘린더 좌측 알림 표시 부분 */
+.Left-List ul {
+    display: flex;
+    font-size: 1.1rem;
+}
+/* 캘린더 좌측 알림 표시 부분 */
+.Left-List ul li {
+    margin: 10px 0px 10px 0px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+/* 캘린더 좌측 알림 표시 사이즈 부분 */
+.Left-List ul li:first-child {
+    width: 30%;
+    margin-right: 15px;
+}
+/* 캘린더 좌측 알림 표시 사이즈 부분 */
+.Left-List ul li:nth-child(2) {
+    width: 40%;
+    text-align: center;
+}
+/* 캘린더 좌측 알림 표시 사이즈 부분 */
+.Left-List ul li:last-child {
+    margin-left: 15px;
+    width: 30%;
+    text-align: center;
+}
+/* 캘린더 우측 알림 표시 부분 */
+.Right-List {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+/* 캘린더 우측 알림 표시 부분 */
+.Right-List ul {
+    display: flex;
+    font-size: 1.1rem;
+    margin-left: 28px;
+}
+/* 캘린더 우측 알림 표시 부분 */
+.Right-List ul li {
+    margin: 10px 0px 10px 0px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+/* 캘린더 우측 알림 표시 사이즈 부분 */
+.Right-List ul li:first-child {
+    width: 30%;
+    margin-right: 100px;
+}
+/* 캘린더 우측 알림 표시 사이즈 부분 */
+.Right-List ul li:last-child {
+    width: 30%;
+}
+/* ------------------------------------------ 캘린더 부분 끝 -------------------------------------------- */
+/* 앨범 Div 부분 */
+.Krikri-Album {
+    width: 94%;
+    height: 25vh;
+    background-color: rgba(255, 255, 255, 1);
+    position: relative;
+    margin-top: 18px;
+    margin-left: 28px;
+    border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
+}
+/* 앨범 타이틀 표시 부분 */
+.Krikri-Album h3 {
+    margin-left: 28px;
+    padding-top: 18px;
+    color: rgba(255, 131, 141, 1);
+}
+/* 앨범 표시 부분 */
+.To-Album {
+    width: 94%;
+    height: 70%;
+    margin: 0 auto;
+    display: flex;
+    overflow: hidden;
+}
+.Show-Album {
+    width: 130px;
+    height: 70%;
+    margin-top: 10px;
+    margin-right: 34px;
+}
+.Show-Album img {
+    width: 100%;
+    height: 100%;
+}
+.Album-Date {
+    width: 130px;
+    text-align: left;
+    font-size: 1.1rem;
+}
+/* ---------------------------------------- 앨범 끝 ----------------------------------------------------- */
+.Open-Chatting {
+    width: 60px;
+    height: 100px;
+    background-color: rgba(255, 131, 141, 1);
+    position: absolute;
+    top: 50%;
+    right: 0;
+    border-radius: 5px 0px 0px 5px / 5px 0px 0px 5px;
+}
+.Open-Chatting img{
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 17px;
+    background: transparent;
+    cursor: pointer;
+}
+
+
+/* ---------------------------------------- 본 메인 끝 -------------------------------------------------- */
+/* ------------------------------------------ 채팅방 ---------------------------------------------------- */
+/* 채팅방 사이즈 부분 */
+.Chat {
+    width: 70vw;
+    height: 100vh;
+    background-color: white;
+    display: none;
+    border-left: 3px solid rgba(255, 176, 182, 1);
+}
+/* 채팅방 사이드 부분 */
+.Chat-Side {
+    width: 3vw;
+    height: 100vh;
+}
+/* 채팅방 사이드 이미지 부분 */
+.Chat-Side img {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    transform: rotate(180deg);
+    cursor: pointer;
+}
+/* 채팅방 메인 부분 */
+.Chat-Total {
+    display: flex;
+}
+/* 채팅방 메인 부분 */
+.Chat-Main {
+    width: 100%;
+    height: 100vh;
+}
+/* 채팅방 메인 Header부분 */
+.Chat-Header {
+    width: 90%;
+    height: 100px;
+    box-sizing: border-box;
+    display: flex;
+    margin: 0 auto;
+    border-bottom: 3px solid black;
+}
+/* 채팅방 메인 Header 좌측 부분 */
+.Chat-Left {
+    width: 65%;
+    height: 100%;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+/* 채팅방 메인 Header 글자 부분 */
+.Chat-Left span {
+    position: relative;
+    top: 52%;
+}
+/* 채팅방 메인 Header 우측 부분 */
+.Chat-Right {
+    width: 35%;
+}
+/* 채팅방 메인 Header 우측 버튼 부분 */
+.Chat-Right button {
+    position: relative;
+    top: 40%;
+    left: 49%;
+    width: 100px;
+    height: 50px;
+    background: transparent;
+    outline: 0;
+    border: 3px solid rgba(255, 141, 150, 1);
+    color: rgba(255, 141, 150, 1);
+    font-weight: bold;
+}
+/* 채팅방 메인 Header 우측 버튼 hover */
+.Chat-Right button:hover{
+    cursor: pointer;
+}
+/* 채팅방 메인 Header 우측 전체화면 끝내기 감춤 */
+.Chat-Right button:last-child {
+    display: none;
+}
+/* 채팅방 글자 보이는 곳 */
+.Chat-Chatting {
+    width: 90%;
+    height: 71%;
+    margin: 0 auto;
+    margin-top: 4%;
+    background-color: wheat;
+}
+/* 채팅방 하단 메세지 사이즈 부분 */
+.Chat-Message {
+    width: 90%;
+    height: 12.6%;
+    display: flex;
+    margin: 0 auto;
+}
+/* 채팅방 하단 메세지 좌측 부분 */
+.Message {
+    width: 80%;
+    height: 100%;
+}
+/* 채팅방 하단 메세지 좌측 부분 */
+.Msg {
+    width: 100%;
+    height: 50px;
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 25px 25px 25px 25px / 25px 25px 25px 25px;
+    border: 3px solid rgba(255, 131, 141, 1);
+}
+/* 채팅방 하단 메세지 좌측 이미지 부분 */
+.Msg img {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 35px;
+    height: 35px;
+    margin-left: 5px;
+    border: 3px solid rgba(255, 131, 141, 1);
+    border-radius: 50%;
+}
+/* 채팅방 하단 메세지 좌측 이미지 hover 부분 */
+.Msg img:hover {
+    cursor: pointer;
+}
+/* 채팅방 하단 메세지 좌측 input 부분 */
+.Msg input {
+    position: relative;
+    top: 25%;
+    transform: translateY(-50%);
+    width: 85%;
+    height: 85%;
+    border-radius: 0px 25px 25px 0px / 0px 25px 25px 0px;
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+}
+/* 채팅방 우측 사이즈 부분 */
+.Message-Send {
+    width: 20%;
+    height: 100%;
+}
+/* 채팅방 우측 버튼 부분 */
+.Message-Send button {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px;
+    height: 50px;
+    background: transparent;
+    outline: 0;
+    border: 0;
+    background-color: rgba(255, 131, 141, 1);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 25px 25px 25px 25px / 25px 25px 25px 25px;
+    margin-left: 25%;
+}
+/* 채팅방 우측 버튼 hover 부분 */
+.Message-Send button:hover  {
+    cursor: pointer;
+}
+/* ------------------------------------------------ 채팅 버튼 누르면 기능 먹히는 것들 ----------------------------------------- */
+.Krikri-Love2 {
+    width: 20%;
+    height: 107%;
+    display: none;
+    margin-right: 18px;
+    border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
+}
+.Krikri-Love2 img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
+}
+.Date-Love2 {
+    text-align: center;
+    position: relative;
+    top: -85%;
+}
+/* 우리함께한지 부분 */
+.Love-Text2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+/* 커플 사진 하트 부분 */
+.Date-Love2 img {
+    position: relative;
+    top: -65%;
+    width: 50px;
+    height: 50px;
+    margin-top: 25px;
+}
+/* 몇일 사귄 날짜 */
+.Date2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* 앨범시작~ */
+.album-title {
+    width: 90%;
+    height: 250px;
+    margin: 70px auto 0;
+    text-align: center;
+}
+
+.album-title .title-p1 {
+    font-weight: bold;
+    font-size: 25px;
+}
+.album-title .title-p2 {
+    font-weight: 900;
+    font-size: 60px;
+    color: rgba(255, 131, 141, 1);
+}
+.album-title .title-p3 img {
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    border: 3px solid pink;
+    border-radius: 50%;
+}
+
+.album-header {
+    margin: 0 auto 5px;
+    display: flex;
+    width: 90%;
+}
+.album-header div {
+    border-bottom: 5px solid rgba(244, 245, 249, 1);
+    width: 25%;
+    height: 30px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.album-header div:hover {
+    cursor: pointer;
+    color:  rgba(255, 131, 141, 1);
+}
+
+.album-itembox {
+    width: 90%;
+    /* height: 600px; */
+    /* background-color: rgba(244, 245, 249, 1); */
+    margin: 10px auto 0;
+    padding: 15px;
+    display: flex;
+    box-sizing: border-box;
+}
+
+.album-itembox li {
+    float: left; width: 23%; margin: 0 0.9%; margin-bottom: 15px;
+    cursor: pointer;
+}
+.album.itembox li:nth-child(4n+1) {
+    clear: both;
+}
+
+.album-itembox li .img_place {
+    display: block;
+    width: 100%;
+}
+
+/* 앨범추가 팝업 */
+.album-popup {
+    width: 400px;
+    height: 450px;
+    border: none;
+    display: none;
+    position: absolute;
+    border-radius: 10px;
+}
+.album-popup .pop-title {
+    width: 100%;
+    height: 15%;
+    background-color: rgba(255, 131, 141, 1);
+    border-radius: 10px  10px 0 0;
+    text-align: center;
+    display: flex;
+    padding-top: 18px;
+    box-sizing: border-box;
+}
+.album-popup .pop-title .pt1 { width: 84%; padding-left: 60px; font-weight: bold; color: #fff; font-size: 20px;}
+.album-popup .pop-title .pt2 { width: 16%;}
+.album-popup .pop-title .pt2 img { width: 30px; cursor: pointer;}
+.album-popup .pop-add {
+    height: 57%;
+    background-color: #fff;
+}
+.album-popup .pop-txt {
+    height: 15%;
+    background-color: #fff;
+}
+.album-popup .pop-txt input[type=text] {
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.album-popup .pop-btn {
+    height: 11%;
+    text-align: center;
+    padding-top: 10px;
+    background-color: #fff;
+    border-radius: 0 0 10px 10px;
+}
+
+.album-popup .pop-btn button {
+    border: none;
+    color: white;
+    background-color: rgba(255, 131, 141, 1);
+    width: 120px;
+    height: 35px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.popup-mask { /* 팝업 배경 css */
+    position: fixed;
+    width: 100%;
+    height: 1000px;
+    top: 0px;
+    left: 0px;
+    display: none; 
+    background-color:#000;
+    opacity: 0.8;
+}
+/* 사진 클릭시 팝업 */
+.pic-popup {
+    width: 800px;
+    height: 750px;
+    border: none;
+    display: none;
+    position: absolute;
+    border-radius: 10px;
+}
+
+.pic-popup .pic-header {
+    width: 100%;
+    height: 10%;
+    background-color: rgba(255, 131, 141, 1);
+    border-radius: 10px  10px 0 0;
+    text-align: center;
+    display: flex;
+    padding-top: 22px;
+    box-sizing: border-box;
+}
+.pic-popup .pic-header .pic-d1 {
+    width: 77%;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+.pic-popup .pic-header .pic-d2 {
+    width: 22%;
+    padding-top: 3px;
+}
+.pic-popup .pic-header .pic-d2 img{
+    width: 24px;
+    height: 24px;
+    margin-left: 15px;
+}
+
+.pic-popup .pic-main {
+    width: 100%;
+    height: 90%;
+    background-color: white;
+}
+
+.pic-header .pic-d2 img:hover {
+    cursor: pointer;
+}

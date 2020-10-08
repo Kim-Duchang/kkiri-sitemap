@@ -209,7 +209,6 @@
         /* 캘린더 헤드부분 */
         .Krikri-Main{
             width: 100%;
-            height: 100%;
         }
         .Krikri-calender{
             padding: 30px;
@@ -337,49 +336,50 @@
         /* 캘린더 */
         .left_div{
             float: left;
-            width: 30%;
+            width: 40%;
         }
         #calender_divs{
-            left: 197px;
-            top: 257px;
             overflow: visible;
             float: left;
-            margin-top: 55px;
+            margin-top: 4%;
+            height: 30vh;
+            width: 100%;
         }
         #______18___1 {
-            width: 600px;
-            height: 30%;
+            height: 100%;
             left: 197px;
+            width: 100%;
             top: 257px;
             overflow: visible;
             float: left;
             border: 1px solid rgba(255,131,141,1);
-        }	
+        }
         #dayoftheweek{
-            left: 1048px;
-            top: 0px;
-            overflow: visible;
-            width: 100%;
-            white-space: nowrap;
-            text-align: left;
-            font-family: Apple SD Gothic Neo;
             font-style: normal;
             font-weight: normal;
             font-size: 12px;
             color: rgba(3,0,0,1);
+            width: 100%;
+            margin: 0.5% 0;
         }
         #dayoftheweek ul{
             float: left;
             line-height: 30px;
             font-weight: 700;
             color: #000;
-            letter-spacing: -.3px;
+            letter-spacing: -.4px;
             margin: 4px 0;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            margin-left: 1%;
         }
         #dayoftheweek ul li{
             float: left;
-            width: 85px;
+            width: 100%;
             text-align: center;
+            margin: 0 5%;
         }
         .___33 {
             position: absolute;
@@ -397,25 +397,35 @@
             top: -10px;
             right: 255px;
         }
+        #days{
+            display: flex;
+            float: left;
+            width: 100%;
+            height: 27vh;
+        }
         #day{
             overflow: visible;
             float: left;
             white-space: nowrap;
             text-align: left;
-            font-family: Apple SD Gothic Neo;
             font-style: normal;
             font-weight: normal;
             font-size: 14px;
             color: rgba(3,0,0,1);
             margin-top: 2px;
-            padding-left: 12px;
+            display: initial;
+            width: 100%;
+            padding: 0.5%;
+            margin-left: 1%;
         }
         #day li{
             float: left;
+            width: 14%;
+            height: 19%;
         }
         #day li div{
-            width: 84px;
-            height: 50px;
+            width: 10%;
+            height: 20%;
         }
         #day li div p{
             width: 20px;
@@ -461,18 +471,15 @@
         }
         /*캘린더2  */
         .____71 {
-            width: 580px;
-            height: 345px;
+            width: 100%;
+            height: 37vh;
             float: left;
             border: 1px solid rgba(255,131,141,1);
             margin-top: 16px;
-            padding: 10px;
         }
         #filter_calender_head{
             height: 30px;
-            padding-bottom: 20px;
-            width: 100%;
-            padding-top: 10px;
+            padding: 2%;
         }
         #filter_calender_ {
             font-style: normal;
@@ -490,16 +497,18 @@
             border-bottom: 1px solid rgba(255,131,141,1);
             padding-left: 16px;
             height: 45px;
-            margin-bottom: 16px;
+            margin: 2%;
+            display: flex;
         }
         #___26_fe {
-            width: 83px;
+            width: 20%;
             height: 36px;
-            left: 200px;
-            top: 693px;
             overflow: visible;
             float: left;
-            margin-right: 198px;
+            margin-right: 37%;
+        }
+        #___26_fe:last-child{
+            margin-right: 0;
         }
         #___26_fe img{
             width: 30px;
@@ -518,7 +527,7 @@
             line-height: 2.3rem;
         }
         #filter_calender_footer{
-            padding-left: 16px;
+            padding: 4%;
         }
         #filter_calender_footer li{
             height: 40px;
@@ -545,12 +554,11 @@
             position: relative;
             z-index: 100;
             background: #fff;
-            width: 795px;
+            width: 54%;
             float: right;
-            height: 655px;
             margin-top: 20px;
-            /* border: 1px solid; */
             padding: 10px;
+            height: 67vh;
             margin-right: 10px;
         }
         #ID09____ {
@@ -564,11 +572,11 @@
         #______22___1 {
             position: relative;
             z-index: 100;
-            width: 15px;
-            height: 637px;
+            width: 15px;    
             overflow: visible;
             margin: 0 20px;
             float: left;
+            display: grid;
         }
         .___10_e {
             overflow: visible;
@@ -1019,7 +1027,7 @@
                     </div>  
                     <div class="right_div">
                         <div id="ID09____">
-                            <span>09. 수 </span>
+                            <span>03. 토 </span>
                         </div>
                         <div id="______22___1" class="______22___1">
                             <svg class="___12_e">
