@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calendar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        /* 전체 사이즈 */
+        .Krikri-Page {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+        }
+        /* --------------------------------------- 사이드 바 시작 ----------------------------------------------- */
+        /* 사이드 바 */
+        .Side-Bar {
+            width: 7vw;
+            height: 100vh;
+        }
+        /* 사이드 바 우측 라인 */
+        .Side-Bar-Line {
+            width: 7vw;
+            height: 95vh;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border-right: 0.5vw solid rgba(244, 245, 249, 1);
+        }
+        /* 사이드 바 로고 */
+        .Logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 4vh;
+            color: rgba(255, 131, 141, 1);
+            overflow: hidden;
+        }
+        /* 사이드 바 메뉴 */
+        .Menu-List {
+            width: 7vw;
+            height: 60vh;
+            margin-top: 15vh;
+        }
+        /* 사이드 바 메뉴 이미지 */
+        .Menu-List-Links {
+            width: 7vw;
+            height: 12.5vh;
+            text-align: center;
+        }
+        /* 사이드 바 메뉴:hover */
+        .Menu-List-Links:hover {
+            transition: 400ms linear;
+            border-right: 0.5vw solid rgba(255, 131, 141, 1);
+        }
+        /* 사이드 바 메뉴 이미지 사이즈 */
+        .Links {
+            width: 30px;
+            height: 30px;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        /* 사이드 바 로그아웃 */
+        .Logout {
+            font-size: 1rem;
+            text-align: center;
+            margin-top: 4vh;
+            color: black;
+        }
+        /* --------------------------------------- 사이드 바 부분 끝 ---------------------------------------------*/
+        /* --------------------------------------- 메인 페이지 시작 --------------------------------------------- */
+        /* 메인 페이지 */
+        .Krikri-Main-Page {
+            width: 100%;
+            height: 100vh;
+            margin-left: 1.2vw;
+            /* background-color: yellowgreen; */
+        }
+        /* --------------------------------------- Header 시작 -------------------------------------------------- */
+        /* 메인 Header 부분 */
+        .Krikri-Main-Header {
+            width: 100%;
+            height: 15vh; /* 수정 */
+            display: flex;
+        }
+        /* 메인 Header-Left부분 */
+        .Header-Left {
+            width: 43%;
+        }
+        .backcolor{
+            width: 100%;
+        height: 100vh;
+        margin-left: 1.2vw;
+        background-color: #F4F5F9;
+        background-position-y: revert;
+        background-size: 100px;
+        }
+        /* Header-Left-Select div 부분 */
+        .Krikri-Select {
+            width: 89.5%;
+            height: 47px;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            margin: 0 auto;
+            border: 2px solid rgba(255, 170, 177, 1);
+            border-radius: 30px;
+        }
+        /* 검색 부분 */
+        .Search {
+            width: 100%;
+            height: 50px;
+            display: flex;
+        }
+        /* 검색 버튼 부분 */
+        .Img-Button {
+            width: 50px;
+            height: 50px;
+            border: none;
+            background: transparent;
+            font-size: 1.125rem;
+            outline: none;
+        }
+        /* 검색 이미지 사이즈 부분 */
+        .Img-Button img {
+            width: 18px;
+            height: 18px;
+            margin: 2px 0 0 15px;
+        }
+        /* 검색 이미지 hover 부분 */
+        .Img-Button img:hover {
+            cursor: pointer;
+        }
+        /* 검색 input 부분 */
+        .Search-Keyword {
+            width: 90%;
+            height: 45px;
+            position: relative;
+            top: 3px;
+            margin-left: 2.5%;
+            font-size: 16px;
+            border: none;
+            background: none;
+            vertical-align: middle;
+            border-radius: 0px 30px 30px 0px / 30px 30px 30px 30px;
+        }
+        /* 검색 input:focus 부분 */
+        .Search-Keyword:focus {
+            outline: none;
+        }
+        /* 메인 Header-Right 부분 */
+        .Header-Right {
+            width: 57%;
+            height: 100%;
+            background-color: rgba(244, 245, 249, 1);
+        }
+        /* 추가 ---- */
+        .white {
+            background: none;
+        }
+        /* ----- */
+        /* Header-Right-Header 부분 */
+        .Krikri-Header {
+            height: 90px;
+            top: 29%;
+            display: flex;
+            margin-right: 38px;
+            float: right;
+        } 
+        /* Right-Header 프로필, 알림 부분 */
+        .Krikri-Alram {
+            margin-top: 50px;
+            position: relative;
+            z-index: 100;
+        }
+        /* Right-Header 프로필, 알림 이미지 사이즈 부분 */
+        .Krikri-Alram img {
+            width: 35px;
+            height: 35px;
+            margin-left: 2px;
+        }
+        .Krikri-Alram img:hover {
+            cursor: pointer;
+        }
+        /* Right-Header 프로필, 알림 이미지 마지막 사이즈 부분 */
+        .Krikri-Alram img:last-child {
+            margin-left: 15px;
+        }
+        /* ---------------------------------------- Header 부분 끝 ---------------------------------------------- */
+
+        /* ---------------------------------------- 본 메뉴 시작 ------------------------------------------------ */
+        .___26{
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 53.5%;
+            height: 100%;
+        }
+        /* 캘린더 헤드부분 */
+        .Krikri-Main{
+            width: 100%;
+            height: 100%;
+        }
+        .Krikri-calender{
+            padding: 30px;
+            padding-top: 0;
+            width: auto;
+            height: 100%;
+        }
+        #______21___1 {
+            position: absolute;
+            width: 409px;
+            overflow: visible;
+        }
+        #arrows_circle_right {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            left: 0px;
+            top: 7px;
+            overflow: visible;
+        }
+        #arrows_circle_left {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            left: 345px;
+            top: 7px;
+            overflow: visible;
+        }
+        #September_ {
+            position: absolute;
+            left: 45px;
+            top: 0px;
+            overflow: visible;
+            width: 208px;
+            white-space: nowrap;
+            text-align: left;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 35px;
+            color: rgba(255,131,141,1);
+            float: left;
+        }
+        #ID2020 {
+            position: absolute;
+            left: 246px;
+            top: 0px;
+            overflow: visible;
+            width: 93px;
+            white-space: nowrap;
+            text-align: left;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 35px;
+            color: rgba(255,131,141,1);
+        }
+        #______20___1 {
+            right: 0;
+            overflow: visible;
+            float: right;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 100;
+            margin-left: 50%;
+        }
+        .____44 {
+            overflow: visible;
+            width: 80px;
+            height: 35px;
+            left: 0px;
+            top: 0px;
+            background: rgba(255, 141, 150, 1);
+            text-align: center;
+            border-radius: 20px;
+            float: left;
+            margin-right: 16px;
+        }
+        #MONTH {
+            line-height: 2.3rem;
+            white-space: nowrap;
+            text-align: center;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 16px;
+            color: rgba(255,255,255,1);
+        }
+        .____47 {
+            overflow: visible;
+            width: 80px;
+            height: 35px;
+            left: 0px;
+            top: 0px;
+            border: 1px solid rgba(255, 141, 150, 1);
+            text-align: center;
+            border-radius: 20px;
+            float: left;
+            margin-right: 16px;
+        }
+        #YEAR {
+            font-family: Roboto;
+            line-height: 2.3rem;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            text-align: center;
+            color: rgba(255,131,141,1);
+        }
+        #___21 {
+            width: 30px;
+            height: 30px;
+            left: 311.151px;
+            top: 11.5px;
+            overflow: visible;
+            margin-top: 3px;
+            float: left;
+            margin-right: 10px;
+        }
+        .arrows_circle_remove{
+            height: 100%;
+        }
+
+
+        /* 캘린더 */
+        .left_div{
+            float: left;
+            width: 30%;
+        }
+        #calender_divs{
+            left: 197px;
+            top: 257px;
+            overflow: visible;
+            float: left;
+            margin-top: 55px;
+        }
+        #______18___1 {
+            width: 600px;
+            height: 30%;
+            left: 197px;
+            top: 257px;
+            overflow: visible;
+            float: left;
+            border: 1px solid rgba(255,131,141,1);
+        }	
+        #dayoftheweek{
+            left: 1048px;
+            top: 0px;
+            overflow: visible;
+            width: 100%;
+            white-space: nowrap;
+            text-align: left;
+            font-family: Apple SD Gothic Neo;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 12px;
+            color: rgba(3,0,0,1);
+        }
+        #dayoftheweek ul{
+            float: left;
+            line-height: 30px;
+            font-weight: 700;
+            color: #000;
+            letter-spacing: -.3px;
+            margin: 4px 0;
+        }
+        #dayoftheweek ul li{
+            float: left;
+            width: 85px;
+            text-align: center;
+        }
+        .___33 {
+            position: absolute;
+            overflow: visible;
+            width: 30px;
+            height: 30px;
+            top: -10px;
+            right: 457px;
+        }
+        .___34 {
+            position: absolute;
+            overflow: visible;
+            width: 30px;
+            height: 30px;
+            top: -10px;
+            right: 255px;
+        }
+        #day{
+            overflow: visible;
+            float: left;
+            white-space: nowrap;
+            text-align: left;
+            font-family: Apple SD Gothic Neo;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            color: rgba(3,0,0,1);
+            margin-top: 2px;
+            padding-left: 12px;
+        }
+        #day li{
+            float: left;
+        }
+        #day li div{
+            width: 84px;
+            height: 50px;
+        }
+        #day li div p{
+            width: 20px;
+            height: 20px;
+            position: relative;
+        }
+        .day_memo{
+            width: 100;
+            margin: 0;
+            margin-left: 0;
+        }
+        .____67{
+            position: absolute;
+            margin-top: 10px;
+            width: 10px !important;
+            height: 10px !important;
+            background: rgba(245,152,152,0.4);
+            border-radius: 50%;
+        }
+        #________ {
+            position: fixed;    
+            white-space: nowrap;
+            text-align: left;
+            font-family: Apple SD Gothic Neo;
+            font-style: normal;
+            font-weight: normal;
+            line-height: 3.3rem;
+            font-size: 16px;
+            color: rgba(0,0,0,1);
+            margin-left: 10px;
+        }
+
+        #fix_num{
+            background: rgba(211,211,211,1);
+            border-radius: 50%;
+            text-align: center;
+        }
+        #today_num{
+            background: rgba(255,131,141,1);
+            border-radius: 50%;
+            color: #fff;
+            text-align: center;
+        }
+        /*캘린더2  */
+        .____71 {
+            width: 580px;
+            height: 345px;
+            float: left;
+            border: 1px solid rgba(255,131,141,1);
+            margin-top: 16px;
+            padding: 10px;
+        }
+        #filter_calender_head{
+            height: 30px;
+            padding-bottom: 20px;
+            width: 100%;
+            padding-top: 10px;
+        }
+        #filter_calender_ {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 25px;
+            color: rgba(255,131,141,1);
+            float: left;
+            padding-left: 16px;
+        }
+        #___7_fb{
+            height: 30px;
+            float: right;
+        }
+        #filter_calender_body{
+            border-bottom: 1px solid rgba(255,131,141,1);
+            padding-left: 16px;
+            height: 45px;
+            margin-bottom: 16px;
+        }
+        #___26_fe {
+            width: 83px;
+            height: 36px;
+            left: 200px;
+            top: 693px;
+            overflow: visible;
+            float: left;
+            margin-right: 198px;
+        }
+        #___26_fe img{
+            width: 30px;
+            height: 30px;
+            left: 0px;
+            border-radius: 50%;
+            top: 0px;
+            overflow: visible;
+            float: left;
+            margin-right: 8px;
+        }
+        #ID000_ {
+            font-weight: normal;
+            font-size: 18px;
+            color: rgba(0,0,0,1);
+            line-height: 2.3rem;
+        }
+        #filter_calender_footer{
+            padding-left: 16px;
+        }
+        #filter_calender_footer li{
+            height: 40px;
+        }
+        .___8 {
+            width: 22px;
+            height: 22px;
+            left: 200px;
+            top: 773px;
+            border-radius: 50%;
+            border: 1px solid rgba(100,100,100,1);
+            float: left;
+            margin-right: 10px;
+        }
+        #___ span{
+            line-height: 1.5rem;
+        }
+        .choice{
+            background: rgba(245,152,152,0.4);
+            border: none;
+        }
+        /* right_div 사이드부분 */
+        .right_div{
+            position: relative;
+            z-index: 100;
+            background: #fff;
+            width: 795px;
+            float: right;
+            height: 655px;
+            margin-top: 20px;
+            /* border: 1px solid; */
+            padding: 10px;
+            margin-right: 10px;
+        }
+        #ID09____ {
+            position: relative;
+            z-index: 100;
+            font-weight: bold;
+            padding: 20px;
+            font-size: 30px;
+            color: rgba(3,0,0,1);
+        }
+        #______22___1 {
+            position: relative;
+            z-index: 100;
+            width: 15px;
+            height: 637px;
+            overflow: visible;
+            margin: 0 20px;
+            float: left;
+        }
+        .___10_e {
+            overflow: visible;
+            width: 2px;
+            height: 462px;
+            margin-left: 7px;
+        }
+        .___12_e {
+            overflow: visible;
+            width: 15px;
+            height: 15px;
+            left: 0px;
+            top: 0px;
+        }
+        .___12_l {
+            overflow: visible;
+            width: 15px;
+            height: 15px;
+            left: 0px;
+            top: 0px;
+        }
+        #_________ {
+            position: relative;
+            z-index: 100;
+            white-space: nowrap;
+            text-align: left;
+            font-family: Apple SD Gothic Neo;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 18px;
+            color: rgba(3,0,0,1);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* ---------------------------------------- 본 메뉴 끝 ------------------------------------------------ */
+
+        /* ------------------------------------------ 채팅방 ---------------------------------------------------- */
+        /* 채팅방 사이즈 부분 */
+        .Chat {
+            width: 70vw;
+            height: 100vh;
+            background-color: white;
+            display: none;
+            border-left: 3px solid rgba(255, 176, 182, 1);
+        }
+        /* 채팅방 사이드 부분 */
+        .Chat-Side {
+            width: 3vw;
+            height: 100vh;
+        }
+        /* 채팅방 사이드 이미지 부분 */
+        .Chat-Side img {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            transform: rotate(180deg);
+            cursor: pointer;
+        }
+        /* 채팅방 메인 부분 */
+        .Chat-Total {
+            display: flex;
+        }
+        /* 채팅방 메인 부분 */
+        .Chat-Main {
+            width: 100%;
+            height: 100vh;
+        }
+        /* 채팅방 메인 Header부분 */
+        .Chat-Header {
+            width: 90%;
+            height: 100px;
+            box-sizing: border-box;
+            display: flex;
+            margin: 0 auto;
+            border-bottom: 3px solid black;
+        }
+        /* 채팅방 메인 Header 좌측 부분 */
+        .Chat-Left {
+            width: 65%;
+            height: 100%;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+        /* 채팅방 메인 Header 글자 부분 */
+        .Chat-Left span {
+            position: relative;
+            top: 52%;
+        }
+        /* 채팅방 메인 Header 우측 부분 */
+        .Chat-Right {
+            width: 35%;
+        }
+        /* 채팅방 메인 Header 우측 버튼 부분 */
+        .Chat-Right button {
+            position: relative;
+            top: 40%;
+            left: 49%;
+            width: 100px;
+            height: 50px;
+            background: transparent;
+            outline: 0;
+            border: 3px solid rgba(255, 141, 150, 1);
+            color: rgba(255, 141, 150, 1);
+            font-weight: bold;
+        }
+        /* 채팅방 메인 Header 우측 버튼 hover */
+        .Chat-Right button:hover{
+            cursor: pointer;
+        }
+        /* 채팅방 메인 Header 우측 전체화면 끝내기 감춤 */
+        .Chat-Right button:last-child {
+            display: none;
+        }
+        /* 채팅방 글자 보이는 곳 */
+        .Chat-Chatting {
+            width: 90%;
+            height: 71%;
+            margin: 0 auto;
+            margin-top: 4%;
+            background-color: wheat;
+        }
+        /* 채팅방 하단 메세지 사이즈 부분 */
+        .Chat-Message {
+            width: 90%;
+            height: 12.6%;
+            display: flex;
+            margin: 0 auto;
+        }
+        /* 채팅방 하단 메세지 좌측 부분 */
+        .Message {
+            width: 80%;
+            height: 100%;
+        }
+        /* 채팅방 하단 메세지 좌측 부분 */
+        .Msg {
+            width: 100%;
+            height: 50px;
+            margin: 0 auto;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 25px 25px 25px 25px / 25px 25px 25px 25px;
+            border: 3px solid rgba(255, 131, 141, 1);
+        }
+        /* 채팅방 하단 메세지 좌측 이미지 부분 */
+        .Msg img {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 35px;
+            height: 35px;
+            margin-left: 5px;
+            border: 3px solid rgba(255, 131, 141, 1);
+            border-radius: 50%;
+        }
+        /* 채팅방 하단 메세지 좌측 이미지 hover 부분 */
+        .Msg img:hover {
+            cursor: pointer;
+        }
+        /* 채팅방 하단 메세지 좌측 input 부분 */
+        .Msg input {
+            position: relative;
+            top: 25%;
+            transform: translateY(-50%);
+            width: 85%;
+            height: 85%;
+            border-radius: 0px 25px 25px 0px / 0px 25px 25px 0px;
+            font-size: 1.2rem;
+            border: none;
+            outline: none;
+        }
+        /* 채팅방 우측 사이즈 부분 */
+        .Message-Send {
+            width: 20%;
+            height: 100%;
+        }
+        /* 채팅방 우측 버튼 부분 */
+        .Message-Send button {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 80px;
+            height: 50px;
+            background: transparent;
+            outline: 0;
+            border: 0;
+            background-color: rgba(255, 131, 141, 1);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 25px 25px 25px 25px / 25px 25px 25px 25px;
+            margin-left: 25%;
+        }
+        /* 채팅방 우측 버튼 hover 부분 */
+        .Message-Send button:hover  {
+            cursor: pointer;
+        }
+        /* ------------------------------------------------ 채팅 버튼 누르면 기능 먹히는 것들 ----------------------------------------- */
+        .Krikri-Love2 {
+            width: 20%;
+            height: 107%;
+            display: none;
+            margin-right: 18px;
+            border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
+        }
+        .Krikri-Love2 img {
+            width: 100%;
+            height: 100%;
+            border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
+        }
+        .Date-Love2 {
+            text-align: center;
+            position: relative;
+            top: -85%;
+        }
+        /* 우리함께한지 부분 */
+        .Love-Text2 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        /* 커플 사진 하트 부분 */
+        .Date-Love2 img {
+            position: relative;
+            top: -65%;
+            width: 50px;
+            height: 50px;
+            margin-top: 25px;
+        }
+        /* 몇일 사귄 날짜 */
+        .Date2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 전체 페이지 -->
+    <div class="Krikri-Page" id="Krikri-Page">
+        <!-- 사이드 바 -->
+        <div class="Side-Bar">
+            <div class="Side-Bar-Line">
+                <div class="Logo">
+                    Krikri
+                </div>
+                <div class="Menu-List">
+                    <ul>
+                        <li class="Menu-List-Links"><img src="./images/home.png" class="Links"></li>
+                        <li class="Menu-List-Links"><img src="./images/calendar.png" class="Links"></li>
+                        <li class="Menu-List-Links"><img src="./images/album.png" class="Links"></li>
+                        <li class="Menu-List-Links"><img src="./images/setting.png" class="Links"></li>
+                    </ul>
+                </div>
+                <div class="Logout">
+                    logout
+                </div>
+            </div>
+        </div>
+        <!-- 사이드 바 끝 -->
+        <!-- 메인 페이지 시작 -->
+        <div class="Krikri-Main-Page" id="Krikri-Main-Page">
+            <!-- Header 시작 -->
+            <div class="Krikri-Main-Header">
+                <div class="Header-Left" id="Header-Left">
+                    <div class="Krikri-Select" id="Krikri-Select">
+                        <form class="Search" id="Search">
+                            <button class="Img-Button" id="Img-Button" type="submit" name="click" value="">
+                                <img src="./images/search.png">
+                            </button>
+                            <input class="Search-Keyword" type="text" name="search" maxlength="255" value="" autocomplete="off" placeholder="Google 검색">
+                        </form>
+                    </div>
+                </div>
+                <div class="Header-Right white" id="Header-Right">
+                    <div class="Krikri-Header">
+                        <div class="Krikri-Alram" id="Krikri-Alram">
+                            <img src="./images/alram.png">
+                            <img src="./images/arrows_person1.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header 끝 -->
+
+            <!-- 본 메인 시작 -->
+            <div class="Krikri-Main">
+                <div class="Krikri-calender">
+                    <div id="______21___1" class="______21___1">
+                        <img id="arrows_circle_right" src="./images/arrows_circle_right.png">
+                        <div id="September_">
+                            <span>September </span>
+                        </div>
+                        <div id="ID2020">
+                            <span>2020</span>
+                        </div>
+                        <img id="arrows_circle_left" src="./images//arrows_circle_left.png">
+                    </div>
+                    <div id="______20___1" class="______20___1">
+                        <div class="____44">
+                            <div id="MONTH">
+                                <span>MONTH</span>
+                            </div>                        
+                        </div>
+                        <div class="____47">
+                            <div id="YEAR">
+                                <span>YEAR</span>
+                            </div>
+                        </div>
+                        <div id="___21">
+                            <img class="arrows_circle_remove" src="./images/arrows_circle_remove.png"/>
+                        </div>
+                    </div>
+                    <div class="left_div">
+                        <!-- 하단 filter_calender_상단 부분 -->
+                        <div id="calender_divs">
+                            <div id="______18___1" class="______18___1">
+                                <div id="dayoftheweek">
+                                    <ul id="week">
+                                        <li>Sun</li>
+                                        <li>mon</li>
+                                        <li>Tue</li>
+                                        <li>wed</li>
+                                        <li>Thu</li>
+                                        <li>fri</li>
+                                        <li>sat</li>
+                                    </ul>
+                                </div>
+                                <div id="days">
+                                    <ul id="day">
+                                        <li><div><p>27</p></div></li>
+                                        <li><div><p>28</p></div></li>
+                                        <li><div><p>29</p></div></li>
+                                        <li><div><p>30</p></div></li>
+                                        <li><div><p>1</p></div></li>
+                                        <li><div>
+                                            <p id="today_num">2</p>
+                                        </div></li>
+                                        <li>
+                                            <div>
+                                                <p id="fix_num">3</p>
+                                                <div class="day_memo">
+                                                    <div class="____67">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li><div>4</div></li>
+                                        <li><div>5</div></li>
+                                        <li><div>6</div></li>
+                                        <li><div>7</div></li>
+                                        <li><div>8</div></li>
+                                        <li><div>9</div></li>
+                                        <li><div>10</div></li>
+                                        <li><div>11</div></li>
+                                        <li><div>12</div></li>
+                                        <li><div>13</div></li>
+                                        <li><div>14</div></li>
+                                        <li><div>15</div></li>
+                                        <li><div>16</div></li>
+                                        <li><div>17</div></li>
+                                        <li><div>18</div></li>
+                                        <li><div>19</div></li>
+                                        <li><div>20</div></li>
+                                        <li><div>21</div></li>
+                                        <li><div>22</div></li>
+                                        <li><div>23</div></li>
+                                        <li><div>24</div></li>
+                                        <li><div>25</div></li>
+                                        <li><div>26</div></li>
+                                        <li><div>27</div></li>
+                                        <li><div>28</div></li>
+                                        <li><div>29</div></li>
+                                        <li><div>30</div></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- 하단 filter_calender_head 부분 -->
+                        <div class="____71">
+                            <div id="filter_calender_head">
+                                <div id="filter_calender_">
+                                    <span>filter calender </span>
+                                </div>
+                                <div id="___7_fb">
+                                    <img class="arrows_circle_remove" src="./images/arrows_circle_remove.png"/>
+                                </div>
+                            </div>
+                            <div id="filter_calender_body">
+                                <div id="___26_fe">
+                                    <img id="____18_ff" src="./images/al2.png"/>
+                                    <div id="ID000_">
+                                        <span>000 </span>
+                                    </div>
+                                </div>
+                                <div id="___26_fe">
+                                    <img id="____20" src="./images/al4.png">
+                                    <div id="ID000_">
+                                        <span>000 </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="filter_calender_footer">
+                                <ul>
+                                    <li>
+                                        <div id="___">
+                                            <div class="___8 choice"></div>
+                                            <span>[기본] 일정</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div id="___">
+                                            <div class="___8"></div>
+                                            <span>기념일</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div id="___">
+                                            <div class="___8"></div>
+                                            <span>여행</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                                                
+                    </div>  
+                    <div class="right_div">
+                        <div id="ID09____">
+                            <span>09. 수 </span>
+                        </div>
+                        <div id="______22___1" class="______22___1">
+                            <svg class="___12_e">
+                                <ellipse fill="rgba(255,255,255,1)" stroke="rgba(255,131,141,1)" stroke-width="2px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="___12_e" rx="7.5" ry="7.5" cx="7.5" cy="7.5">
+                                </ellipse>
+                            </svg>
+                            <svg class="___10_e" viewBox="10987.5 1629.5 2 612">
+                                <path fill="transparent" stroke="rgba(255,131,141,1)" stroke-width="2px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="___10_e" d="M 10987.5 2241.5 L 10987.5 1629.5">
+                                </path>
+                            </svg>
+                            <svg class="___12_l">
+                                <ellipse fill="rgba(255,255,255,1)" stroke="rgba(255,131,141,1)" stroke-width="2px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="___12_e" rx="7.5" ry="7.5" cx="7.5" cy="7.5">
+                                </ellipse>
+                            </svg>
+                        </div>
+                        <div id="_________">
+                            <span>일정이 없습니다.</span>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </div>
+            </div>
+            <!-- 본 메인 부분 끝 -->
+            <svg class="___26">
+                <path fill="rgba(244,245,249,1)" id="___26" d="M 0 0 L 1003 0 L 1003 1080 L 0 1080 L 0 0 Z">
+                </path>
+            </svg>
+
+
+
+        </div>
+        <div class="Chat" id="Chat">
+            <div class="Chat-Total">
+                <div class="Chat-Side" id="Chat-Side">
+                    <img src="./images/close.png" id="close" onclick="chat_close()">
+                </div>
+                <div class="Chat-Main">
+                    <div class="Chat-Header">
+                        <div class="Chat-Left" id="Chat-Left">
+                            <span>우리들만의 끼리끼리:)</span>
+                        </div>
+                        <div class="Chat-Right" id="Chat-Right">
+                            <button onclick="Full_Screen()" id="Full_Screen">전체화면</button>
+                            <button onclick="Full_ScreenNo()" id="Full_ScreenNo">전체화면 끝내기</button>
+                        </div>
+                    </div>
+                    <div class="Chat-Chatting" id="Chat-Chatting"></div>
+                    <div class="Chat-Message">
+                        <div class="Message">
+                            <div class="Msg" id="Msg">
+                                <img src="./images/plus.png">
+                                <input type="text" maxlength="255" value="" autocomplete="off" placeholder="Message" id="Msg_Input">
+                            </div>
+                        </div>
+                        <div class="Message-Send" id="Message-Send">
+                            <button id="button">SEND</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 메인 페이지 끝 -->
+    </div>
+    <!-- 전체 페이지 끝 -->
+</body>
+</html>
