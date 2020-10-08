@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,12 +19,12 @@
         /* --------------------------------------- 사이드 바 시작 ----------------------------------------------- */
         /* 사이드 바 */
         .Side-Bar {
-            width: 8vw;
+            width: 7vw;
             height: 100vh;
         }
         /* 사이드 바 우측 라인 */
         .Side-Bar-Line {
-            width: 8vw;
+            width: 7vw;
             height: 95vh;
             position: absolute;
             top: 50%;
@@ -42,13 +42,13 @@
         }
         /* 사이드 바 메뉴 */
         .Menu-List {
-            width: 8vw;
+            width: 7vw;
             height: 60vh;
             margin-top: 15vh;
         }
         /* 사이드 바 메뉴 이미지 */
         .Menu-List-Links {
-            width: 8vw;
+            width: 7vw;
             height: 12.5vh;
             text-align: center;
         }
@@ -69,7 +69,7 @@
         .Logout {
             font-size: 1rem;
             text-align: center;
-            margin-top: 7vh;
+            margin-top: 2.8vh;
             color: black;
         }
         /* --------------------------------------- 사이드 바 부분 끝 ---------------------------------------------*/
@@ -137,7 +137,7 @@
             position: relative;
             top: 3px;
             margin-left: 2.5%;
-            font-size: 1.2rem;
+            font-size: 16px;
             border: none;
             vertical-align: middle;
             border-radius: 0px 30px 30px 0px / 30px 30px 30px 30px;
@@ -380,6 +380,7 @@
             font-size: 1.5rem;
             margin-top: 5px;
         }
+        /* 날씨 부분 */
         .Krikri-Weather {
             width: 100%;
             position: relative;
@@ -387,34 +388,49 @@
             height: 130px;
             display: flex;
         }
+        /* 좌측 날씨 */
         .Left-Weather {
             width: 50%;
             height: 100%;
         }
+        /* 우측 날씨 */
         .Right-Weather {
             width: 50%;
             height: 100%;
         }
+        /* 현재 날씨 정보 div */
         .Show-Weather {
             width: 50%;
             height: 100%;
             margin: 0 auto;
             background-color: rgba(236, 226, 226, 0.4);
             text-align: center;
-        } 
+            font-size: 18px;
+            font-weight: bold;
+            overflow: hidden;    
+        }
+        /* 지역 */
         .Local {
             width: 100%;
-            height: 25%;
+            height: 20%;
+            padding-top: 5px;
         }
+        /* 날씨 이미지 */
         .Weather-Image {
             width: 100%;
-            height: 50%;
+            height: 30%;
         }
+        /* 날씨 텍스트 */
+        .description {
+            width: 100%;
+            height: 20%;
+        }
+        /* 온도 */
         .temperature {
             width: 100%;
             height: 25%;
+            padding-top: 5px;
         }
-
         /* ---------------------------------------- 본 메뉴 좌측 부분 끝 ---------------------------------------- */
         /* ----------------------------------------- 본 메뉴 우측 부분 ------------------------------------------ */
         /* 우측 슬라이더, 캘린더, 앨범 전체 Div */
@@ -999,7 +1015,7 @@
 </head>
 <body>
     <!-- 전체 페이지 -->
-    <div class="Krikri-Page">
+    <div class="Krikri-Page" id="Krikri-Page">
         <!-- 사이드 바 -->
         <div class="Side-Bar">
             <div class="Side-Bar-Line">
@@ -1009,8 +1025,8 @@
                 <div class="Menu-List">
                     <ul>
                         <li class="Menu-List-Links"><img src="./images/home.png" class="Links"></li>
-                        <li class="Menu-List-Links"><img src="./images/cal.png" class="Links"></li>
-                        <li class="Menu-List-Links"><img src="./images/al.png" class="Links"></li>
+                        <li class="Menu-List-Links"><img src="./images/calendar.png" class="Links"></li>
+                        <li class="Menu-List-Links"><img src="./images/album.png" class="Links"></li>
                         <li class="Menu-List-Links"><img src="./images/setting.png" class="Links"></li>
                     </ul>
                 </div>
@@ -1072,7 +1088,7 @@
                             </div>
                         </div>
                         <!-- 배경화면 선택 팝업창 끝 -->
-                        <img src="./images/bg1.jpg">         
+                        <img src="./images/bgbg.png">         
                         <div class="Date-Love">
                             <img src="./images/hamburger.png" id="Background-Option" onClick="Popup_Open()">
                             <div class="Love-Text">
@@ -1087,7 +1103,7 @@
                             <div class="Left-Face">
                                 <div class="L-Face">
                                     <div class="Face">
-                                        <img src="./images/face1.jfif">
+                                        <img src="./images/bgbgbg.png">
                                     </div>
                                     <div class="Name">
                                         000
@@ -1097,7 +1113,7 @@
                             <div class="Right-Face">
                                 <div class="R-Face">
                                     <div class="Face">
-                                        <img src="./images/face2.png">
+                                        <img src="./images/bgbgbg.png">
                                     </div>
                                     <div class="Name">
                                         000
@@ -1105,23 +1121,26 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- 어떻게 해야 날짜 표시 할지 미정 -->
+                        <!-- 현재 날씨 정보 -->
                         <div class="Krikri-Weather">
                             <div class="Left-Weather">
                                 <div class="Show-Weather">
-                                    <div class="Local">지역</div>
-                                    <div class="Weather-Image">이미지</div>
-                                    <div class="temperature">온도</div>
+                                    <div class="Local" id="Local"></div>
+                                    <div class="Weather-Image" id="weatherImage"></div>
+                                    <div class="description" id="description"></div>
+                                    <div class="temperature" id="tempe"></div>
                                 </div>
                             </div>
                             <div class="Right-Weather">
                                 <div class="Show-Weather">
-                                    <div class="Local">지역</div>
-                                    <div class="Weather-Image">이미지</div>
-                                    <div class="temperature">온도</div>
+                                    <div class="Local" id="Local2"></div>
+                                    <div class="Weather-Image" id="weatherImage2"></div>
+                                    <div class="description" id="description2"></div>
+                                    <div class="temperature" id="tempe2"></div>
                                 </div>
                             </div>
                         </div>
+                        <!-- 현재 날씨 정보 끝 -->
                     </div>
                 </div>
                 <!-- 좌측 커플 사진 부분 끝 -->
@@ -1130,7 +1149,7 @@
                     <!-- 슬라이더 부분 -->
                     <div class="Krikri-Mall">
                         <div class="Krikri-Love2" id="Krikri-Love2">
-                            <img src="./images/bg1.jpg">
+                            <img src="./images/bgbg.png">
                             <div class="Date-Love2">
                                 <div class="Love-Text2">
                                     우리 함께한지
@@ -1176,25 +1195,25 @@
                                 <input type="radio" name="auto-radio-btn" id="auto-radio3">
                                 <input type="radio" name="auto-radio-btn" id="auto-radio4">
                                 <div class="auto-slide first2">
-                                    <img src="./images/issue1.jfif">
+                                    <img src="./images/al8.png">
                                     <div class="auto-slide-text">
                                         자동 슬라이드1
                                     </div>
                                 </div>
                                 <div class="auto-slide">
-                                    <img src="./images/date1.jfif">
+                                    <img src="./images/al7.png">
                                     <div class="auto-slide-text">
                                         자동 슬라이드2
                                     </div>
                                 </div>
                                 <div class="auto-slide">
-                                    <img src="./images/date2.jfif">
+                                    <img src="./images/al6.png">
                                     <div class="auto-slide-text">
                                         자동 슬라이드3
                                     </div>
                                 </div>
                                 <div class="auto-slide">
-                                    <img src="./images/date3.jfif">
+                                    <img src="./images/al5.png">
                                     <div class="auto-slide-text">
                                         자동 슬라이드4
                                     </div>
@@ -1242,27 +1261,27 @@
                         <img src="./images/plus.png" class="Album-Add">
                         <div class="To-Album">
                             <div class="Show-Album" id="Show-Album1">
-                                <img src="./images/bg1.jpg">
+                                <img src="./images/al2.png">
                                 <div class="Album-Date">2020-00-00</div>
                             </div>
                             <div class="Show-Album" id="Show-Album2">
-                                <img src="./images/bg1.jpg">
+                                <img src="./images/al3.png">
                                 <div class="Album-Date">2020-00-00</div>
                             </div>
                             <div class="Show-Album" id="Show-Album3">
-                                <img src="./images/bg1.jpg">
+                                <img src="./images/al4.png">
                                 <div class="Album-Date">2020-00-00</div>
                             </div>
                             <div class="Show-Album" id="Show-Album4">
-                                <img src="./images/bg1.jpg">
+                                <img src="./images/al5.png">
                                 <div class="Album-Date">2020-00-00</div>
                             </div>
                             <div class="Show-Album" id="Show-Album5">
-                                <img src="./images/bg1.jpg">
+                                <img src="./images/al6.png">
                                 <div class="Album-Date">2020-00-00</div>
                             </div>
                             <div class="Show-Album" id="Show-Album6">
-                                <img src="./images/bg1.jpg">
+                                <img src="./images/al7.png">
                                 <div class="Album-Date">2020-00-00</div>
                             </div>
                             <!-- <div class="Show-Album" id="Show-Album7">
@@ -1445,4 +1464,151 @@
     function Popup_Close(){
         document.getElementById("Background-Choice").style.display = 'none';
     }
+
+    // 날씨 api
+    // 날씨
+    const weather = document.querySelector(".Show-Weather");
+    const API_KEY = "7281a145274b52a5338769d114cc3464";
+    const COORDS = "coords";
+
+    function getWeather(lat, lng) {
+    // 호출 6번
+    // fetch() 메서드를 이용하는 것으로 비동기 네트워크 통신을 알기쉽게 기술할 수 있습니다.
+    /*
+        Fetch API를 이용하면 Request나 Response와 같은 HTTP의 파이프라인을 구성하는 요소를 조작하는것이 가능하다. 이 파이프라인이라는 표현은 MDN에서 사용한 것인데 좀 마음에 든다.
+    또한 fetch() 메서드를 이용하는 것으로 비동기 네트워크 통신을 알기쉽게 기술할 수 있다.
+    fetch()로 부터 반환되는 Promise 객체는 HTTP error 상태를 reject하지 않는다. Code가 404나 500을 반환하더라도 상태가 false인 resolve가 반환되며, 네트워크 장애나 요청이 완료되지 못한 상태에는 reject가 반환된다.
+    */
+    console.dir(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=metric&appid=${API_KEY}`
+    );
+    fetch(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=metric&appid=${API_KEY}`
+    )
+        .then((response) => {
+        console.dir(response); // Response객체임
+        return response.json();
+        })
+        .then((json) => {
+        // 실제 api 링크에서 받아온 데이터(객체형식으로 받아와지는듯) console에 Object라고 찍힘
+        // 여기서 이제 얻고자 하는 정보를 어디어디.어디어디.정보  또는  어디어디.정보  이런식으로 찾아서 저장해주면 될듯
+        /*
+            실제 api 주소에 있는 정보중 일부 
+            ...
+            "weather": [
+            {
+                "id": 500,
+                "main": "Rain",
+                "description": "light rain",
+                "icon": "10n"
+            }
+            ],
+            ...
+
+        main에 접근하고 싶으면
+        json.weather[0].main   >>  Rain
+        이런식으로 접근 가능
+        console.dir(json); 이것을 잘 활용하면 원하는 정보를 쉽게 찾을 수 있음 브라우저 콘솔에 찍혀있는 그대로 타고들어가서 정보를 얻어낼 수 있음
+        */
+        console.dir(json);
+        const temperature = json.main.temp + 'ºC';
+        const place = json.name;
+        const description = json.weather[0].description;
+        const icon = json.weather[0].icon;
+        const img = document.createElement("img");
+        img.src = `http://openweathermap.org/img/wn/${icon}.png`;
+        img.style.width = '100px';
+        img.style.height = '50px';
+        
+        // 날씨 이미지가 하나밖에 안보여 추가로 만듬
+        const icon2 = json.weather[0].icon;
+        const img2 = document.createElement("img");
+        img2.src = `http://openweathermap.org/img/wn/${icon2}.png`;
+        // 날씨 이미지 사이즈
+        img2.style.width = '100px';
+        img2.style.height = '50px';
+        // 좌측 날씨 부분입니다.
+        // 지역
+        let Local = document.getElementById('Local');
+        Local.append(place);
+        // 이미지
+        let weatherImg = document.getElementById('weatherImage');
+        weatherImg.append(img);
+        // 날씨
+        let weatehrText = document.getElementById('description');
+        weatehrText.append(description);
+        // 온도
+        let tempe = document.getElementById('tempe');
+        tempe.append(temperature);
+        // 우측 날씨 부분입니다.
+        // 지역
+        let Local2 = document.getElementById('Local2');
+        Local2.append(place);
+        // 이미지
+        let weatherImg2 = document.getElementById('weatherImage2');
+        weatherImg2.append(img2);
+        // 날씨
+        let weatehrText2 = document.getElementById('description2');
+        weatehrText2.append(description);
+        // 온도
+        let tempe2 = document.getElementById('tempe2');
+        tempe2.append(temperature);
+        });
+    }
+
+    function saveCoords(coordsObj) {
+    //호출 5번
+    //로컬스토리지에 저장해주는 함수
+    localStorage.setItem(COORDS, JSON.stringify(coordsObj));
+    }
+
+    function handleGeoSucces(position) {
+    // 호출 4번 (API콜 성공시)
+    //position 요거는 GeolocationPosition 요 객체
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    //위도경도 불러오기
+    const coordsObj = {
+        latitude, //latitude: latitude, 와 같은 뜻
+        longitude,
+    };
+    saveCoords(coordsObj); //로컬스토리지에 저장해주는 함수
+    getWeather(latitude, longitude); // 뽑아낸 위도 경도를 파라미터로 받는 getWeather() 호출
+    }
+    function handleGeoErr() {
+    console.log(`Can't access geo location`);
+    }
+
+    function askForCoords() {
+    // 호출 3번
+    navigator.geolocation.getCurrentPosition(handleGeoSucces, handleGeoErr); //성공시 함수, 에러시 함수
+    //handleGeoSucces()는 GeolocationPosition 객체를 유일한 매개변수로 받는 콜백 함수. >> function handleGeoSucces(position) {} 이런식으로 되어있는 함수
+    //window.navigator >> 윈도우 생략 가능
+    //navigator.geolocation.getCurrentPosition() 현재위치 가져오는 메소드
+    }
+
+    function loadCoords() {
+    // 호출 2번
+    // 날씨와 상관 없는 로컬스토리지(브라우저 자체 저장소)에서 정보 불러오기
+    const loadedCoords = localStorage.getItem(COORDS);
+
+    if (loadedCoords === null) {
+        askForCoords();
+        // 저장되어있는 정보가 없으면 askForCoords()호출
+    } else {
+        //get Weather
+        const parseCoords = JSON.parse(loadedCoords);
+        console.log(parseCoords);
+        getWeather(parseCoords.latitude, parseCoords.longitude);
+    }
+    }
+
+    function init() {
+    loadCoords();
+    // 호출 1번
+    // 초기화 함수를 실행 시 loadCoords() 호출
+    }
+
+    init(); // init호출
+
 </script>

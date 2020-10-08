@@ -39,15 +39,16 @@ const tbodyContent = [
   },
   {
     pageName: "가입정보 입력(이메일)",
-    link: "",
+    link: "./done/signup-insert-information/insertInformation.html",
     image: "",
-    done: false,
+    done: true,
   },
   {
     pageName: "가입정보 입력(간편)",
-    link: "",
+    link:
+      "./done/signup-insert-information-simple/insertInformation_simple.html",
     image: "",
-    done: false,
+    done: true,
   },
   {
     pageName: "코드 입력",
