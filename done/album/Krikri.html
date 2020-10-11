@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>끼리끼리</title>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="album.css">
+    
+</head>
+<body>
+    <!-- 전체 페이지 -->
+    <div class="Krikri-Page">
+        <!-- 사이드 바 -->
+        <div class="Side-Bar">
+            <div class="Side-Bar-Line">
+                <div class="Logo">
+                    Krikri
+                </div>
+                <div class="Menu-List">
+                    <ul>
+                        <li class="Menu-List-Links"><img src="./images/home.png" class="Links"></li>
+                        <li class="Menu-List-Links"><img src="./images/cal.png" class="Links"></li>
+                        <li class="Menu-List-Links"><img src="./images/al.png" class="Links"></li>
+                        <li class="Menu-List-Links"><img src="./images/setting.png" class="Links"></li>
+                    </ul>
+                </div>
+                <div class="Logout">
+                    logout
+                </div>
+            </div>
+        </div>
+        <!-- 사이드 바 끝 -->
+        <!-- 메인 페이지 시작 -->
+        <div class="Krikri-Main-Page" id="Krikri-Main-Page">
+            <!-- Header 시작 -->
+            <div class="Krikri-Main-Header">
+                <div class="Header-Left" id="Header-Left">
+                    <div class="Krikri-Select" id="Krikri-Select">
+                        <form class="Search" id="Search">
+                            <button class="Img-Button" id="Img-Button" type="submit" name="click" value="">
+                                <img src="./images/search.png">
+                            </button>
+                            <input class="Search-Keyword" type="text" name="search" maxlength="255" value="" autocomplete="off" placeholder="Google 검색">
+                        </form>
+                    </div>
+                </div>
+                <div class="Header-Right" id="Header-Right">
+                    <div class="Krikri-Header">
+                        <div class="Krikri-Title" id="Krikri-Title">
+                            <!-- <h2>우리들만의 끼리끼리:)</h2>
+                            <span>2020-00-00</span> -->
+                        </div>
+                        <div class="Krikri-Alram" id="Krikri-Alram">
+                            <img src="./images/alram.png">
+                            <img src="./images/profile.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header 끝 -->
+            <!-- 본 메인 시작 -->
+            <div class="main-album" id="main-album">
+                <div class="album-title">
+                    <p class="title-p1">우리들만의 끼리끼리:)</p>
+                    <p class="title-p2">ALBUM</p>
+                    <p class="title-p3"><img src="./images/KakaoTalk_20200923_202130412.png" alt=""></p>
+                </div>
+                <div class="album-header">
+                    <div class="h-1">사진</div>
+                    <div class="h-2">동영상</div>
+                    <div class="h-3">즐겨찾기</div>
+                    <div class="h-4">그룹</div>
+                </div>
+                <!-- 사진 div박스 -->
+                <div class="album-itembox">
+                    <ul class="a-items">
+                        <li>
+                            <img src="./images/pic1.jpg" alt="" class="img_place">
+                        </li>
+                        <li>
+                            <img src="./images/pic2.jpg" alt="" class="img_place">
+                        </li>
+                        <li>
+                            <img src="./images/pic3.jpg" alt="" class="img_place">
+                        </li>
+                        <li>
+                            <img src="./images/pic4.jpg" alt="" class="img_place">
+                        </li>
+                        <li>
+                            <img src="./images/pic5.jpg" alt="" class="img_place">
+                        </li>
+                        <li>
+                            <img src="./images/pic6.jpg" alt="" class="img_place">
+                        </li>
+                        <li>
+                            <img src="./images/pic1.jpg" alt="" class="img_place">
+                        </li>
+                        <li>
+                            <img src="./images/pic2.jpg" alt="" class="img_place">
+                        </li>
+                        <li>
+                            <img src="./images/pic3.jpg" alt="" class="img_place">
+                        </li>
+                        <li>
+                            <img src="./images/pic4.jpg" alt="" class="img_place">
+                        </li>
+                        <li>
+                            <img src="./images/pic5.jpg" alt="" class="img_place">
+                        </li>
+                        <li>
+                            <img src="./images/pic6.jpg" alt="" class="img_place">
+                        </li>
+                    </ul>
+                    
+                </div>
+
+                <!-- 사진 div박스  끗-->
+                <div class="Open-Chatting" id="Open-Chatting">
+                    <img src="./images/chat.png" onclick="chatting()">
+                </div>
+            </div>
+            <!-- 전체 사이즈 팝업-->
+            <div class="popup-mask"></div>
+            <!-- 사진 추가 팝업 -->
+            <div class="album-popup">
+                <div class="pop-title">
+                    <div class="pt1">사진추가</div>
+                    <div class="pt2"><img src="./images/KakaoTalk_20200923_2021304122.png" alt=""></div>
+                </div>
+                <div class="pop-add">
+
+                </div>
+                <div class="pop-txt">
+                    <input type="text" placeholder="내용을 입력하세연">
+                </div>
+                <div class="pop-btn">
+                    <button>저장하기</button>
+                </div>
+            </div>
+            <!-- 사진 추가 팝업 끗 -->
+            <!-- 사진 클릭시 팝업 -->
+            <div class="pic-popup">
+                <div class="pic-header">
+                    <div class="pic-d1">CONTENT : ~</div>
+                    <div class="pic-d2"><img src="./images/love.png" alt=""><img src="./images/iconfinder_multimedia-39_2849797.png" alt=""><img src="./images/KakaoTalk_20200923_2021304122.png" alt="" class="d2-exit"></div>
+                </div>
+                <div class="pic-main">
+                    
+                </div>
+            </div>
+            <!-- 사진 클릭시 팝업 끗 -->
+        </div>
+        <div class="Chat" id="Chat">
+            <div class="Chat-Total">
+                <div class="Chat-Side" id="Chat-Side">
+                    <img src="./images/close.png" id="close" onclick="chat_close()">
+                </div>
+                <div class="Chat-Main">
+                    <div class="Chat-Header">
+                        <div class="Chat-Left" id="Chat-Left">
+                            <span>우리들만의 끼리끼리:)</span>
+                        </div>
+                        <div class="Chat-Right" id="Chat-Right">
+                            <button onclick="Full_Screen()" id="Full_Screen">전체화면</button>
+                            <button onclick="Full_ScreenNo()" id="Full_ScreenNo">전체화면 끝내기</button>
+                        </div>
+                    </div>
+                    <div class="Chat-Chatting" id="Chat-Chatting"></div>
+                    <div class="Chat-Message">
+                        <div class="Message">
+                            <div class="Msg" id="Msg">
+                                <img src="./images/plus.png">
+                                <input type="text" maxlength="255" value="" autocomplete="off" placeholder="Message" id="Msg_Input">
+                            </div>
+                        </div>
+                        <div class="Message-Send" id="Message-Send">
+                            <button id="button">SEND</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 메인 페이지 끝 -->
+    </div>
+    <!-- 전체 페이지 끝 -->
+</body>
+</html>
+<script>
+    // 검색
+    const Searching = Search.prototype;
+    function Search(){
+        this.keyword = document.querySelector('input[name = "search"]');
+        this.button = document.querySelector('.img-button');
+        this.form = document.querySelector('.Search');
+        this.Engine();
+    }
+    Searching.Engine = function(){
+        this.form.addEventListener('submit', e => {
+            e.preventDefault();
+            let keyword = this.keyword.value;
+            window.open('https:///www.google.co.kr/search?q=' + keyword);
+        });
+    }
+    new Search();
+
+    // 자동 슬라이드
+    let counter = 1;
+    setInterval(function(){
+        document.getElementById('auto-radio' + counter).checked = true;
+        counter++;
+        if(counter >  4){
+            counter = 1;
+        }
+    }, 3000);
+
+
+    // 여기서 부터 하면된다. 각 id값 줘서 해야함. 난 뒤졌다 리얼로다가
+    function chatting(){
+        document.getElementById("Open-Chatting").style.display = 'none';
+        document.getElementById("Chat").style.display = 'block';
+        document.getElementById("Header-Left").style.marginLeft = '3.5vw';
+        // document.getElementById("Header-Left").style.backgroundColor = 'rgba(244, 245, 249, 1)';
+        // document.getElementById("Header-Left").style.width = '80%';
+        document.getElementById("Header-Right").style.width = '40%';
+        document.getElementById("Search").style.backgroundColor = "white";
+        document.getElementById("Krikri-Select").style.marginLeft = '4.5%';
+        document.getElementById("Krikri-Select").style.width = '100%';
+        document.getElementById("Search").style.borderRadius = "30px"; 
+        // document.getElementById("Left-Main").style.display = 'none';
+        // document.getElementById("Right-Main").style.marginLeft = '3.5vw';
+        // document.getElementById("Right-Main").style.width = '100%';
+        // document.getElementById("Krikri-Title").style.display = 'none';
+        // document.getElementById("Krikri-Alram").style.display = 'none';
+        // document.getElementById("Krikri-Love2").style.display = 'block';
+        // document.getElementById("Krikri-Love2").style.display = 'block';
+        document.getElementById("main-album").style.marginLeft = '3vw';
+        // document.getElementById("main-album").style.width = '80%';
+        
+
+        // 채팅방 클릭시 나오는 앨범부분 7개부터 안나오게
+        let counter2 = 1;  
+        setInterval(function(){
+            let Show_Album = document.getElementById("Show-Album" + counter2);
+            counter2++;
+            if(counter2 > 6){
+                Show_Album.style.display = "none";
+            }
+        });
+    }
+    // 채팅방 닫혔을 때
+    function chat_close(){
+        document.getElementById("Open-Chatting").style.display = 'block';
+        document.getElementById("Chat").style.display = 'none';
+        document.getElementById("Header-Left").style.marginLeft = '0%';
+        document.getElementById("Header-Left").style.backgroundColor = 'white';
+        document.getElementById("Header-Left").style.width = '43%';       
+        document.getElementById("Header-Right").style.width = '57%';
+        document.getElementById("Search").style.backgroundColor = "white";
+        document.getElementById("Search").style.borderRadius = "30px"; 
+        // document.getElementById("Krikri-Select").style.marginRight = '28px';
+        // document.getElementById("Krikri-Select").style.marginLeft = '5.5%';
+        // document.getElementById("Krikri-Select").style.width = '89.5%';      
+        // document.getElementById("Left-Main").style.display = 'block';
+        // document.getElementById("Right-Main").style.marginLeft = '0';
+        // document.getElementById("Right-Main").style.width = '57%';
+        // document.getElementById("Krikri-Title").style.display = 'block';
+        // document.getElementById("Krikri-Alram").style.marginLeft = '2.5%';
+        // document.getElementById("Krikri-Love2").style.display = 'none';
+        document.getElementById("main-album").style.marginLeft = '0%';
+    }
+    // 전체화면
+    function Full_Screen(){
+        document.getElementById("Chat").style.width = '100vw';
+        document.getElementById("Chat").style.marginLeft = '2.5vw';
+        document.getElementById("Chat").style.borderLeft= 'none';
+        document.getElementById("Krikri-Main-Page").style.display = 'none';
+        document.getElementById("Chat-Chatting").style.marginTop = '2%';
+        document.getElementById("Chat-Side").style.display = 'none';
+        document.getElementById("Chat-Left").style.fontSize = '1.8rem';
+        document.getElementById("Chat-Right").style.marginLeft = '0%';
+        document.getElementById("Msg").style.width= '100%';
+        document.getElementById("Message-Send").style.width = '10%';
+        document.getElementById("Message-Send").style.marginLeft= '10%';
+        document.getElementById("Msg_Input").style.width= '95%';        
+        document.getElementById("button").style.marginLeft= '40%';
+        document.getElementById("Full_Screen").style.display= 'none';
+        document.getElementById("Full_ScreenNo").style.display= 'block';
+        document.getElementById("Full_ScreenNo").style.width= '130px';
+        document.getElementById("Full_ScreenNo").style.left= '73%';
+    }
+    // 전체화면 끝내기
+    function Full_ScreenNo(){
+        document.getElementById("Chat").style.width = '70vw';
+        document.getElementById("Chat").style.marginLeft = '0vw';
+        document.getElementById("Chat").style.borderLeft= '3px solid pink';
+        document.getElementById("Chat-Chatting").style.marginTop = '4%';
+        document.getElementById("Chat-Side").style.display = 'block';
+        document.getElementById("Chat-Left").style.fontSize = '1.4rem';
+        document.getElementById("Chat-Right").style.marginLeft = '0%';
+        document.getElementById("Krikri-Main-Page").style.display = 'block';
+        document.getElementById("Msg").style.width= '100%';
+        document.getElementById("Message-Send").style.width = '10%';
+        document.getElementById("Message-Send").style.marginLeft= '0%';
+        document.getElementById("Msg_Input").style.width= '85%';    
+        document.getElementById("button").style.marginLeft= '50%';
+        document.getElementById("Full_Screen").style.display= 'block';
+        document.getElementById("Full_ScreenNo").style.display= 'none';
+    }
+
+    $(function(){
+        $('.title-p3 > img').on('click', function(){
+            $('.album-popup').css({
+                "top": (($(window).height()-$(".album-popup").outerHeight())/2+$(window).scrollTop())+"px",
+                "left": (($(window).width()-$(".album-popup").outerWidth())/2+$(window).scrollLeft())+"px"
+            })
+            $(".popup-mask").css("display","block"); //팝업 뒷배경 display block
+            $("body").css("overflow","hidden");//body 스크롤바 없애기
+            $('.album-popup').fadeIn();
+        })
+        $('.pt2').on('click', function(){
+            $(".popup-mask").css("display","none"); //팝업창 뒷배경 display none
+            $("body").css("overflow","auto");//body 스크롤바 생성
+            $('.album-popup').fadeOut();
+        })
+
+        $('.album-itembox > ul > li').on('click', function(){
+            $('.pic-popup').css({
+                "top": (($(window).height()-$(".pic-popup").outerHeight())/2+$(window).scrollTop())+"px",
+                "left": (($(window).width()-$(".pic-popup").outerWidth())/2+$(window).scrollLeft())+"px"
+            });
+            $(".popup-mask").css("display","block"); //팝업 뒷배경 display block
+            $("body").css("overflow","hidden");//body 스크롤바 없애기
+            $('.pic-popup').fadeIn();
+        })
+
+        $('.d2-exit').on('click', function(){
+            $(".popup-mask").css("display","none"); //팝업창 뒷배경 display none
+            $("body").css("overflow","auto");//body 스크롤바 생성
+            $('.pic-popup').fadeOut();
+        })
+
+    })
+</script>

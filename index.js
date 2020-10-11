@@ -73,14 +73,14 @@ const tbodyContent = [
     link: "./done/calendar-main/calendar.html",
     image:
       "https://drive.google.com/file/d/1BfdAegsudC6XUezAUZuxUaTYZc0Ir-NI/view?usp=sharing",
-    done: false,
+    done: true,
   },
   {
     pageName: "캘린더 - 선택 년도 한눈에 보기",
     link: "",
     image:
       "https://drive.google.com/file/d/1ZGCrsn6R5XAvmQAA-j5jz8xlycGCdFJ3/view?usp=sharing",
-    done: false,
+    done: true,
   },
   {
     pageName: "캘린더 - 일정 없는 날짜 선택",
@@ -98,10 +98,10 @@ const tbodyContent = [
   },
   {
     pageName: "캘린더 - 일정 추가",
-    link: "",
+    link: "./done/calendar-add-schedule/calendar1.html",
     image:
       "https://drive.google.com/file/d/17QgNkFisv-gnpvUihjNyLv2c-R2soHpZ/view?usp=sharing",
-    done: false,
+    done: true,
   },
   {
     pageName: "캘린더 - 일정 추가(글 작성)",
@@ -133,38 +133,38 @@ const tbodyContent = [
   },
   {
     pageName: "앨범 - 메인",
-    link: "",
+    link: "./done/album/Krikri.html",
     image:
       "https://drive.google.com/file/d/1hemSM0hR5tveKcZ7niv1IvqtBcTCDieL/view?usp=sharing",
-    done: false,
+    done: true,
   },
   {
     pageName: "앨범 - 메인 (스크롤)",
     link: "",
     image:
       "https://drive.google.com/file/d/1LbAcFq71eLyniLz0fp2m6-1ELkeHX9FX/view?usp=sharing",
-    done: false,
+    done: true,
   },
   {
     pageName: "앨범 - 사진 추가",
     link: "",
     image:
       "https://drive.google.com/file/d/1HfnnG5VvCY-xiL9tvzaqA0MFdd7_Estg/view?usp=sharing",
-    done: false,
+    done: true,
   },
   {
     pageName: "앨범 - 사진 추가(코멘트)",
     link: "",
     image:
       "https://drive.google.com/file/d/1TZXxADfhuRlKXNQYSZV9YgL1gbft9KlV/view?usp=sharing",
-    done: false,
+    done: true,
   },
   {
     pageName: "앨범 - 사진 선택",
     link: "",
     image:
       "https://drive.google.com/file/d/1MmuqFA0bE4IEXYwSIQmroLtjv1MjHpCO/view?usp=sharing",
-    done: false,
+    done: true,
   },
   {
     pageName: "앨범 - 사진 선택 - 그룹추가 팝업",
@@ -185,7 +185,7 @@ const tbodyContent = [
     link: "",
     image:
       "https://drive.google.com/file/d/1HH73gOKz_BppEo9B9_yab33YHsh4RMNJ/view?usp=sharing",
-    done: false,
+    done: true,
   },
   {
     pageName: "앨범 - 그룹",
@@ -206,7 +206,7 @@ const tbodyContent = [
     link: "",
     image:
       "https://drive.google.com/file/d/1HH73gOKz_BppEo9B9_yab33YHsh4RMNJ/view?usp=sharing",
-    done: false,
+    done: true,
   },
   {
     pageName: "채팅 - 전체화면",
