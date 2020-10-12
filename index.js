@@ -52,9 +52,9 @@ const tbodyContent = [
   },
   {
     pageName: "코드 입력",
-    link: "",
+    link: "./done/insert-code/insertCode.html",
     image: "",
-    done: false,
+    done: true,
   },
   {
     pageName: "메인",
