@@ -1,1290 +1,1294 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>끼리끼리</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-        /* 전체 사이즈 */
-        .Krikri-Page {
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-        }
-        /* --------------------------------------- 사이드 바 시작 ----------------------------------------------- */
-        /* 사이드 바 */
-        .Side-Bar {
-            width: 7vw;
-            height: 100vh;
-        }
-        /* 사이드 바 우측 라인 */
-        .Side-Bar-Line {
-            width: 7vw;
-            height: 95vh;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            border-right: 0.5vw solid rgba(244, 245, 249, 1);
-        }
-        /* 사이드 바 로고 */
-        .Logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-align: center;
-            margin-top: 4vh;
-            color: rgba(255, 131, 141, 1);
-            overflow: hidden;
-        }
-        /* 사이드 바 메뉴 */
-        .Menu-List {
-            width: 7vw;
-            height: 60vh;
-            margin-top: 15vh;
-        }
-        /* 사이드 바 메뉴 이미지 */
-        .Menu-List-Links {
-            width: 7vw;
-            height: 12.5vh;
-            text-align: center;
-        }
-        /* 사이드 바 메뉴:hover */
-        .Menu-List-Links:hover {
-            transition: 400ms linear;
-            border-right: 0.5vw solid rgba(255, 131, 141, 1);
-        }
-        /* 사이드 바 메뉴 이미지 사이즈 */
-        .Links {
-            width: 30px;
-            height: 30px;
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        /* 사이드 바 로그아웃 */
-        .Logout {
-            font-size: 1rem;
-            text-align: center;
-            margin-top: 2.8vh;
-            color: black;
-        }
-        /* --------------------------------------- 사이드 바 부분 끝 ---------------------------------------------*/
-        /* --------------------------------------- 메인 페이지 시작 --------------------------------------------- */
-        /* 메인 페이지 */
-        .Krikri-Main-Page {
-            width: 100%;
-            height: 100vh;
-            margin-left: 1.2vw;
-            /* background-color: yellowgreen; */
-        }
-        /* --------------------------------------- Header 시작 -------------------------------------------------- */
-        /* 메인 Header 부분 */
-        .Krikri-Main-Header {
-            width: 100%;
-            height: 17vh;
-            display: flex;
-        }
-        /* 메인 Header-Left부분 */
-        .Header-Left {
-            width: 43%;
-            height: 100%;
-        }
-        /* Header-Left-Select div 부분 */
-        .Krikri-Select {
-            width: 89.5%;
-            height: 50px;
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-            margin: 0 auto;
-            border: 3px solid rgba(255, 170, 177, 1);
-            border-radius: 30px;
-            margin-right: 28px;
-        }
-        /* 검색 부분 */
-        .Search {
-            width: 100%;
-            height: 50px;
-            display: flex;
-        }
-        /* 검색 버튼 부분 */
-        .Img-Button {
-            width: 50px;
-            height: 50px;
-            border: none;
-            background: transparent;
-            font-size: 1.125rem;
-            outline: none;
-        }
-        /* 검색 이미지 사이즈 부분 */
-        .Img-Button img {
-            width: 25px;
-            height: 25px;
-            margin: 10px 0 0 15px;
-        }
-        /* 검색 이미지 hover 부분 */
-        .Img-Button img:hover {
-            cursor: pointer;
-        }
-        /* 검색 input 부분 */
-        .Search-Keyword {
-            width: 90%;
-            height: 45px;
-            position: relative;
-            top: 3px;
-            margin-left: 2.5%;
-            font-size: 16px;
-            border: none;
-            vertical-align: middle;
-            border-radius: 0px 30px 30px 0px / 30px 30px 30px 30px;
-        }
-        /* 검색 input:focus 부분 */
-        .Search-Keyword:focus {
-            outline: none;
-        }
-        /* 메인 Header-Right 부분 */
-        .Header-Right {
-            width: 57%;
-            height: 100%;
-            background-color: rgba(244, 245, 249, 1);
-        }
-        /* Header-Right-Header 부분 */
-        .Krikri-Header {
-            width: 94.5%;
-            height: 60px;
-            position: relative;
-            top: 29%;
-            display: flex;
-            margin-left: 28px;
-        } 
-        /* Header-Right-Header 부분 */
-        .Krikri-Title {
-            width: 85%;
-            margin-left: 10px;
-        }
-        /* Right-Header 제목 알림 부분 */
-        .Krikri-Title h2 {
-            white-space: nowrap;
-            margin-bottom: 5px;
-        }
-        /* Right-Header 날짜 알림 부분 */
-        .Krikri-Title span {
-            font-size: 1.1rem;
-            font-weight: normal;
-            color: rgba(181, 181, 183, 1);
-        }
-        /* Right-Header 프로필, 알림 부분 */
-        .Krikri-Alram {
-            width: 8%;
-            display: flex;
-            margin: auto;
-        }
-        /* Right-Header 프로필, 알림 이미지 사이즈 부분 */
-        .Krikri-Alram img {
-            width: 35px;
-            height: 35px;
-            margin-left: 2px;
-        }
-        .Krikri-Alram img:hover {
-            cursor: pointer;
-        }
-        /* Right-Header 프로필, 알림 이미지 마지막 사이즈 부분 */
-        .Krikri-Alram img:last-child {
-            margin-left: 15px;
-        }
-        /* ---------------------------------------- Header 부분 끝 ---------------------------------------------- */
-        /* ---------------------------------------- 본 메뉴 시작 ------------------------------------------------ */
-        /* 커플 사진과 앨범, 캘린더등등 보여지는 Div */
-        .Krikri-Main {
-            width: 100%;
-            height: 83%;
-            display: flex;
-        }
-        /* ----------------------------------- 본 메뉴 좌측 커플 사진 Div --------------------------------------- */
-        .Left-Main {
-            width: 43%;
-            height: 100%;
-        }
-        /* 커플 사진 이미지 Div */
-        .Krikri-Love {
-            width: 90%;
-            height: 80.5vh;
-            position: relative;
-            margin: 0 auto;
-            margin-right: 28px;
-            border-radius: 20px;
-        }
-        /* 배경화면 설정 팝업창 */
-        .Background-Choice {
-            position: absolute;
-            z-index: 1000;
-            top: 40%;
-            left: 80%;
-            transform: translateY(-40%);
-            width: 400px;
-            height: 450px;
-            background-color: white;
-            border-radius: 10px;
-            display: none;
-        }
-        .Background-Choice-Title {
-            width: 100%;
-            height: 15%;
-            font-size: 1.4rem;
-            text-align: center;
-            background-color: rgba(255, 131, 141, 1);
-            color: white;
-            border-radius: 10px 10px 0px 0px / 10px 10px 0px 0px;
-        }
-        .Background-Choice-Title h4 {
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        .Background-Choice-Title .Choice-Title {
-            position: relative;
-            transform: rotate(45deg);
-            left: 40%;
-            top: -18px;
-            width: 50px;
-            height: 50px;
-        }
-        .Choice-Title:hover {
-            cursor: pointer;
-        }
-        .Background-Choice-Image {
-            width: 100%;
-            height: 65%;   
-        }
-        .Background-Choice-Image h4 {
-            margin-top: 15px;
-            margin-bottom: 15px;
-            color: rgba(132, 132, 132, 1);
-            text-align: center;
-        }
-        .Background-Choice-Image-Size {
-            margin: 0 auto;
-            width: 50%;
-            height: 80%;
-            border: 1px solid rgba(132, 132, 132, 1);
-            background: url('./images/al.png') no-repeat center;
-        }
-        .Background-Choice-Select {
-            width: 100%;
-            height: 19%;
-            border-radius: 0px 0px 10px 10px / 0px 0px 10px 10px;
-            text-align: center;
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      /* 전체 사이즈 */
+      .Krikri-Page {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+      }
+      /* --------------------------------------- 사이드 바 시작 ----------------------------------------------- */
+      /* 사이드 바 */
+      .Side-Bar {
+        width: 7vw;
+        height: 100vh;
+      }
+      /* 사이드 바 우측 라인 */
+      .Side-Bar-Line {
+        width: 7vw;
+        height: 95vh;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border-right: 0.5vw solid rgba(244, 245, 249, 1);
+      }
+      /* 사이드 바 로고 */
+      .Logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 4vh;
+        color: rgba(255, 131, 141, 1);
+        overflow: hidden;
+      }
+      /* 사이드 바 메뉴 */
+      .Menu-List {
+        width: 7vw;
+        height: 60vh;
+        margin-top: 15vh;
+      }
+      /* 사이드 바 메뉴 이미지 */
+      .Menu-List-Links {
+        width: 7vw;
+        height: 12.5vh;
+        text-align: center;
+      }
+      /* 사이드 바 메뉴:hover */
+      .Menu-List-Links:hover {
+        transition: 400ms linear;
+        border-right: 0.5vw solid rgba(255, 131, 141, 1);
+      }
+      /* 사이드 바 메뉴 이미지 사이즈 */
+      .Links {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      /* 사이드 바 로그아웃 */
+      .Logout {
+        font-size: 1rem;
+        text-align: center;
+        margin-top: 2.8vh;
+        color: black;
+      }
+      /* --------------------------------------- 사이드 바 부분 끝 ---------------------------------------------*/
+      /* --------------------------------------- 메인 페이지 시작 --------------------------------------------- */
+      /* 메인 페이지 */
+      .Krikri-Main-Page {
+        width: 100%;
+        height: 100vh;
+        margin-left: 1.2vw;
+        /* background-color: yellowgreen; */
+      }
+      /* --------------------------------------- Header 시작 -------------------------------------------------- */
+      /* 메인 Header 부분 */
+      .Krikri-Main-Header {
+        width: 100%;
+        height: 17vh;
+        display: flex;
+      }
+      /* 메인 Header-Left부분 */
+      .Header-Left {
+        width: 43%;
+        height: 100%;
+      }
+      /* Header-Left-Select div 부분 */
+      .Krikri-Select {
+        width: 89.5%;
+        height: 50px;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0 auto;
+        border: 3px solid rgba(255, 170, 177, 1);
+        border-radius: 30px;
+        margin-right: 28px;
+      }
+      /* 검색 부분 */
+      .Search {
+        width: 100%;
+        height: 50px;
+        display: flex;
+      }
+      /* 검색 버튼 부분 */
+      .Img-Button {
+        width: 50px;
+        height: 50px;
+        border: none;
+        background: transparent;
+        font-size: 1.125rem;
+        outline: none;
+      }
+      /* 검색 이미지 사이즈 부분 */
+      .Img-Button img {
+        width: 25px;
+        height: 25px;
+        margin: 10px 0 0 15px;
+      }
+      /* 검색 이미지 hover 부분 */
+      .Img-Button img:hover {
+        cursor: pointer;
+      }
+      /* 검색 input 부분 */
+      .Search-Keyword {
+        width: 90%;
+        height: 45px;
+        position: relative;
+        top: 3px;
+        margin-left: 2.5%;
+        font-size: 16px;
+        border: none;
+        vertical-align: middle;
+        border-radius: 0px 30px 30px 0px / 30px 30px 30px 30px;
+      }
+      /* 검색 input:focus 부분 */
+      .Search-Keyword:focus {
+        outline: none;
+      }
+      /* 메인 Header-Right 부분 */
+      .Header-Right {
+        width: 57%;
+        height: 100%;
+        background-color: rgba(244, 245, 249, 1);
+      }
+      /* Header-Right-Header 부분 */
+      .Krikri-Header {
+        width: 94.5%;
+        height: 60px;
+        position: relative;
+        top: 29%;
+        display: flex;
+        margin-left: 28px;
+      }
+      /* Header-Right-Header 부분 */
+      .Krikri-Title {
+        width: 85%;
+        margin-left: 10px;
+      }
+      /* Right-Header 제목 알림 부분 */
+      .Krikri-Title h2 {
+        white-space: nowrap;
+        margin-bottom: 5px;
+      }
+      /* Right-Header 날짜 알림 부분 */
+      .Krikri-Title span {
+        font-size: 1.1rem;
+        font-weight: normal;
+        color: rgba(181, 181, 183, 1);
+      }
+      /* Right-Header 프로필, 알림 부분 */
+      .Krikri-Alram {
+        width: 8%;
+        display: flex;
+        margin: auto;
+      }
+      /* Right-Header 프로필, 알림 이미지 사이즈 부분 */
+      .Krikri-Alram img {
+        width: 35px;
+        height: 35px;
+        margin-left: 2px;
+      }
+      .Krikri-Alram img:hover {
+        cursor: pointer;
+      }
+      /* Right-Header 프로필, 알림 이미지 마지막 사이즈 부분 */
+      .Krikri-Alram img:last-child {
+        margin-left: 15px;
+      }
+      /* ---------------------------------------- Header 부분 끝 ---------------------------------------------- */
+      /* ---------------------------------------- 본 메뉴 시작 ------------------------------------------------ */
+      /* 커플 사진과 앨범, 캘린더등등 보여지는 Div */
+      .Krikri-Main {
+        width: 100%;
+        height: 83%;
+        display: flex;
+      }
+      /* ----------------------------------- 본 메뉴 좌측 커플 사진 Div --------------------------------------- */
+      .Left-Main {
+        width: 43%;
+        height: 100%;
+      }
+      /* 커플 사진 이미지 Div */
+      .Krikri-Love {
+        width: 90%;
+        height: 80.5vh;
+        position: relative;
+        margin: 0 auto;
+        margin-right: 28px;
+        border-radius: 20px;
+      }
+      /* 배경화면 설정 팝업창 */
+      .Background-Choice {
+        position: absolute;
+        z-index: 1000;
+        top: 40%;
+        left: 80%;
+        transform: translateY(-40%);
+        width: 400px;
+        height: 450px;
+        background-color: white;
+        border-radius: 10px;
+        display: none;
+      }
+      .Background-Choice-Title {
+        width: 100%;
+        height: 15%;
+        font-size: 1.4rem;
+        text-align: center;
+        background-color: rgba(255, 131, 141, 1);
+        color: white;
+        border-radius: 10px 10px 0px 0px / 10px 10px 0px 0px;
+      }
+      .Background-Choice-Title h4 {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .Background-Choice-Title .Choice-Title {
+        position: relative;
+        transform: rotate(45deg);
+        left: 40%;
+        top: -18px;
+        width: 50px;
+        height: 50px;
+      }
+      .Choice-Title:hover {
+        cursor: pointer;
+      }
+      .Background-Choice-Image {
+        width: 100%;
+        height: 65%;
+      }
+      .Background-Choice-Image h4 {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        color: rgba(132, 132, 132, 1);
+        text-align: center;
+      }
+      .Background-Choice-Image-Size {
+        margin: 0 auto;
+        width: 50%;
+        height: 80%;
+        border: 1px solid rgba(132, 132, 132, 1);
+        background: url("./images/al.png") no-repeat center;
+      }
+      .Background-Choice-Select {
+        width: 100%;
+        height: 19%;
+        border-radius: 0px 0px 10px 10px / 0px 0px 10px 10px;
+        text-align: center;
+      }
+      .Choice-Select-Text {
+        position: relative;
+        top: 30%;
+        transform: translateY(-50%);
+        margin: 0 auto;
+        width: 100px;
+        height: 50px;
+        border-radius: 10px;
+        background-color: rgba(255, 131, 141, 1);
+      }
+      .Choice-Select-Text h4 {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1rem;
+        color: white;
+      }
+      .Choice-Select-Text h4:hover {
+        cursor: pointer;
+      }
+      #Background-Option {
+        position: absolute;
+        top: -80%;
+        left: 88%;
+        width: 80px;
+        height: 80px;
+      }
+      #Background-Option:hover {
+        cursor: pointer;
+      }
 
-        }
-        .Choice-Select-Text {
-            position: relative;
-            top: 30%;
-            transform: translateY(-50%);
-            margin: 0 auto;
-            width: 100px;
-            height: 50px;
-            border-radius: 10px;
-            background-color: rgba(255, 131, 141, 1);
-        }
-        .Choice-Select-Text h4 {
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1rem;
-            color: white;
-        }
-        .Choice-Select-Text h4:hover {
-            cursor: pointer;
-        }
-        #Background-Option {
-            position: absolute;
-            top: -80%;
-            left: 88%;
-            width: 80px;
-            height: 80px;
-        }
-        #Background-Option:hover {
-            cursor: pointer;
-        }
+      /* 커플 사진 이미지 사이즈 */
+      .Krikri-Love img {
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+      }
+      /* 커플 사진 텍스트 부분 */
+      .Date-Love {
+        text-align: center;
+        position: relative;
+        top: -85%;
+      }
+      /* 우리함께한지 부분 */
+      .Love-Text {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      /* 커플 사진 하트 부분 */
+      .Date-Love img {
+        position: relative;
+        top: -65%;
+        width: 50px;
+        height: 50px;
+        margin-bottom: 0px;
+      }
+      /* 몇일 사귄 날짜 */
+      .Date {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+      /* 개인 사진 Div */
+      .Love-Face {
+        width: 100%;
+        height: 120px;
+        position: relative;
+        top: -78%;
+        display: flex;
+      }
+      /* 개인 사진 프로필 Div 부분 */
+      .Left-Face,
+      .Right-Face {
+        width: 50%;
+        height: 130px;
+        text-align: center;
+      }
+      /* 개인 사진 프로필 Div 부분 */
+      .L-Face,
+      .R-Face {
+        width: 50%;
+        height: 130px;
+        margin: 0 auto;
+      }
+      /* 프로필 부분 */
+      .Face {
+        width: 100%;
+        height: 130px;
+      }
+      /* 프로필 이미지 부분 */
+      .Face img {
+        width: 100%;
+        height: 130px;
+        border-radius: 50%;
+      }
+      /* 프로필 이름 부분 */
+      .Name {
+        width: 100%;
+        height: 30px;
+        font-size: 1.5rem;
+        margin-top: 5px;
+      }
+      /* 날씨 부분 */
+      .Krikri-Weather {
+        width: 100%;
+        position: relative;
+        top: -68%;
+        height: 130px;
+        display: flex;
+      }
+      /* 좌측 날씨 */
+      .Left-Weather {
+        width: 50%;
+        height: 100%;
+      }
+      /* 우측 날씨 */
+      .Right-Weather {
+        width: 50%;
+        height: 100%;
+      }
+      /* 현재 날씨 정보 div */
+      .Show-Weather {
+        width: 50%;
+        height: 100%;
+        margin: 0 auto;
+        background-color: rgba(236, 226, 226, 0.4);
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        overflow: hidden;
+      }
+      /* 지역 */
+      .Local {
+        width: 100%;
+        height: 20%;
+        padding-top: 5px;
+      }
+      /* 날씨 이미지 */
+      .Weather-Image {
+        width: 100%;
+        height: 30%;
+      }
+      /* 날씨 텍스트 */
+      .description {
+        width: 100%;
+        height: 20%;
+      }
+      /* 온도 */
+      .temperature {
+        width: 100%;
+        height: 25%;
+        padding-top: 5px;
+      }
+      /* ---------------------------------------- 본 메뉴 좌측 부분 끝 ---------------------------------------- */
+      /* ----------------------------------------- 본 메뉴 우측 부분 ------------------------------------------ */
+      /* 우측 슬라이더, 캘린더, 앨범 전체 Div */
+      .Right-Main {
+        width: 57%;
+        height: 100%;
+        background-color: rgba(244, 245, 249, 1);
+      }
+      /* 우측 슬라이더 부분 */
+      .Krikri-Mall {
+        width: 94%;
+        height: 25vh;
+        position: relative;
+        top: 0%;
+        margin: 0 auto;
+        display: flex;
+        margin-left: 28px;
+      }
+      /* 슬라이더 이름 부분 */
+      .Left-Mall h3,
+      .Right-Mall h3 {
+        color: rgba(255, 131, 141, 1);
+      }
+      /* 좌측 클릭 슬라이더 사이즈 부분 */
+      .Left-Mall {
+        width: 50%;
+        height: 107%;
+        overflow: hidden;
+      }
+      /* 좌측 클릭 슬라이더 부분 */
+      .New-Issue {
+        width: 500%;
+        height: 90%;
+        margin-top: 10px;
+        display: flex;
+      }
+      /* 좌측 클릭 슬라이더 부분 */
+      .New-Issue input {
+        display: none;
+      }
+      /* 좌측 클릭 슬라이더 부분 */
+      .slide {
+        width: 20%;
+        transition: 2s;
+      }
+      /* 좌측 클릭 슬라이더 이미지 부분 */
+      .slide img {
+        width: 100%;
+        height: 100%;
+      }
+      /* 좌측 클릭 슬라이더 부분 */
+      .navigation-manual {
+        position: relative;
+        width: 100%;
+        margin-top: -40px;
+        display: flex;
+        justify-content: flex-end;
+      }
+      /* 좌측 클릭 슬라이더 버튼 부분 */
+      .manual-btn {
+        border: 2px solid #fff;
+        padding: 5px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 1s;
+      }
+      /* 좌측 클릭 슬라이더 버튼 부분 */
+      .manual-btn:not(:last-child) {
+        margin-right: 10px;
+      }
+      /* 좌측 클릭 슬라이더 버튼 부분 */
+      .manual-btn:last-child {
+        margin-right: 10px;
+      }
+      /* 좌측 클릭 슬라이더 버튼 hover 부분 */
+      .manual-btn:hover {
+        background: #fff;
+      }
+      /* 좌측 클릭 슬라이더 버튼 체크 부분 */
+      #radio1:checked ~ .first {
+        margin-left: 0;
+      }
+      #radio2:checked ~ .first {
+        margin-left: -20%;
+      }
+      #radio3:checked ~ .first {
+        margin-left: -40%;
+      }
+      #radio4:checked ~ .first {
+        margin-left: -60%;
+      }
+      /* 우측 자동 슬라이더 사이즈 부분 */
+      .Right-Mall {
+        width: 50%;
+        height: 107%;
+        overflow: hidden;
+        margin-left: 18px;
+      }
+      /* 우측 자동 슬라이더 사이즈 부분 */
+      .Date-Recommend {
+        width: 500%;
+        height: 90%;
+        margin-top: 10px;
+        display: flex;
+      }
+      /* 우측 자동 슬라이더 사이즈 부분 */
+      .Date-Recommend input {
+        display: none;
+      }
+      /* 우측 자동 슬라이더 사이즈 부분 */
+      .auto-slide {
+        width: 20%;
+        transition: 2s;
+      }
+      /* 우측 자동 슬라이더 이미지 부분 */
+      .auto-slide img {
+        width: 100%;
+        height: 80%;
+        display: flex;
+      }
+      /* 슬라이더 이미지 내용 부분 */
+      .auto-slide-text {
+        width: 100%;
+        height: 100%;
+        font-size: 16px;
+        padding-top: 2px;
+        padding-left: 10px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        background-color: black;
+        color: rgba(255, 170, 177, 1);
+      }
+      /* 우측 자동 슬라이더 부분 */
+      .auto-navigation-manual {
+        position: relative;
+        width: 100%;
+        margin-top: -40px;
+        display: flex;
+        justify-content: flex-end;
+      }
+      /* 우측 자동 슬라이더 버튼 부분 */
+      .auto-manual-btn {
+        border: 2px solid #fff;
+        padding: 5px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 1s;
+        display: none;
+      }
+      /* 우측 자동 슬라이더 버튼 사이즈 부분 */
+      .auto-manual-btn:not(:last-child) {
+        margin-right: 10px;
+      }
+      /* 우측 자동 슬라이더 버튼 사이즈 부분 */
+      .auto-manual-btn:last-child {
+        margin-right: 10px;
+      }
+      /* 우측 자동 슬라이더 버튼 hover 부분 */
+      .auto-manual-btn:hover {
+        background: #fff;
+      }
+      /* 우측 자동 슬라이더 버튼 체크 부분 */
+      #auto-radio1:checked ~ .first2 {
+        margin-left: 0;
+      }
+      #auto-radio2:checked ~ .first2 {
+        margin-left: -20%;
+      }
+      #auto-radio3:checked ~ .first2 {
+        margin-left: -40%;
+      }
+      #auto-radio4:checked ~ .first2 {
+        margin-left: -60%;
+      }
+      /* 우측 자동 슬라이더 부분 */
+      .A-navigation-auto {
+        position: absolute;
+        display: flex;
+        background: chartreuse;
+        justify-content: center;
+        margin-top: 100px;
+        display: none;
+      }
+      /* 우측 자동 슬라이더 부분 */
+      .A-navigation-auto div {
+        border: 2px solid #fff;
+        padding: 5px;
+        border-radius: 10px;
+        transition: 1s;
+      }
+      /* 우측 자동 슬라이더 부분 */
+      #auto-radio1:checked ~ .A-navigation-auto .A-auto-btn1 {
+        background: #fff;
+      }
+      #auto-radio2:checked ~ .A-navigation-auto .A-auto-btn2 {
+        background: #fff;
+      }
+      #auto-radio3:checked ~ .A-navigation-auto .A-auto-btn3 {
+        background: #fff;
+      }
+      #auto-radio4:checked ~ .A-navigation-auto .A-auto-btn4 {
+        background: #fff;
+      }
+      /* ------------------------------------------ 슬라이더 부분 끝 ------------------------------------------ */
+      /* 캘린더 부분 */
+      .Krikri-Calendar {
+        width: 94%;
+        height: 25vh;
+        position: relative;
+        margin-left: 28px;
+        margin-top: 28px;
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
+      }
+      /* 캘린더 제목 부분 */
+      .Krikri-Calendar h3 {
+        margin-left: 28px;
+        padding-top: 18px;
+        color: rgba(255, 131, 141, 1);
+      }
+      /* 캘린더 추가 버튼 */
+      .Calender-Add {
+        position: absolute;
+        top: 4%;
+        left: 95%;
+        transform: translateY(-15%);
+        width: 35px;
+        height: 35px;
+      }
+      .Calender-Add:hover {
+        cursor: pointer;
+      }
+      /* 캘린더 알림 표시 Div 부분 */
+      .To-Calendar {
+        width: 93%;
+        height: 70%;
+        margin: 0 auto;
+        display: flex;
+      }
+      /* 캘린더 좌측 알림 표시 부분 */
+      .Left-List {
+        width: 50%;
+        height: 100%;
+        border-right: 3px solid rgba(115, 115, 115, 1);
+        overflow: hidden;
+      }
+      /* 캘린더 좌측 알림 표시 부분 */
+      .Left-List ul {
+        display: flex;
+        font-size: 1.1rem;
+      }
+      /* 캘린더 좌측 알림 표시 부분 */
+      .Left-List ul li {
+        margin: 10px 0px 10px 0px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      /* 캘린더 좌측 알림 표시 사이즈 부분 */
+      .Left-List ul li:first-child {
+        width: 30%;
+        margin-right: 15px;
+      }
+      /* 캘린더 좌측 알림 표시 사이즈 부분 */
+      .Left-List ul li:nth-child(2) {
+        width: 40%;
+        text-align: center;
+      }
+      /* 캘린더 좌측 알림 표시 사이즈 부분 */
+      .Left-List ul li:last-child {
+        margin-left: 15px;
+        width: 30%;
+        text-align: center;
+      }
+      /* 캘린더 우측 알림 표시 부분 */
+      .Right-List {
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+      }
+      /* 캘린더 우측 알림 표시 부분 */
+      .Right-List ul {
+        display: flex;
+        font-size: 1.1rem;
+        margin-left: 28px;
+      }
+      /* 캘린더 우측 알림 표시 부분 */
+      .Right-List ul li {
+        margin: 10px 0px 10px 0px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      /* 캘린더 우측 알림 표시 사이즈 부분 */
+      .Right-List ul li:first-child {
+        width: 30%;
+        margin-right: 100px;
+      }
+      /* 캘린더 우측 알림 표시 사이즈 부분 */
+      .Right-List ul li:last-child {
+        width: 30%;
+      }
 
-        /* 커플 사진 이미지 사이즈 */
-        .Krikri-Love img {
-            width: 100%;
-            height: 100%;
-            border-radius: 20px;
-        }
-        /* 커플 사진 텍스트 부분 */
-        .Date-Love {
-            text-align: center;
-            position: relative;
-            top: -85%;
-        }
-        /* 우리함께한지 부분 */
-        .Love-Text {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        /* 커플 사진 하트 부분 */
-        .Date-Love img {
-            position: relative;
-            top: -65%;
-            width: 50px;
-            height: 50px;
-            margin-bottom: 0px;
-        }
-        /* 몇일 사귄 날짜 */
-        .Date {
-            font-size: 2rem;
-            font-weight: bold;
-        }
-        /* 개인 사진 Div */
-        .Love-Face {
-            width: 100%;
-            height: 120px;
-            position: relative;
-            top: -78%;
-            display: flex;
-        }
-        /* 개인 사진 프로필 Div 부분 */
-        .Left-Face, .Right-Face {
-            width: 50%;
-            height: 130px;
-            text-align: center;
-        }
-        /* 개인 사진 프로필 Div 부분 */
-        .L-Face, .R-Face {
-            width: 50%;
-            height: 130px;
-            margin: 0 auto;
-        }
-        /* 프로필 부분 */
-        .Face {
-            width: 100%;
-            height: 130px;
-        }
-        /* 프로필 이미지 부분 */
-        .Face img {
-            width: 100%;
-            height: 130px;
-            border-radius: 50%;
-        }
-        /* 프로필 이름 부분 */
-        .Name {
-            width: 100%;
-            height: 30px;
-            font-size: 1.5rem;
-            margin-top: 5px;
-        }
-        /* 날씨 부분 */
-        .Krikri-Weather {
-            width: 100%;
-            position: relative;
-            top: -68%;
-            height: 130px;
-            display: flex;
-        }
-        /* 좌측 날씨 */
-        .Left-Weather {
-            width: 50%;
-            height: 100%;
-        }
-        /* 우측 날씨 */
-        .Right-Weather {
-            width: 50%;
-            height: 100%;
-        }
-        /* 현재 날씨 정보 div */
-        .Show-Weather {
-            width: 50%;
-            height: 100%;
-            margin: 0 auto;
-            background-color: rgba(236, 226, 226, 0.4);
-            text-align: center;
-            font-size: 18px;
-            font-weight: bold;
-            overflow: hidden;    
-        }
-        /* 지역 */
-        .Local {
-            width: 100%;
-            height: 20%;
-            padding-top: 5px;
-        }
-        /* 날씨 이미지 */
-        .Weather-Image {
-            width: 100%;
-            height: 30%;
-        }
-        /* 날씨 텍스트 */
-        .description {
-            width: 100%;
-            height: 20%;
-        }
-        /* 온도 */
-        .temperature {
-            width: 100%;
-            height: 25%;
-            padding-top: 5px;
-        }
-        /* ---------------------------------------- 본 메뉴 좌측 부분 끝 ---------------------------------------- */
-        /* ----------------------------------------- 본 메뉴 우측 부분 ------------------------------------------ */
-        /* 우측 슬라이더, 캘린더, 앨범 전체 Div */
-        .Right-Main {
-            width: 57%;
-            height: 100%;
-            background-color: rgba(244, 245, 249, 1);
-        }
-        /* 우측 슬라이더 부분 */
-        .Krikri-Mall {
-            width: 94%;
-            height: 25vh;
-            position: relative;
-            top: 0%;
-            margin: 0 auto;
-            display: flex;
-            margin-left: 28px;
-        }
-        /* 슬라이더 이름 부분 */
-        .Left-Mall h3, .Right-Mall h3 {
-            color: rgba(255, 131, 141, 1);
-        }
-        /* 좌측 클릭 슬라이더 사이즈 부분 */
-        .Left-Mall {
-            width: 50%;
-            height: 107%;
-            overflow: hidden;
-        }
-        /* 좌측 클릭 슬라이더 부분 */
-        .New-Issue {
-            width: 500%;
-            height: 90%;
-            margin-top: 10px;
-            display: flex;
-        }
-        /* 좌측 클릭 슬라이더 부분 */
-        .New-Issue input {
-            display: none;
-        }
-        /* 좌측 클릭 슬라이더 부분 */
-        .slide {
-            width: 20%;
-            transition: 2s;
-        }
-        /* 좌측 클릭 슬라이더 이미지 부분 */
-        .slide img {
-            width: 100%;
-            height: 100%;
-        }
-        /* 좌측 클릭 슬라이더 부분 */
-        .navigation-manual {
-            position: relative;
-            width: 100%;
-            margin-top: -40px;
-            display: flex;
-            justify-content: flex-end;
-        }
-        /* 좌측 클릭 슬라이더 버튼 부분 */
-        .manual-btn {
-            border: 2px solid #fff;
-            padding: 5px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: 1s;
-        }
-        /* 좌측 클릭 슬라이더 버튼 부분 */
-        .manual-btn:not(:last-child){
-            margin-right: 10px;
-        }
-        /* 좌측 클릭 슬라이더 버튼 부분 */
-        .manual-btn:last-child {
-            margin-right: 10px;
-        }
-        /* 좌측 클릭 슬라이더 버튼 hover 부분 */
-        .manual-btn:hover {
-            background: #fff;
-        }
-        /* 좌측 클릭 슬라이더 버튼 체크 부분 */
-        #radio1:checked ~ .first {
-            margin-left: 0;
-        }
-        #radio2:checked ~ .first {
-            margin-left: -20%;
-        }
-        #radio3:checked ~ .first {
-            margin-left: -40%;
-        }
-        #radio4:checked ~ .first {
-            margin-left: -60%;
-        }
-        /* 우측 자동 슬라이더 사이즈 부분 */
-        .Right-Mall {
-            width: 50%;
-            height: 107%;
-            overflow: hidden;
-            margin-left: 18px;
-        }
-        /* 우측 자동 슬라이더 사이즈 부분 */
-        .Date-Recommend {
-            width: 500%;
-            height: 90%;
-            margin-top: 10px;
-            display: flex;
-        }
-        /* 우측 자동 슬라이더 사이즈 부분 */
-        .Date-Recommend input {
-            display: none;
-        }
-        /* 우측 자동 슬라이더 사이즈 부분 */
-        .auto-slide {
-            width: 20%;
-            transition: 2s;
-        }
-        /* 우측 자동 슬라이더 이미지 부분 */
-        .auto-slide img {
-            width: 100%;
-            height: 80%;
-            display: flex;
-        }
-        /* 슬라이더 이미지 내용 부분 */
-        .auto-slide-text {
-            width: 100%;
-            height: 100%;
-            font-size: 16px;
-            padding-top: 2px;
-            padding-left: 10px;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
-            background-color: black;
-            color: rgba(255, 170, 177, 1);
-        }
-        /* 우측 자동 슬라이더 부분 */
-        .auto-navigation-manual {
-            position: relative;
-            width: 100%;
-            margin-top: -40px;
-            display: flex;
-            justify-content: flex-end;
-        }
-        /* 우측 자동 슬라이더 버튼 부분 */
-        .auto-manual-btn {
-            border: 2px solid #fff;
-            padding: 5px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: 1s;
-            display: none;
-        }
-        /* 우측 자동 슬라이더 버튼 사이즈 부분 */
-        .auto-manual-btn:not(:last-child){
-            margin-right: 10px;
-        }
-        /* 우측 자동 슬라이더 버튼 사이즈 부분 */
-        .auto-manual-btn:last-child {
-            margin-right: 10px;
-        }
-        /* 우측 자동 슬라이더 버튼 hover 부분 */
-        .auto-manual-btn:hover {
-            background: #fff;
-        }
-        /* 우측 자동 슬라이더 버튼 체크 부분 */
-        #auto-radio1:checked ~ .first2 {
-            margin-left: 0;
-        }
-        #auto-radio2:checked ~ .first2 {
-            margin-left: -20%;
-        }
-        #auto-radio3:checked ~ .first2 {
-            margin-left: -40%;
-        }
-        #auto-radio4:checked ~ .first2 {
-            margin-left: -60%;
-        }
-        /* 우측 자동 슬라이더 부분 */
-        .A-navigation-auto {
-            position: absolute;
-            display: flex;
-            background: chartreuse;
-            justify-content: center;
-            margin-top: 100px;
-            display: none;
-        }
-        /* 우측 자동 슬라이더 부분 */
-        .A-navigation-auto div {
-            border: 2px solid #fff;
-            padding: 5px;
-            border-radius: 10px;
-            transition: 1s;
-        }
-        /* 우측 자동 슬라이더 부분 */
-        #auto-radio1:checked ~.A-navigation-auto .A-auto-btn1{
-            background: #fff;
-        }
-        #auto-radio2:checked ~.A-navigation-auto .A-auto-btn2{
-            background: #fff;
-        }
-        #auto-radio3:checked ~.A-navigation-auto .A-auto-btn3{
-            background: #fff;
-        }
-        #auto-radio4:checked ~.A-navigation-auto .A-auto-btn4{
-            background: #fff;
-        }
-        /* ------------------------------------------ 슬라이더 부분 끝 ------------------------------------------ */
-        /* 캘린더 부분 */
-        .Krikri-Calendar {
-            width: 94%;
-            height: 25vh;
-            position: relative;
-            margin-left: 28px;
-            margin-top: 28px;
-            background-color: rgba(255, 255, 255, 1);
-            border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
-        }
-        /* 캘린더 제목 부분 */
-        .Krikri-Calendar h3 {
-            margin-left: 28px;
-            padding-top: 18px;
-            color: rgba(255, 131, 141, 1);
-        }
-        /* 캘린더 추가 버튼 */
-        .Calender-Add {
-            position: absolute;
-            top: 4%;
-            left: 95%;
-            transform: translateY(-15%);
-            width: 35px;
-            height: 35px;
-        }
-        .Calender-Add:hover {
-            cursor: pointer;
-        }
-        /* 캘린더 알림 표시 Div 부분 */
-        .To-Calendar {
-            width: 93%;
-            height: 70%;
-            margin: 0 auto;
-            display: flex;
-        }
-        /* 캘린더 좌측 알림 표시 부분 */
-        .Left-List {
-            width: 50%;
-            height: 100%;
-            border-right: 3px solid rgba(115, 115, 115, 1);
-            overflow: hidden;
-        }
-        /* 캘린더 좌측 알림 표시 부분 */
-        .Left-List ul {
-            display: flex;
-            font-size: 1.1rem;
-        }
-        /* 캘린더 좌측 알림 표시 부분 */
-        .Left-List ul li {
-            margin: 10px 0px 10px 0px;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-        /* 캘린더 좌측 알림 표시 사이즈 부분 */
-        .Left-List ul li:first-child {
-            width: 30%;
-            margin-right: 15px;
-        }
-        /* 캘린더 좌측 알림 표시 사이즈 부분 */
-        .Left-List ul li:nth-child(2) {
-            width: 40%;
-            text-align: center;
-        }
-        /* 캘린더 좌측 알림 표시 사이즈 부분 */
-        .Left-List ul li:last-child {
-            margin-left: 15px;
-            width: 30%;
-            text-align: center;
-        }
-        /* 캘린더 우측 알림 표시 부분 */
-        .Right-List {
-            width: 50%;
-            height: 100%;
-            overflow: hidden;
-        }
-        /* 캘린더 우측 알림 표시 부분 */
-        .Right-List ul {
-            display: flex;
-            font-size: 1.1rem;
-            margin-left: 28px;
-        }
-        /* 캘린더 우측 알림 표시 부분 */
-        .Right-List ul li {
-            margin: 10px 0px 10px 0px;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-        /* 캘린더 우측 알림 표시 사이즈 부분 */
-        .Right-List ul li:first-child {
-            width: 30%;
-            margin-right: 100px;
-        }
-        /* 캘린더 우측 알림 표시 사이즈 부분 */
-        .Right-List ul li:last-child {
-            width: 30%;
-        }
+      /* ------------------------------------------ 캘린더 부분 끝 -------------------------------------------- */
+      /* 앨범 Div 부분 */
+      .Krikri-Album {
+        width: 94%;
+        height: 25vh;
+        background-color: rgba(255, 255, 255, 1);
+        position: relative;
+        margin-top: 18px;
+        margin-left: 28px;
+        border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
+      }
+      /* 앨범 타이틀 표시 부분 */
+      .Krikri-Album h3 {
+        margin-left: 28px;
+        padding-top: 18px;
+        color: rgba(255, 131, 141, 1);
+      }
+      /* 앨범 추가 버튼 */
+      .Album-Add {
+        position: absolute;
+        top: 4%;
+        left: 95%;
+        transform: translateY(-15%);
+        width: 35px;
+        height: 35px;
+      }
+      /* 앨범 추가 버튼 hover */
+      .Album-Add:hover {
+        cursor: pointer;
+      }
+      /* 앨범 표시 부분 */
+      .To-Album {
+        width: 94%;
+        height: 70%;
+        margin: 0 auto;
+        display: flex;
+        overflow: hidden;
+      }
+      .Show-Album {
+        width: 130px;
+        height: 70%;
+        margin-top: 10px;
+        margin-right: 34px;
+      }
+      .Show-Album img {
+        width: 100%;
+        height: 100%;
+      }
+      .Album-Date {
+        width: 130px;
+        text-align: left;
+        font-size: 1.1rem;
+      }
+      /* ---------------------------------------- 앨범 끝 ----------------------------------------------------- */
+      .Open-Chatting {
+        width: 60px;
+        height: 100px;
+        background-color: rgba(255, 131, 141, 1);
+        position: absolute;
+        top: 50%;
+        right: 0;
+        border-radius: 5px 0px 0px 5px / 5px 0px 0px 5px;
+      }
+      .Open-Chatting img {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 17px;
+        background: transparent;
+        cursor: pointer;
+      }
 
-        /* ------------------------------------------ 캘린더 부분 끝 -------------------------------------------- */
-        /* 앨범 Div 부분 */
-        .Krikri-Album {
-            width: 94%;
-            height: 25vh;
-            background-color: rgba(255, 255, 255, 1);
-            position: relative;
-            margin-top: 18px;
-            margin-left: 28px;
-            border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
-        }
-        /* 앨범 타이틀 표시 부분 */
-        .Krikri-Album h3 {
-            margin-left: 28px;
-            padding-top: 18px;
-            color: rgba(255, 131, 141, 1);
-        }
-        /* 앨범 추가 버튼 */
-        .Album-Add {
-            position: absolute;
-            top: 4%;
-            left: 95%;
-            transform: translateY(-15%);
-            width: 35px;
-            height: 35px;
-        }
-        /* 앨범 추가 버튼 hover */
-        .Album-Add:hover {
-            cursor: pointer;
-        }
-        /* 앨범 표시 부분 */
-        .To-Album {
-            width: 94%;
-            height: 70%;
-            margin: 0 auto;
-            display: flex;
-            overflow: hidden;
-        }
-        .Show-Album {
-            width: 130px;
-            height: 70%;
-            margin-top: 10px;
-            margin-right: 34px;
-        }
-        .Show-Album img {
-            width: 100%;
-            height: 100%;
-        }
-        .Album-Date {
-            width: 130px;
-            text-align: left;
-            font-size: 1.1rem;
-        }
-        /* ---------------------------------------- 앨범 끝 ----------------------------------------------------- */
-        .Open-Chatting {
-            width: 60px;
-            height: 100px;
-            background-color: rgba(255, 131, 141, 1);
-            position: absolute;
-            top: 50%;
-            right: 0;
-            border-radius: 5px 0px 0px 5px / 5px 0px 0px 5px;
-        }
-        .Open-Chatting img{
-            width: 30px;
-            height: 30px;
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-            margin-left: 17px;
-            background: transparent;
-            cursor: pointer;
-        }
-
-
-        /* ---------------------------------------- 본 메인 끝 -------------------------------------------------- */
-        /* ------------------------------------------ 채팅방 ---------------------------------------------------- */
-        /* 채팅방 사이즈 부분 */
-        .Chat {
-            width: 70vw;
-            height: 100vh;
-            background-color: white;
-            display: none;
-            border-left: 3px solid rgba(255, 176, 182, 1);
-        }
-        /* 채팅방 사이드 부분 */
-        .Chat-Side {
-            width: 3vw;
-            height: 100vh;
-        }
-        /* 채팅방 사이드 이미지 부분 */
-        .Chat-Side img {
-            width: 50px;
-            height: 50px;
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-            transform: rotate(180deg);
-            cursor: pointer;
-        }
-        /* 채팅방 메인 부분 */
-        .Chat-Total {
-            display: flex;
-        }
-        /* 채팅방 메인 부분 */
-        .Chat-Main {
-            width: 100%;
-            height: 100vh;
-        }
-        /* 채팅방 메인 Header부분 */
-        .Chat-Header {
-            width: 90%;
-            height: 100px;
-            box-sizing: border-box;
-            display: flex;
-            margin: 0 auto;
-            border-bottom: 3px solid black;
-        }
-        /* 채팅방 메인 Header 좌측 부분 */
-        .Chat-Left {
-            width: 65%;
-            height: 100%;
-            font-size: 1.4rem;
-            font-weight: bold;
-        }
-        /* 채팅방 메인 Header 글자 부분 */
-        .Chat-Left span {
-            position: relative;
-            top: 52%;
-        }
-        /* 채팅방 메인 Header 우측 부분 */
-        .Chat-Right {
-            width: 35%;
-        }
-        /* 채팅방 메인 Header 우측 버튼 부분 */
-        .Chat-Right button {
-            position: relative;
-            top: 40%;
-            left: 49%;
-            width: 100px;
-            height: 50px;
-            background: transparent;
-            outline: 0;
-            border: 3px solid rgba(255, 141, 150, 1);
-            color: rgba(255, 141, 150, 1);
-            font-weight: bold;
-        }
-        /* 채팅방 메인 Header 우측 버튼 hover */
-        .Chat-Right button:hover{
-            cursor: pointer;
-        }
-        /* 채팅방 메인 Header 우측 전체화면 끝내기 감춤 */
-        .Chat-Right button:last-child {
-            display: none;
-        }
-        /* 채팅방 글자 보이는 곳 */
-        .Chat-Chatting {
-            width: 90%;
-            height: 71%;
-            margin: 0 auto;
-            margin-top: 4%;
-            background-color: wheat;
-        }
-        /* 채팅방 하단 메세지 사이즈 부분 */
-        .Chat-Message {
-            width: 90%;
-            height: 12.6%;
-            display: flex;
-            margin: 0 auto;
-        }
-        /* 채팅방 하단 메세지 좌측 부분 */
-        .Message {
-            width: 80%;
-            height: 100%;
-        }
-        /* 채팅방 하단 메세지 좌측 부분 */
-        .Msg {
-            width: 100%;
-            height: 50px;
-            margin: 0 auto;
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-            border-radius: 25px 25px 25px 25px / 25px 25px 25px 25px;
-            border: 3px solid rgba(255, 131, 141, 1);
-        }
-        /* 채팅방 하단 메세지 좌측 이미지 부분 */
-        .Msg img {
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 35px;
-            height: 35px;
-            margin-left: 5px;
-            border: 3px solid rgba(255, 131, 141, 1);
-            border-radius: 50%;
-        }
-        /* 채팅방 하단 메세지 좌측 이미지 hover 부분 */
-        .Msg img:hover {
-            cursor: pointer;
-        }
-        /* 채팅방 하단 메세지 좌측 input 부분 */
-        .Msg input {
-            position: relative;
-            top: 25%;
-            transform: translateY(-50%);
-            width: 85%;
-            height: 85%;
-            border-radius: 0px 25px 25px 0px / 0px 25px 25px 0px;
-            font-size: 1.2rem;
-            border: none;
-            outline: none;
-        }
-        /* 채팅방 우측 사이즈 부분 */
-        .Message-Send {
-            width: 20%;
-            height: 100%;
-        }
-        /* 채팅방 우측 버튼 부분 */
-        .Message-Send button {
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 80px;
-            height: 50px;
-            background: transparent;
-            outline: 0;
-            border: 0;
-            background-color: rgba(255, 131, 141, 1);
-            color: white;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 25px 25px 25px 25px / 25px 25px 25px 25px;
-            margin-left: 25%;
-        }
-        /* 채팅방 우측 버튼 hover 부분 */
-        .Message-Send button:hover  {
-            cursor: pointer;
-        }
-        /* ------------------------------------------------ 채팅 버튼 누르면 기능 먹히는 것들 ----------------------------------------- */
-        .Krikri-Love2 {
-            width: 20%;
-            height: 107%;
-            display: none;
-            margin-right: 18px;
-            border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
-        }
-        .Krikri-Love2 img {
-            width: 100%;
-            height: 100%;
-            border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
-        }
-        .Date-Love2 {
-            text-align: center;
-            position: relative;
-            top: -85%;
-        }
-        /* 우리함께한지 부분 */
-        .Love-Text2 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        /* 커플 사진 하트 부분 */
-        .Date-Love2 img {
-            position: relative;
-            top: -65%;
-            width: 50px;
-            height: 50px;
-            margin-top: 25px;
-        }
-        /* 몇일 사귄 날짜 */
-        .Date2 {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
+      /* ---------------------------------------- 본 메인 끝 -------------------------------------------------- */
+      /* ------------------------------------------ 채팅방 ---------------------------------------------------- */
+      /* 채팅방 사이즈 부분 */
+      .Chat {
+        width: 70vw;
+        height: 100vh;
+        background-color: white;
+        display: none;
+        border-left: 3px solid rgba(255, 176, 182, 1);
+      }
+      /* 채팅방 사이드 부분 */
+      .Chat-Side {
+        width: 3vw;
+        height: 100vh;
+      }
+      /* 채팅방 사이드 이미지 부분 */
+      .Chat-Side img {
+        width: 50px;
+        height: 50px;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        transform: rotate(180deg);
+        cursor: pointer;
+      }
+      /* 채팅방 메인 부분 */
+      .Chat-Total {
+        display: flex;
+      }
+      /* 채팅방 메인 부분 */
+      .Chat-Main {
+        width: 100%;
+        height: 100vh;
+      }
+      /* 채팅방 메인 Header부분 */
+      .Chat-Header {
+        width: 90%;
+        height: 100px;
+        box-sizing: border-box;
+        display: flex;
+        margin: 0 auto;
+        border-bottom: 3px solid black;
+      }
+      /* 채팅방 메인 Header 좌측 부분 */
+      .Chat-Left {
+        width: 65%;
+        height: 100%;
+        font-size: 1.4rem;
+        font-weight: bold;
+      }
+      /* 채팅방 메인 Header 글자 부분 */
+      .Chat-Left span {
+        position: relative;
+        top: 52%;
+      }
+      /* 채팅방 메인 Header 우측 부분 */
+      .Chat-Right {
+        width: 35%;
+      }
+      /* 채팅방 메인 Header 우측 버튼 부분 */
+      .Chat-Right button {
+        position: relative;
+        top: 40%;
+        left: 49%;
+        width: 100px;
+        height: 50px;
+        background: transparent;
+        outline: 0;
+        border: 3px solid rgba(255, 141, 150, 1);
+        color: rgba(255, 141, 150, 1);
+        font-weight: bold;
+      }
+      /* 채팅방 메인 Header 우측 버튼 hover */
+      .Chat-Right button:hover {
+        cursor: pointer;
+      }
+      /* 채팅방 메인 Header 우측 전체화면 끝내기 감춤 */
+      .Chat-Right button:last-child {
+        display: none;
+      }
+      /* 채팅방 글자 보이는 곳 */
+      .Chat-Chatting {
+        width: 90%;
+        height: 71%;
+        margin: 0 auto;
+        margin-top: 4%;
+        background-color: wheat;
+      }
+      /* 채팅방 하단 메세지 사이즈 부분 */
+      .Chat-Message {
+        width: 90%;
+        height: 12.6%;
+        display: flex;
+        margin: 0 auto;
+      }
+      /* 채팅방 하단 메세지 좌측 부분 */
+      .Message {
+        width: 80%;
+        height: 100%;
+      }
+      /* 채팅방 하단 메세지 좌측 부분 */
+      .Msg {
+        width: 100%;
+        height: 50px;
+        margin: 0 auto;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 25px 25px 25px 25px / 25px 25px 25px 25px;
+        border: 3px solid rgba(255, 131, 141, 1);
+      }
+      /* 채팅방 하단 메세지 좌측 이미지 부분 */
+      .Msg img {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 35px;
+        height: 35px;
+        margin-left: 5px;
+        border: 3px solid rgba(255, 131, 141, 1);
+        border-radius: 50%;
+      }
+      /* 채팅방 하단 메세지 좌측 이미지 hover 부분 */
+      .Msg img:hover {
+        cursor: pointer;
+      }
+      /* 채팅방 하단 메세지 좌측 input 부분 */
+      .Msg input {
+        position: relative;
+        top: 25%;
+        transform: translateY(-50%);
+        width: 85%;
+        height: 85%;
+        border-radius: 0px 25px 25px 0px / 0px 25px 25px 0px;
+        font-size: 1.2rem;
+        border: none;
+        outline: none;
+      }
+      /* 채팅방 우측 사이즈 부분 */
+      .Message-Send {
+        width: 20%;
+        height: 100%;
+      }
+      /* 채팅방 우측 버튼 부분 */
+      .Message-Send button {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 80px;
+        height: 50px;
+        background: transparent;
+        outline: 0;
+        border: 0;
+        background-color: rgba(255, 131, 141, 1);
+        color: white;
+        font-size: 1.1rem;
+        font-weight: bold;
+        border-radius: 25px 25px 25px 25px / 25px 25px 25px 25px;
+        margin-left: 25%;
+      }
+      /* 채팅방 우측 버튼 hover 부분 */
+      .Message-Send button:hover {
+        cursor: pointer;
+      }
+      /* ------------------------------------------------ 채팅 버튼 누르면 기능 먹히는 것들 ----------------------------------------- */
+      .Krikri-Love2 {
+        width: 20%;
+        height: 107%;
+        display: none;
+        margin-right: 18px;
+        border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
+      }
+      .Krikri-Love2 img {
+        width: 100%;
+        height: 100%;
+        border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
+      }
+      .Date-Love2 {
+        text-align: center;
+        position: relative;
+        top: -85%;
+      }
+      /* 우리함께한지 부분 */
+      .Love-Text2 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      /* 커플 사진 하트 부분 */
+      .Date-Love2 img {
+        position: relative;
+        top: -65%;
+        width: 50px;
+        height: 50px;
+        margin-top: 25px;
+      }
+      /* 몇일 사귄 날짜 */
+      .Date2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- 전체 페이지 -->
     <div class="Krikri-Page" id="Krikri-Page">
-        <!-- 사이드 바 -->
-        <div class="Side-Bar">
-            <div class="Side-Bar-Line">
-                <div class="Logo">
-                    Krikri
-                </div>
-                <div class="Menu-List">
-                    <ul>
-                        <li class="Menu-List-Links"><img src="./images/home.png" class="Links"></li>
-                        <li class="Menu-List-Links"><img src="./images/calendar.png" class="Links"></li>
-                        <li class="Menu-List-Links"><img src="./images/album.png" class="Links"></li>
-                        <li class="Menu-List-Links"><img src="./images/setting.png" class="Links"></li>
-                    </ul>
-                </div>
-                <div class="Logout">
-                    logout
-                </div>
-            </div>
+      <!-- 사이드 바 -->
+      <div class="Side-Bar">
+        <div class="Side-Bar-Line">
+          <div class="Logo">Krikri</div>
+          <div class="Menu-List">
+            <ul>
+              <li class="Menu-List-Links">
+                <img src="./images/home.png" class="Links" />
+              </li>
+              <li class="Menu-List-Links">
+                <img src="./images/calendar.png" class="Links" />
+              </li>
+              <li class="Menu-List-Links">
+                <img src="./images/album.png" class="Links" />
+              </li>
+              <li class="Menu-List-Links">
+                <img src="./images/setting.png" class="Links" />
+              </li>
+            </ul>
+          </div>
+          <div class="Logout">logout</div>
         </div>
-        <!-- 사이드 바 끝 -->
-        <!-- 메인 페이지 시작 -->
-        <div class="Krikri-Main-Page" id="Krikri-Main-Page">
-            <!-- Header 시작 -->
-            <div class="Krikri-Main-Header">
-                <div class="Header-Left" id="Header-Left">
-                    <div class="Krikri-Select" id="Krikri-Select">
-                        <form class="Search" id="Search">
-                            <button class="Img-Button" id="Img-Button" type="submit" name="click" value="">
-                                <img src="./images/search.png">
-                            </button>
-                            <input class="Search-Keyword" type="text" name="search" maxlength="255" value="" autocomplete="off" placeholder="Google 검색">
-                        </form>
-                    </div>
-                </div>
-                <div class="Header-Right" id="Header-Right">
-                    <div class="Krikri-Header">
-                        <div class="Krikri-Title" id="Krikri-Title">
-                            <h2>우리들만의 끼리끼리:)</h2>
-                            <span>2020-00-00</span>
-                        </div>
-                        <div class="Krikri-Alram" id="Krikri-Alram">
-                            <img src="./images/alram.png">
-                            <img src="./images/profile.png">
-                        </div>
-                    </div>
-                </div>
+      </div>
+      <!-- 사이드 바 끝 -->
+      <!-- 메인 페이지 시작 -->
+      <div class="Krikri-Main-Page" id="Krikri-Main-Page">
+        <!-- Header 시작 -->
+        <div class="Krikri-Main-Header">
+          <div class="Header-Left" id="Header-Left">
+            <div class="Krikri-Select" id="Krikri-Select">
+              <form class="Search" id="Search">
+                <button
+                  class="Img-Button"
+                  id="Img-Button"
+                  type="submit"
+                  name="click"
+                  value=""
+                >
+                  <img src="./images/search.png" />
+                </button>
+                <input
+                  class="Search-Keyword"
+                  type="text"
+                  name="search"
+                  maxlength="255"
+                  value=""
+                  autocomplete="off"
+                  placeholder="Google 검색"
+                />
+              </form>
             </div>
-            <!-- Header 끝 -->
-            <!-- 본 메인 시작 -->
-            <div class="Krikri-Main">
-                <!-- 좌측 커플 사진 시작 -->
-                <div class="Left-Main" id="Left-Main">
-                    <div class="Krikri-Love">
-                        <!-- 배경화면 선택 팝업창 -->
-                        <div class="Background-Choice" id="Background-Choice">
-                            <div class="Background-Choice-Title">
-                                <h4>배경 화면</h4>
-                                <img src="./images/plus.png" class="Choice-Title" onClick="Popup_Close()">
-                            </div>
-                            <div class="Background-Choice-Image">
-                                <h4>배경이미지</h4>
-                                <div class="Background-Choice-Image-Size">
-                                    
-                                </div>
-                            </div>
-                            <div class="Background-Choice-Select">
-                                <div class="Choice-Select-Text">
-                                    <h4>저장하기</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 배경화면 선택 팝업창 끝 -->
-                        <img src="./images/bgbg.png">         
-                        <div class="Date-Love">
-                            <img src="./images/hamburger.png" id="Background-Option" onClick="Popup_Open()">
-                            <div class="Love-Text">
-                                우리 함께한지
-                            </div>
-                            <img src="./images/love.png">
-                            <div class="Date">
-                                D - 000
-                            </div>
-                        </div>
-                        <div class="Love-Face">
-                            <div class="Left-Face">
-                                <div class="L-Face">
-                                    <div class="Face">
-                                        <img src="./images/bgbgbg.png">
-                                    </div>
-                                    <div class="Name">
-                                        000
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="Right-Face">
-                                <div class="R-Face">
-                                    <div class="Face">
-                                        <img src="./images/bgbgbg.png">
-                                    </div>
-                                    <div class="Name">
-                                        000
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 현재 날씨 정보 -->
-                        <div class="Krikri-Weather">
-                            <div class="Left-Weather">
-                                <div class="Show-Weather">
-                                    <div class="Local" id="Local"></div>
-                                    <div class="Weather-Image" id="weatherImage"></div>
-                                    <div class="description" id="description"></div>
-                                    <div class="temperature" id="tempe"></div>
-                                </div>
-                            </div>
-                            <div class="Right-Weather">
-                                <div class="Show-Weather">
-                                    <div class="Local" id="Local2"></div>
-                                    <div class="Weather-Image" id="weatherImage2"></div>
-                                    <div class="description" id="description2"></div>
-                                    <div class="temperature" id="tempe2"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 현재 날씨 정보 끝 -->
-                    </div>
+          </div>
+          <div class="Header-Right" id="Header-Right">
+            <div class="Krikri-Header">
+              <div class="Krikri-Title" id="Krikri-Title">
+                <h2>우리들만의 끼리끼리:)</h2>
+                <span>2020-00-00</span>
+              </div>
+              <div class="Krikri-Alram" id="Krikri-Alram">
+                <img src="./images/alram.png" />
+                <img src="./images/profile.png" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Header 끝 -->
+        <!-- 본 메인 시작 -->
+        <div class="Krikri-Main">
+          <!-- 좌측 커플 사진 시작 -->
+          <div class="Left-Main" id="Left-Main">
+            <div class="Krikri-Love">
+              <!-- 배경화면 선택 팝업창 -->
+              <div class="Background-Choice" id="Background-Choice">
+                <div class="Background-Choice-Title">
+                  <h4>배경 화면</h4>
+                  <img
+                    src="./images/plus.png"
+                    class="Choice-Title"
+                    onClick="Popup_Close()"
+                  />
                 </div>
-                <!-- 좌측 커플 사진 부분 끝 -->
-                <!-- 우측 슬라이더, 캘린더, 앨범 부분 시작 -->
-                <div class="Right-Main" id="Right-Main">
-                    <!-- 슬라이더 부분 -->
-                    <div class="Krikri-Mall">
-                        <div class="Krikri-Love2" id="Krikri-Love2">
-                            <img src="./images/bgbg.png">
-                            <div class="Date-Love2">
-                                <div class="Love-Text2">
-                                    우리 함께한지
-                                </div>
-                                <div class="Date2">
-                                    D - 000
-                                </div>
-                                <img src="./images/love.png">
-                            </div>
-                        </div>
-                        <div class="Left-Mall">
-                            <h3>새로운 이슈</h3>
-                            <div class="New-Issue">
-                                <input type="radio" name="radio-btn" id="radio1">
-                                <input type="radio" name="radio-btn" id="radio2">
-                                <input type="radio" name="radio-btn" id="radio3">
-                                <input type="radio" name="radio-btn" id="radio4">
-                                <div class="slide first">
-                                    <img src="./images/issue1.jfif">
-                                </div>
-                                <div class="slide">
-                                    <img src="./images/date1.jfif">
-                                </div>
-                                <div class="slide">
-                                    <img src="./images/date2.jfif">
-                                </div>
-                                <div class="slide">
-                                    <img src="./images/date3.jfif">
-                                </div>
-                            </div>
-                            <div class="navigation-manual">
-                                <label for="radio1" class="manual-btn"></label>
-                                <label for="radio2" class="manual-btn"></label>
-                                <label for="radio3" class="manual-btn"></label>
-                                <label for="radio4" class="manual-btn"></label>
-                            </div>
-                        </div>
-                        <div class="Right-Mall">
-                            <h3>데이트 추천장소</h3>
-                            <div class="Date-Recommend">
-                                <input type="radio" name="auto-radio-btn" id="auto-radio1">
-                                <input type="radio" name="auto-radio-btn" id="auto-radio2">
-                                <input type="radio" name="auto-radio-btn" id="auto-radio3">
-                                <input type="radio" name="auto-radio-btn" id="auto-radio4">
-                                <div class="auto-slide first2">
-                                    <img src="./images/al8.png">
-                                    <div class="auto-slide-text">
-                                        자동 슬라이드1
-                                    </div>
-                                </div>
-                                <div class="auto-slide">
-                                    <img src="./images/al7.png">
-                                    <div class="auto-slide-text">
-                                        자동 슬라이드2
-                                    </div>
-                                </div>
-                                <div class="auto-slide">
-                                    <img src="./images/al6.png">
-                                    <div class="auto-slide-text">
-                                        자동 슬라이드3
-                                    </div>
-                                </div>
-                                <div class="auto-slide">
-                                    <img src="./images/al5.png">
-                                    <div class="auto-slide-text">
-                                        자동 슬라이드4
-                                    </div>
-                                </div>
-                                <div class="A-navigation-auto">
-                                    <div class="A-auto-btn1"></div>
-                                    <div class="A-auto-btn2"></div>
-                                    <div class="A-auto-btn3"></div>
-                                    <div class="A-auto-btn4"></div>
-                                </div>
-                            </div>
-                            <div class="auto-navigation-manual">
-                                <label for="auto-radio1" class="auto-manual-btn"></label>
-                                <label for="auto-radio2" class="auto-manual-btn"></label>
-                                <label for="auto-radio3" class="auto-manual-btn"></label>
-                                <label for="auto-radio4" class="auto-manual-btn"></label>
-                            </div>
-                        </div>
+                <div class="Background-Choice-Image">
+                  <h4>배경이미지</h4>
+                  <div class="Background-Choice-Image-Size"></div>
+                </div>
+                <div class="Background-Choice-Select">
+                  <div class="Choice-Select-Text">
+                    <h4>저장하기</h4>
+                  </div>
+                </div>
+              </div>
+              <!-- 배경화면 선택 팝업창 끝 -->
+              <img src="./images/bgbg.png" />
+              <div class="Date-Love">
+                <img
+                  src="./images/hamburger.png"
+                  id="Background-Option"
+                  onClick="Popup_Open()"
+                />
+                <div class="Love-Text">우리 함께한지</div>
+                <img src="./images/love.png" />
+                <div class="Date">D - 000</div>
+              </div>
+              <div class="Love-Face">
+                <div class="Left-Face">
+                  <div class="L-Face">
+                    <div class="Face">
+                      <img src="./images/bgbgbg.png" />
                     </div>
-                    <!-- 슬라이더 끝 -->
-                    <!-- 캘린더 부분 시작 -->
-                    <div class="Krikri-Calendar">
-                        <h3>Calendar</h3>
-                        <img src="./images/plus.png" class="Calender-Add">
-                        <div class="To-Calendar">
-                            <div class="Left-List">
-                                <ul>
-                                    <li>20-00-00</li>
-                                    <li>TitleTitleTitleTitleTitle</li>
-                                    <li>00000</li>
-                                </ul>
-                            </div>
-                            <div class="Right-List">
-                                <ul>
-                                    <li>20-00-00</li>
-                                    <li>D-000</li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="Name">000</div>
+                  </div>
+                </div>
+                <div class="Right-Face">
+                  <div class="R-Face">
+                    <div class="Face">
+                      <img src="./images/bgbgbg.png" />
                     </div>
-                    <!-- 캘린더 부분 끝 -->
-                    <!-- 앨범 부분 시작 -->
-                    <div class="Krikri-Album">
-                        <h3>Album</h3>
-                        <img src="./images/plus.png" class="Album-Add">
-                        <div class="To-Album">
-                            <div class="Show-Album" id="Show-Album1">
-                                <img src="./images/al2.png">
-                                <div class="Album-Date">2020-00-00</div>
-                            </div>
-                            <div class="Show-Album" id="Show-Album2">
-                                <img src="./images/al3.png">
-                                <div class="Album-Date">2020-00-00</div>
-                            </div>
-                            <div class="Show-Album" id="Show-Album3">
-                                <img src="./images/al4.png">
-                                <div class="Album-Date">2020-00-00</div>
-                            </div>
-                            <div class="Show-Album" id="Show-Album4">
-                                <img src="./images/al5.png">
-                                <div class="Album-Date">2020-00-00</div>
-                            </div>
-                            <div class="Show-Album" id="Show-Album5">
-                                <img src="./images/al6.png">
-                                <div class="Album-Date">2020-00-00</div>
-                            </div>
-                            <div class="Show-Album" id="Show-Album6">
-                                <img src="./images/al7.png">
-                                <div class="Album-Date">2020-00-00</div>
-                            </div>
-                            <!-- <div class="Show-Album" id="Show-Album7">
+                    <div class="Name">000</div>
+                  </div>
+                </div>
+              </div>
+              <!-- 현재 날씨 정보 -->
+              <div class="Krikri-Weather">
+                <div class="Left-Weather">
+                  <div class="Show-Weather">
+                    <div class="Local" id="Local"></div>
+                    <div class="Weather-Image" id="weatherImage"></div>
+                    <div class="description" id="description"></div>
+                    <div class="temperature" id="tempe"></div>
+                  </div>
+                </div>
+                <div class="Right-Weather">
+                  <div class="Show-Weather">
+                    <div class="Local" id="Local2"></div>
+                    <div class="Weather-Image" id="weatherImage2"></div>
+                    <div class="description" id="description2"></div>
+                    <div class="temperature" id="tempe2"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- 현재 날씨 정보 끝 -->
+            </div>
+          </div>
+          <!-- 좌측 커플 사진 부분 끝 -->
+          <!-- 우측 슬라이더, 캘린더, 앨범 부분 시작 -->
+          <div class="Right-Main" id="Right-Main">
+            <!-- 슬라이더 부분 -->
+            <div class="Krikri-Mall">
+              <div class="Krikri-Love2" id="Krikri-Love2">
+                <img src="./images/bgbg.png" />
+                <div class="Date-Love2">
+                  <div class="Love-Text2">우리 함께한지</div>
+                  <div class="Date2">D - 000</div>
+                  <img src="./images/love.png" />
+                </div>
+              </div>
+              <div class="Left-Mall">
+                <h3>새로운 이슈</h3>
+                <div class="New-Issue">
+                  <input type="radio" name="radio-btn" id="radio1" />
+                  <input type="radio" name="radio-btn" id="radio2" />
+                  <input type="radio" name="radio-btn" id="radio3" />
+                  <input type="radio" name="radio-btn" id="radio4" />
+                  <div class="slide first">
+                    <img src="./images/issue1.jfif" />
+                  </div>
+                  <div class="slide">
+                    <img src="./images/date1.jfif" />
+                  </div>
+                  <div class="slide">
+                    <img src="./images/date2.jfif" />
+                  </div>
+                  <div class="slide">
+                    <img src="./images/date3.jfif" />
+                  </div>
+                </div>
+                <div class="navigation-manual">
+                  <label for="radio1" class="manual-btn"></label>
+                  <label for="radio2" class="manual-btn"></label>
+                  <label for="radio3" class="manual-btn"></label>
+                  <label for="radio4" class="manual-btn"></label>
+                </div>
+              </div>
+              <div class="Right-Mall">
+                <h3>데이트 추천장소</h3>
+                <div class="Date-Recommend">
+                  <input type="radio" name="auto-radio-btn" id="auto-radio1" />
+                  <input type="radio" name="auto-radio-btn" id="auto-radio2" />
+                  <input type="radio" name="auto-radio-btn" id="auto-radio3" />
+                  <input type="radio" name="auto-radio-btn" id="auto-radio4" />
+                  <div class="auto-slide first2">
+                    <img src="./images/al8.png" />
+                    <div class="auto-slide-text">자동 슬라이드1</div>
+                  </div>
+                  <div class="auto-slide">
+                    <img src="./images/al7.png" />
+                    <div class="auto-slide-text">자동 슬라이드2</div>
+                  </div>
+                  <div class="auto-slide">
+                    <img src="./images/al6.png" />
+                    <div class="auto-slide-text">자동 슬라이드3</div>
+                  </div>
+                  <div class="auto-slide">
+                    <img src="./images/al5.png" />
+                    <div class="auto-slide-text">자동 슬라이드4</div>
+                  </div>
+                  <div class="A-navigation-auto">
+                    <div class="A-auto-btn1"></div>
+                    <div class="A-auto-btn2"></div>
+                    <div class="A-auto-btn3"></div>
+                    <div class="A-auto-btn4"></div>
+                  </div>
+                </div>
+                <div class="auto-navigation-manual">
+                  <label for="auto-radio1" class="auto-manual-btn"></label>
+                  <label for="auto-radio2" class="auto-manual-btn"></label>
+                  <label for="auto-radio3" class="auto-manual-btn"></label>
+                  <label for="auto-radio4" class="auto-manual-btn"></label>
+                </div>
+              </div>
+            </div>
+            <!-- 슬라이더 끝 -->
+            <!-- 캘린더 부분 시작 -->
+            <div class="Krikri-Calendar">
+              <h3>Calendar</h3>
+              <img src="./images/plus.png" class="Calender-Add" />
+              <div class="To-Calendar">
+                <div class="Left-List">
+                  <ul>
+                    <li>20-00-00</li>
+                    <li>TitleTitleTitleTitleTitle</li>
+                    <li>00000</li>
+                  </ul>
+                </div>
+                <div class="Right-List">
+                  <ul>
+                    <li>20-00-00</li>
+                    <li>D-000</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- 캘린더 부분 끝 -->
+            <!-- 앨범 부분 시작 -->
+            <div class="Krikri-Album">
+              <h3>Album</h3>
+              <img src="./images/plus.png" class="Album-Add" />
+              <div class="To-Album">
+                <div class="Show-Album" id="Show-Album1">
+                  <img src="./images/al2.png" />
+                  <div class="Album-Date">2020-00-00</div>
+                </div>
+                <div class="Show-Album" id="Show-Album2">
+                  <img src="./images/al3.png" />
+                  <div class="Album-Date">2020-00-00</div>
+                </div>
+                <div class="Show-Album" id="Show-Album3">
+                  <img src="./images/al4.png" />
+                  <div class="Album-Date">2020-00-00</div>
+                </div>
+                <div class="Show-Album" id="Show-Album4">
+                  <img src="./images/al5.png" />
+                  <div class="Album-Date">2020-00-00</div>
+                </div>
+                <div class="Show-Album" id="Show-Album5">
+                  <img src="./images/al6.png" />
+                  <div class="Album-Date">2020-00-00</div>
+                </div>
+                <div class="Show-Album" id="Show-Album6">
+                  <img src="./images/al7.png" />
+                  <div class="Album-Date">2020-00-00</div>
+                </div>
+                <!-- <div class="Show-Album" id="Show-Album7">
                                 <img src="./images/bg1.jpg">
                                 <div class="Album-Date">2020-00-00</div>
                             </div>
@@ -1292,186 +1296,196 @@
                                 <img src="./images/bg1.jpg">
                                 <div class="Album-Date">2020-00-00</div>
                             </div> -->
-                        </div>
-                    </div>
-                    <!-- 앨번 부분 끝 -->
-                </div>
-                <div class="Open-Chatting" id="Open-Chatting">
-                    <img src="./images/chat.png" onclick="chatting()">
-                </div>
-                <!-- 우측 슬라이더, 캘린더, 앨범 부분 끝  -->
+              </div>
             </div>
-            <!-- 본 메인 부분 끝 -->
+            <!-- 앨번 부분 끝 -->
+          </div>
+          <div class="Open-Chatting" id="Open-Chatting">
+            <img src="./images/chat.png" onclick="chatting()" />
+          </div>
+          <!-- 우측 슬라이더, 캘린더, 앨범 부분 끝  -->
         </div>
-        <div class="Chat" id="Chat">
-            <div class="Chat-Total">
-                <div class="Chat-Side" id="Chat-Side">
-                    <img src="./images/close.png" id="close" onclick="chat_close()">
-                </div>
-                <div class="Chat-Main">
-                    <div class="Chat-Header">
-                        <div class="Chat-Left" id="Chat-Left">
-                            <span>우리들만의 끼리끼리:)</span>
-                        </div>
-                        <div class="Chat-Right" id="Chat-Right">
-                            <button onclick="Full_Screen()" id="Full_Screen">전체화면</button>
-                            <button onclick="Full_ScreenNo()" id="Full_ScreenNo">전체화면 끝내기</button>
-                        </div>
-                    </div>
-                    <div class="Chat-Chatting" id="Chat-Chatting"></div>
-                    <div class="Chat-Message">
-                        <div class="Message">
-                            <div class="Msg" id="Msg">
-                                <img src="./images/plus.png">
-                                <input type="text" maxlength="255" value="" autocomplete="off" placeholder="Message" id="Msg_Input">
-                            </div>
-                        </div>
-                        <div class="Message-Send" id="Message-Send">
-                            <button id="button">SEND</button>
-                        </div>
-                    </div>
-                </div>
+        <!-- 본 메인 부분 끝 -->
+      </div>
+      <div class="Chat" id="Chat">
+        <div class="Chat-Total">
+          <div class="Chat-Side" id="Chat-Side">
+            <img src="./images/close.png" id="close" onclick="chat_close()" />
+          </div>
+          <div class="Chat-Main">
+            <div class="Chat-Header">
+              <div class="Chat-Left" id="Chat-Left">
+                <span>우리들만의 끼리끼리:)</span>
+              </div>
+              <div class="Chat-Right" id="Chat-Right">
+                <button onclick="Full_Screen()" id="Full_Screen">
+                  전체화면
+                </button>
+                <button onclick="Full_ScreenNo()" id="Full_ScreenNo">
+                  전체화면 끝내기
+                </button>
+              </div>
             </div>
+            <div class="Chat-Chatting" id="Chat-Chatting"></div>
+            <div class="Chat-Message">
+              <div class="Message">
+                <div class="Msg" id="Msg">
+                  <img src="./images/plus.png" />
+                  <input
+                    type="text"
+                    maxlength="255"
+                    value=""
+                    autocomplete="off"
+                    placeholder="Message"
+                    id="Msg_Input"
+                  />
+                </div>
+              </div>
+              <div class="Message-Send" id="Message-Send">
+                <button id="button">SEND</button>
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- 메인 페이지 끝 -->
+      </div>
+      <!-- 메인 페이지 끝 -->
     </div>
     <!-- 전체 페이지 끝 -->
-</body>
+  </body>
 </html>
 
 <script>
-    // 검색
-    const Searching = Search.prototype;
-    function Search(){
-        this.keyword = document.querySelector('input[name = "search"]');
-        this.button = document.querySelector('.img-button');
-        this.form = document.querySelector('.Search');
-        this.Engine();
-    }
-    Searching.Engine = function(){
-        this.form.addEventListener('submit', e => {
-            e.preventDefault();
-            let keyword = this.keyword.value;
-            window.open('https:///www.google.co.kr/search?q=' + keyword);
-        });
-    }
-    new Search();
+  // 검색
+  const Searching = Search.prototype;
+  function Search() {
+    this.keyword = document.querySelector('input[name = "search"]');
+    this.button = document.querySelector(".img-button");
+    this.form = document.querySelector(".Search");
+    this.Engine();
+  }
+  Searching.Engine = function () {
+    this.form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let keyword = this.keyword.value;
+      window.open("https:///www.google.co.kr/search?q=" + keyword);
+    });
+  };
+  new Search();
 
-    // 자동 슬라이드
-    let counter = 1;
-    setInterval(function(){
-        document.getElementById('auto-radio' + counter).checked = true;
-        counter++;
-        if(counter >  4){
-            counter = 1;
-        }
-    }, 3000);
-
-
-    // 여기서 부터 하면된다. 각 id값 줘서 해야함. 난 뒤졌다 리얼로다가
-    function chatting(){
-        document.getElementById("Open-Chatting").style.display = 'none';
-        document.getElementById("Chat").style.display = 'block';
-        document.getElementById("Header-Left").style.marginLeft = '3.5vw';
-        document.getElementById("Header-Left").style.backgroundColor = 'rgba(244, 245, 249, 1)';
-        document.getElementById("Header-Left").style.width = '70%';
-        document.getElementById("Header-Right").style.width = '40%';
-        document.getElementById("Search").style.backgroundColor = "white";
-        document.getElementById("Krikri-Select").style.marginLeft = '4.5%';
-        document.getElementById("Krikri-Select").style.width = '100%';
-        document.getElementById("Search").style.borderRadius = "30px"; 
-        document.getElementById("Left-Main").style.display = 'none';
-        document.getElementById("Right-Main").style.marginLeft = '3.5vw';
-        document.getElementById("Right-Main").style.width = '100%';
-        document.getElementById("Krikri-Title").style.display = 'none';
-        document.getElementById("Krikri-Alram").style.marginLeft = '60%';
-        document.getElementById("Krikri-Love2").style.display = 'block';
-        
-
-        // 채팅방 클릭시 나오는 앨범부분 7개부터 안나오게
-        let counter2 = 1;  
-        setInterval(function(){
-            let Show_Album = document.getElementById("Show-Album" + counter2);
-            counter2++;
-            if(counter2 > 6){
-                Show_Album.style.display = "none";
-            }
-        });
+  // 자동 슬라이드
+  let counter = 1;
+  setInterval(function () {
+    document.getElementById("auto-radio" + counter).checked = true;
+    counter++;
+    if (counter > 4) {
+      counter = 1;
     }
-    // 채팅방 닫혔을 때
-    function chat_close(){
-        document.getElementById("Open-Chatting").style.display = 'block';
-        document.getElementById("Chat").style.display = 'none';
-        document.getElementById("Header-Left").style.marginLeft = '0%';
-        document.getElementById("Header-Left").style.backgroundColor = 'white';
-        document.getElementById("Header-Left").style.width = '43%';       
-        document.getElementById("Header-Right").style.width = '57%';
-        document.getElementById("Search").style.backgroundColor = "white";
-        document.getElementById("Search").style.borderRadius = "30px"; 
-        document.getElementById("Krikri-Select").style.marginRight = '28px';
-        document.getElementById("Krikri-Select").style.marginLeft = '5.5%';
-        document.getElementById("Krikri-Select").style.width = '89.5%';      
-        document.getElementById("Left-Main").style.display = 'block';
-        document.getElementById("Right-Main").style.marginLeft = '0';
-        document.getElementById("Right-Main").style.width = '57%';
-        document.getElementById("Krikri-Title").style.display = 'block';
-        document.getElementById("Krikri-Alram").style.marginLeft = '2.5%';
-        document.getElementById("Krikri-Love2").style.display = 'none';
-    }
-    // 전체화면
-    function Full_Screen(){
-        document.getElementById("Chat").style.width = '100vw';
-        document.getElementById("Chat").style.marginLeft = '2.5vw';
-        document.getElementById("Chat").style.borderLeft= 'none';
-        document.getElementById("Krikri-Main-Page").style.display = 'none';
-        document.getElementById("Chat-Chatting").style.marginTop = '2%';
-        document.getElementById("Chat-Side").style.display = 'none';
-        document.getElementById("Chat-Left").style.fontSize = '1.8rem';
-        document.getElementById("Chat-Right").style.marginLeft = '0%';
-        document.getElementById("Msg").style.width= '100%';
-        document.getElementById("Message-Send").style.width = '10%';
-        document.getElementById("Message-Send").style.marginLeft= '10%';
-        document.getElementById("Msg_Input").style.width= '95%';        
-        document.getElementById("button").style.marginLeft= '40%';
-        document.getElementById("Full_Screen").style.display= 'none';
-        document.getElementById("Full_ScreenNo").style.display= 'block';
-        document.getElementById("Full_ScreenNo").style.width= '130px';
-        document.getElementById("Full_ScreenNo").style.left= '73%';
-    }
-    // 전체화면 끝내기
-    function Full_ScreenNo(){
-        document.getElementById("Chat").style.width = '70vw';
-        document.getElementById("Chat").style.marginLeft = '0vw';
-        document.getElementById("Chat").style.borderLeft= '3px solid pink';
-        document.getElementById("Chat-Chatting").style.marginTop = '4%';
-        document.getElementById("Chat-Side").style.display = 'block';
-        document.getElementById("Chat-Left").style.fontSize = '1.4rem';
-        document.getElementById("Chat-Right").style.marginLeft = '0%';
-        document.getElementById("Krikri-Main-Page").style.display = 'block';
-        document.getElementById("Msg").style.width= '100%';
-        document.getElementById("Message-Send").style.width = '10%';
-        document.getElementById("Message-Send").style.marginLeft= '0%';
-        document.getElementById("Msg_Input").style.width= '85%';    
-        document.getElementById("button").style.marginLeft= '50%';
-        document.getElementById("Full_Screen").style.display= 'block';
-        document.getElementById("Full_ScreenNo").style.display= 'none';
-    }
+  }, 3000);
 
-    function Popup_Open(){
-        document.getElementById("Background-Choice").style.display = 'block';
-    }
+  // 여기서 부터 하면된다. 각 id값 줘서 해야함. 난 뒤졌다 리얼로다가
+  function chatting() {
+    document.getElementById("Open-Chatting").style.display = "none";
+    document.getElementById("Chat").style.display = "block";
+    document.getElementById("Header-Left").style.marginLeft = "3.5vw";
+    document.getElementById("Header-Left").style.backgroundColor =
+      "rgba(244, 245, 249, 1)";
+    document.getElementById("Header-Left").style.width = "70%";
+    document.getElementById("Header-Right").style.width = "40%";
+    document.getElementById("Search").style.backgroundColor = "white";
+    document.getElementById("Krikri-Select").style.marginLeft = "4.5%";
+    document.getElementById("Krikri-Select").style.width = "100%";
+    document.getElementById("Search").style.borderRadius = "30px";
+    document.getElementById("Left-Main").style.display = "none";
+    document.getElementById("Right-Main").style.marginLeft = "3.5vw";
+    document.getElementById("Right-Main").style.width = "100%";
+    document.getElementById("Krikri-Title").style.display = "none";
+    document.getElementById("Krikri-Alram").style.marginLeft = "60%";
+    document.getElementById("Krikri-Love2").style.display = "block";
 
-    function Popup_Close(){
-        document.getElementById("Background-Choice").style.display = 'none';
-    }
+    // 채팅방 클릭시 나오는 앨범부분 7개부터 안나오게
+    let counter2 = 1;
+    setInterval(function () {
+      let Show_Album = document.getElementById("Show-Album" + counter2);
+      counter2++;
+      if (counter2 > 6) {
+        Show_Album.style.display = "none";
+      }
+    });
+  }
+  // 채팅방 닫혔을 때
+  function chat_close() {
+    document.getElementById("Open-Chatting").style.display = "block";
+    document.getElementById("Chat").style.display = "none";
+    document.getElementById("Header-Left").style.marginLeft = "0%";
+    document.getElementById("Header-Left").style.backgroundColor = "white";
+    document.getElementById("Header-Left").style.width = "43%";
+    document.getElementById("Header-Right").style.width = "57%";
+    document.getElementById("Search").style.backgroundColor = "white";
+    document.getElementById("Search").style.borderRadius = "30px";
+    document.getElementById("Krikri-Select").style.marginRight = "28px";
+    document.getElementById("Krikri-Select").style.marginLeft = "5.5%";
+    document.getElementById("Krikri-Select").style.width = "89.5%";
+    document.getElementById("Left-Main").style.display = "block";
+    document.getElementById("Right-Main").style.marginLeft = "0";
+    document.getElementById("Right-Main").style.width = "57%";
+    document.getElementById("Krikri-Title").style.display = "block";
+    document.getElementById("Krikri-Alram").style.marginLeft = "2.5%";
+    document.getElementById("Krikri-Love2").style.display = "none";
+  }
+  // 전체화면
+  function Full_Screen() {
+    document.getElementById("Chat").style.width = "100vw";
+    document.getElementById("Chat").style.marginLeft = "2.5vw";
+    document.getElementById("Chat").style.borderLeft = "none";
+    document.getElementById("Krikri-Main-Page").style.display = "none";
+    document.getElementById("Chat-Chatting").style.marginTop = "2%";
+    document.getElementById("Chat-Side").style.display = "none";
+    document.getElementById("Chat-Left").style.fontSize = "1.8rem";
+    document.getElementById("Chat-Right").style.marginLeft = "0%";
+    document.getElementById("Msg").style.width = "100%";
+    document.getElementById("Message-Send").style.width = "10%";
+    document.getElementById("Message-Send").style.marginLeft = "10%";
+    document.getElementById("Msg_Input").style.width = "95%";
+    document.getElementById("button").style.marginLeft = "40%";
+    document.getElementById("Full_Screen").style.display = "none";
+    document.getElementById("Full_ScreenNo").style.display = "block";
+    document.getElementById("Full_ScreenNo").style.width = "130px";
+    document.getElementById("Full_ScreenNo").style.left = "73%";
+  }
+  // 전체화면 끝내기
+  function Full_ScreenNo() {
+    document.getElementById("Chat").style.width = "70vw";
+    document.getElementById("Chat").style.marginLeft = "0vw";
+    document.getElementById("Chat").style.borderLeft = "3px solid pink";
+    document.getElementById("Chat-Chatting").style.marginTop = "4%";
+    document.getElementById("Chat-Side").style.display = "block";
+    document.getElementById("Chat-Left").style.fontSize = "1.4rem";
+    document.getElementById("Chat-Right").style.marginLeft = "0%";
+    document.getElementById("Krikri-Main-Page").style.display = "block";
+    document.getElementById("Msg").style.width = "100%";
+    document.getElementById("Message-Send").style.width = "10%";
+    document.getElementById("Message-Send").style.marginLeft = "0%";
+    document.getElementById("Msg_Input").style.width = "85%";
+    document.getElementById("button").style.marginLeft = "50%";
+    document.getElementById("Full_Screen").style.display = "block";
+    document.getElementById("Full_ScreenNo").style.display = "none";
+  }
 
-    // 날씨 api
-    // 날씨
-    const weather = document.querySelector(".Show-Weather");
-    const API_KEY = "7281a145274b52a5338769d114cc3464";
-    const COORDS = "coords";
+  function Popup_Open() {
+    document.getElementById("Background-Choice").style.display = "block";
+  }
 
-    function getWeather(lat, lng) {
+  function Popup_Close() {
+    document.getElementById("Background-Choice").style.display = "none";
+  }
+
+  // 날씨 api
+  // 날씨
+  const weather = document.querySelector(".Show-Weather");
+  const API_KEY = "7281a145274b52a5338769d114cc3464";
+  const COORDS = "coords";
+
+  function getWeather(lat, lng) {
     // 호출 6번
     // fetch() 메서드를 이용하는 것으로 비동기 네트워크 통신을 알기쉽게 기술할 수 있습니다.
     /*
@@ -1480,16 +1494,16 @@
     fetch()로 부터 반환되는 Promise 객체는 HTTP error 상태를 reject하지 않는다. Code가 404나 500을 반환하더라도 상태가 false인 resolve가 반환되며, 네트워크 장애나 요청이 완료되지 못한 상태에는 reject가 반환된다.
     */
     console.dir(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=metric&appid=${API_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=metric&appid=${API_KEY}`
     );
     fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=metric&appid=${API_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=metric&appid=${API_KEY}`
     )
-        .then((response) => {
+      .then((response) => {
         console.dir(response); // Response객체임
         return response.json();
-        })
-        .then((json) => {
+      })
+      .then((json) => {
         // 실제 api 링크에서 받아온 데이터(객체형식으로 받아와지는듯) console에 Object라고 찍힘
         // 여기서 이제 얻고자 하는 정보를 어디어디.어디어디.정보  또는  어디어디.정보  이런식으로 찾아서 저장해주면 될듯
         /*
@@ -1511,104 +1525,103 @@
         console.dir(json); 이것을 잘 활용하면 원하는 정보를 쉽게 찾을 수 있음 브라우저 콘솔에 찍혀있는 그대로 타고들어가서 정보를 얻어낼 수 있음
         */
         console.dir(json);
-        const temperature = json.main.temp + 'ºC';
+        const temperature = json.main.temp + "ºC";
         const place = json.name;
         const description = json.weather[0].description;
         const icon = json.weather[0].icon;
         const img = document.createElement("img");
         img.src = `http://openweathermap.org/img/wn/${icon}.png`;
-        img.style.width = '100px';
-        img.style.height = '50px';
-        
+        img.style.width = "100px";
+        img.style.height = "50px";
+
         // 날씨 이미지가 하나밖에 안보여 추가로 만듬
         const icon2 = json.weather[0].icon;
         const img2 = document.createElement("img");
         img2.src = `http://openweathermap.org/img/wn/${icon2}.png`;
         // 날씨 이미지 사이즈
-        img2.style.width = '100px';
-        img2.style.height = '50px';
+        img2.style.width = "100px";
+        img2.style.height = "50px";
         // 좌측 날씨 부분입니다.
         // 지역
-        let Local = document.getElementById('Local');
+        let Local = document.getElementById("Local");
         Local.append(place);
         // 이미지
-        let weatherImg = document.getElementById('weatherImage');
+        let weatherImg = document.getElementById("weatherImage");
         weatherImg.append(img);
         // 날씨
-        let weatehrText = document.getElementById('description');
+        let weatehrText = document.getElementById("description");
         weatehrText.append(description);
         // 온도
-        let tempe = document.getElementById('tempe');
+        let tempe = document.getElementById("tempe");
         tempe.append(temperature);
         // 우측 날씨 부분입니다.
         // 지역
-        let Local2 = document.getElementById('Local2');
+        let Local2 = document.getElementById("Local2");
         Local2.append(place);
         // 이미지
-        let weatherImg2 = document.getElementById('weatherImage2');
+        let weatherImg2 = document.getElementById("weatherImage2");
         weatherImg2.append(img2);
         // 날씨
-        let weatehrText2 = document.getElementById('description2');
+        let weatehrText2 = document.getElementById("description2");
         weatehrText2.append(description);
         // 온도
-        let tempe2 = document.getElementById('tempe2');
+        let tempe2 = document.getElementById("tempe2");
         tempe2.append(temperature);
-        });
-    }
+      });
+  }
 
-    function saveCoords(coordsObj) {
+  function saveCoords(coordsObj) {
     //호출 5번
     //로컬스토리지에 저장해주는 함수
     localStorage.setItem(COORDS, JSON.stringify(coordsObj));
-    }
+  }
 
-    function handleGeoSucces(position) {
+  function handleGeoSucces(position) {
     // 호출 4번 (API콜 성공시)
     //position 요거는 GeolocationPosition 요 객체
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
     //위도경도 불러오기
     const coordsObj = {
-        latitude, //latitude: latitude, 와 같은 뜻
-        longitude,
+      latitude, //latitude: latitude, 와 같은 뜻
+      longitude,
     };
     saveCoords(coordsObj); //로컬스토리지에 저장해주는 함수
     getWeather(latitude, longitude); // 뽑아낸 위도 경도를 파라미터로 받는 getWeather() 호출
-    }
-    function handleGeoErr() {
+  }
+  function handleGeoErr() {
     console.log(`Can't access geo location`);
-    }
+  }
 
-    function askForCoords() {
+  function askForCoords() {
     // 호출 3번
     navigator.geolocation.getCurrentPosition(handleGeoSucces, handleGeoErr); //성공시 함수, 에러시 함수
     //handleGeoSucces()는 GeolocationPosition 객체를 유일한 매개변수로 받는 콜백 함수. >> function handleGeoSucces(position) {} 이런식으로 되어있는 함수
     //window.navigator >> 윈도우 생략 가능
     //navigator.geolocation.getCurrentPosition() 현재위치 가져오는 메소드
-    }
+  }
 
-    function loadCoords() {
+  function loadCoords() {
     // 호출 2번
     // 날씨와 상관 없는 로컬스토리지(브라우저 자체 저장소)에서 정보 불러오기
     const loadedCoords = localStorage.getItem(COORDS);
 
     if (loadedCoords === null) {
-        askForCoords();
-        // 저장되어있는 정보가 없으면 askForCoords()호출
+      askForCoords();
+      // 저장되어있는 정보가 없으면 askForCoords()호출
     } else {
-        //get Weather
-        const parseCoords = JSON.parse(loadedCoords);
-        console.log(parseCoords);
-        getWeather(parseCoords.latitude, parseCoords.longitude);
+      //get Weather
+      const parseCoords = JSON.parse(loadedCoords);
+      console.log(parseCoords);
+      getWeather(parseCoords.latitude, parseCoords.longitude);
     }
-    }
+  }
 
-    function init() {
+  function init() {
     loadCoords();
     // 호출 1번
     // 초기화 함수를 실행 시 loadCoords() 호출
-    }
+  }
 
-    init(); // init호출
-
+  init(); // init호출
 </script>
