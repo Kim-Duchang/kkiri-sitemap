@@ -1,0 +1,185 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* 전체 사이즈 */
+.page-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+/* 사이드 바 */
+.Side-Bar {
+  width: 8vw;
+  height: 100vh;
+}
+/* 사이드 바 우측 라인 */
+.Side-Bar-Line {
+  width: 8vw;
+  height: 95vh;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-right: 0.5vw solid rgba(244, 245, 249, 1);
+}
+/* 사이드 바 로고 */
+.Logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 4vh;
+  color: rgba(255, 131, 141, 1);
+  overflow: hidden;
+}
+/* 사이드 바 메뉴 */
+.Menu-List {
+  width: 8vw;
+  height: 60vh;
+  margin-top: 15vh;
+}
+/* 사이드 바 메뉴 이미지 */
+.Menu-List-Links {
+  width: 8vw;
+  height: 12.5vh;
+  text-align: center;
+}
+/* 사이드 바 메뉴:hover */
+.Menu-List-Links:hover {
+  transition: 400ms linear;
+  border-right: 0.5vw solid rgba(255, 131, 141, 1);
+}
+/* 사이드 바 메뉴 이미지 사이즈 */
+.Links {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* 사이드 바 로그아웃 */
+.Logout {
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 7vh;
+  color: black;
+}
+
+/* 채팅 */
+.chatting-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 50px 3%;
+  /* background: tomato; */
+}
+.chatting-header {
+  padding-bottom: 20px;
+  border-bottom: 2px solid #efefef;
+}
+.chatting-area {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+.chatting-area p {
+  text-align: center;
+  color: #6b6b6b;
+}
+/* 대화 공통 */
+.message-wrpper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.message-wrpper .profile {
+  width: 45px;
+  height: 45px;
+  border: 4px solid #ffffff;
+  border-radius: 50%;
+  background-color: thistle;
+}
+
+.message-wrpper p {
+  box-sizing: border-box;
+  /* width: 25%; */
+  max-width: 50%;
+  min-height: 40px;
+  padding: 15px 20px;
+  border-radius: 3px;
+  background: blanchedalmond;
+  color: #333333;
+  text-align: unset;
+}
+
+/* 상대방 대화 */
+.message-wrpper.contact .profile span {
+  position: relative;
+  left: 55px;
+  top: 3px;
+  font-size: 14px;
+}
+.message-wrpper.contact p {
+  position: absolute;
+  z-index: -1;
+  left: 25px;
+  top: 30px;
+}
+/* 본인 대화 */
+.message-wrpper.me {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.message-wrpper.me .profile span {
+  position: relative;
+  left: -55px;
+  top: 3px;
+  font-size: 14px;
+}
+.message-wrpper.me p {
+  position: absolute;
+  z-index: -1;
+  right: 25px;
+  top: 30px;
+}
+.chatting-send {
+  width: 100%;
+  height: 80px;
+}
+.chatting-send form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.chatting-send form input {
+  box-sizing: border-box;
+  width: 88%;
+  height: 50px;
+  /* border: 2px solid #ff838d; */
+  padding-left: 20px;
+  font-size: 1.2rem;
+  outline: none;
+}
+.chatting-send form button {
+  box-sizing: border-box;
+  outline: none;
+}
+.btn-plus {
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: 2px solid #ff838d;
+  border-radius: 50%;
+  color: #ff838d;
+}
+.btn-send {
+  width: 8%;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  background: #ff838d;
+  color: #ffffff;
+  font-size: 1.4rem;
+}

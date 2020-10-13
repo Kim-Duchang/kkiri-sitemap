@@ -210,25 +210,25 @@ const tbodyContent = [
   },
   {
     pageName: "채팅 - 전체화면",
-    link: "",
+    link: "./done/chatting/chatting.html",
     image:
       "https://drive.google.com/file/d/1tFkxKNe0YDVksgIEcZvFOWHf_bksNZS5/view?usp=sharing",
     done: true,
   },
-  {
-    pageName: "채팅 - 사진보내기 (전체화면)",
-    link: "",
-    image:
-      "https://drive.google.com/file/d/18n1o1MOX992DOje4yFHPF9eviaCVCkkK/view?usp=sharing",
-    done: false,
-  },
-  {
-    pageName: "채팅 - 하단 추가",
-    link: "",
-    image:
-      "https://drive.google.com/file/d/1fqdbSzc6ahSn6xLcI2bZH4oHXcSoGJZQ/view?usp=sharing",
-    done: false,
-  },
+  // {
+  //   pageName: "채팅 - 사진보내기 (전체화면)",
+  //   link: "",
+  //   image:
+  //     "https://drive.google.com/file/d/18n1o1MOX992DOje4yFHPF9eviaCVCkkK/view?usp=sharing",
+  //   done: false,
+  // },
+  // {
+  //   pageName: "채팅 - 하단 추가",
+  //   link: "",
+  //   image:
+  //     "https://drive.google.com/file/d/1fqdbSzc6ahSn6xLcI2bZH4oHXcSoGJZQ/view?usp=sharing",
+  //   done: false,
+  // },
 ];
 
 const printPageContent = function () {
