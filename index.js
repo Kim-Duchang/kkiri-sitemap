@@ -64,9 +64,9 @@ const tbodyContent = [
   },
   {
     pageName: "메인 - 설정",
-    link: "",
+    link: "./done/setting/setting.html",
     image: "",
-    done: false,
+    done: true,
   },
   {
     pageName: "캘린더 - 메인",

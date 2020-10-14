@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>끼리끼리</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        /* 전체 사이즈 */
+        .Krikri-Page {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+        }
+        /* --------------------------------------- 사이드 바 시작 ----------------------------------------------- */
+        /* 사이드 바 */
+        .Side-Bar {
+            width: 7vw;
+            height: 100vh;
+        }
+        /* 사이드 바 우측 라인 */
+        .Side-Bar-Line {
+            width: 7vw;
+            height: 95vh;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border-right: 0.5vw solid rgba(244, 245, 249, 1);
+        }
+        /* 사이드 바 로고 */
+        .Logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 4vh;
+            color: rgba(255, 131, 141, 1);
+            overflow: hidden;
+        }
+        /* 사이드 바 메뉴 */
+        .Menu-List {
+            width: 7vw;
+            height: 60vh;
+            margin-top: 15vh;
+        }
+        /* 사이드 바 메뉴 이미지 */
+        .Menu-List-Links {
+            width: 7vw;
+            height: 12.5vh;
+            text-align: center;
+        }
+        /* 사이드 바 메뉴:hover */
+        .Menu-List-Links:hover {
+            transition: 400ms linear;
+            border-right: 0.5vw solid rgba(255, 131, 141, 1);
+        }
+        /* 사이드 바 메뉴 이미지 사이즈 */
+        .Links {
+            width: 30px;
+            height: 30px;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        /* 사이드 바 로그아웃 */
+        .Logout {
+            font-size: 1rem;
+            text-align: center;
+            margin-top: 2.8vh;
+            color: black;
+        }
+        /* --------------------------------------- 사이드 바 부분 끝 ---------------------------------------------*/
+        /* --------------------------------------- 메인 페이지 시작 --------------------------------------------- */
+        /* 메인 페이지 */
+        .Krikri-Main-Page {
+            width: 100%;
+            height: 100vh;
+            margin-left: 1.2vw;
+            /* background-color: yellowgreen; */
+        }
+        /* --------------------------------------- Header 시작 -------------------------------------------------- */
+        /* 메인 Header 부분 */
+        .Krikri-Main-Header {
+            width: 100%;
+            height: 17vh;
+            display: flex;
+        }
+        /* 메인 Header-Left부분 */
+        .Header-Left {
+            width: 43%;
+            height: 100%;
+        }
+        /* Header-Left-Select div 부분 */
+        .Krikri-Select {
+            width: 89.5%;
+            height: 50px;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            margin: 0 auto;
+            border: 3px solid rgba(255, 170, 177, 1);
+            border-radius: 30px;
+            margin-right: 28px;
+        }
+        /* 검색 부분 */
+        .Search {
+            width: 100%;
+            height: 50px;
+            display: flex;
+        }
+        /* 검색 버튼 부분 */
+        .Img-Button {
+            width: 50px;
+            height: 50px;
+            border: none;
+            background: transparent;
+            font-size: 1.125rem;
+            outline: none;
+        }
+        /* 검색 이미지 사이즈 부분 */
+        .Img-Button img {
+            width: 25px;
+            height: 25px;
+            margin: 10px 0 0 15px;
+        }
+        /* 검색 이미지 hover 부분 */
+        .Img-Button img:hover {
+            cursor: pointer;
+        }
+        /* 검색 input 부분 */
+        .Search-Keyword {
+            width: 90%;
+            height: 45px;
+            position: relative;
+            top: 3px;
+            margin-left: 2.5%;
+            font-size: 16px;
+            border: none;
+            vertical-align: middle;
+            border-radius: 0px 30px 30px 0px / 30px 30px 30px 30px;
+        }
+        /* 검색 input:focus 부분 */
+        .Search-Keyword:focus {
+            outline: none;
+        }
+        /* 메인 Header-Right 부분 */
+        .Header-Right {
+            width: 57%;
+            height: 100%;
+
+        }
+        /* Header-Right-Header 부분 */
+        .Krikri-Header {
+            width: 94.5%;
+            height: 60px;
+            position: relative;
+            top: 29%;
+            display: flex;
+            margin-left: 28px;
+        } 
+        /* Header-Right-Header 부분 */
+        .Krikri-Title {
+            width: 85%;
+            margin-left: 10px;
+        }
+        /* Right-Header 제목 알림 부분 */
+        .Krikri-Title h2 {
+            white-space: nowrap;
+            margin-bottom: 5px;
+        }
+        /* Right-Header 날짜 알림 부분 */
+        .Krikri-Title span {
+            font-size: 1.1rem;
+            font-weight: normal;
+            color: rgba(181, 181, 183, 1);
+        }
+        /* Right-Header 프로필, 알림 부분 */
+        .Krikri-Alram {
+            width: 8%;
+            display: flex;
+            margin: auto;
+        }
+        /* Right-Header 프로필, 알림 이미지 사이즈 부분 */
+        .Krikri-Alram img {
+            width: 35px;
+            height: 35px;
+            margin-left: 2px;
+        }
+        .Krikri-Alram img:hover {
+            cursor: pointer;
+        }
+        /* Right-Header 프로필, 알림 이미지 마지막 사이즈 부분 */
+        .Krikri-Alram img:last-child {
+            margin-left: 15px;
+        }
+        /* ---------------------------------------- Header 부분 끝 ---------------------------------------------- */
+        /* ---------------------------------------- 본 메뉴 시작 ------------------------------------------------ */
+        /* 커플 사진과 앨범, 캘린더등등 보여지는 Div */
+        .Krikri-Setting {
+            width: 100%;
+            height: 83%;
+            display: flex;
+        }
+        .Setting {
+            width: 90%;
+            height: 90%;
+            margin-left: 2vw;
+            border-radius: 20px;
+            border: 3px solid rgba(244, 245, 249, 1);
+        }
+        .Setting-Header {
+            width: 100%;
+            height: 20%;
+        }
+        .Setting-Header h4 {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 5%;
+            font-size: 2rem;
+            color: pink;
+        }
+        .Setting-Main {
+            width: 100%;
+            height: 80%;
+            display: flex;
+        }
+        .Setting-SideBar {
+            width: 25%;
+            height: 85%;
+            border-right: 3px solid rgba(244, 245, 249, 1);
+        }
+        .Setting-SideBar ul {
+            width: 50%;
+            height: 90%;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 20%;
+        }
+        .Setting-SideBar ul li {
+            font-size: 20px;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+        .Settting-Action {
+            width: 75%;
+            height: 85%;
+            
+        }
+        .Settting-Action ul {
+            width: 90%;
+            height: 90%;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 5%;
+        }
+        .Settting-Action ul li:first-child, .Settting-Action ul li:nth-child(2) { 
+            font-size: 20px;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+        .Settting-Action ul li:nth-child(3) {
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .Settting-Action ul li:nth-child(4) { 
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .Settting-Action ul li:nth-child(5) { 
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .Settting-Action ul li:last-child { 
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .Settting-Action ul li .abc {
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            outline: none;
+            width: 500px;
+            height: 25px;
+            margin-left: 20%;
+            font-size: 20px;
+            text-align: right;
+            padding-right: 10px;
+        }
+        .Settting-Action ul li .def {
+            outline: none;
+            width: 500px;
+            height: 30px;
+            margin-left: 27%;
+            font-size: 20px;
+            padding-left: 10px;
+        }
+        .Setting-Save {
+            width: 120px;
+            height: 50px;
+            outline: none;
+            border: none;
+            background-color: rgba(255, 131, 141, 1);
+            border-radius: 10px;
+            color: white;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 45%;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* ---------------------------------------- 앨범 끝 ----------------------------------------------------- */
+        .Open-Chatting {
+            width: 60px;
+            height: 100px;
+            background-color: rgba(255, 131, 141, 1);
+            position: absolute;
+            top: 50%;
+            right: 0;
+            border-radius: 5px 0px 0px 5px / 5px 0px 0px 5px;
+        }
+        .Open-Chatting img{
+            width: 30px;
+            height: 30px;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-left: 17px;
+            background: transparent;
+            cursor: pointer;
+        }
+
+
+        /* ---------------------------------------- 본 메인 끝 -------------------------------------------------- */
+        /* css 끝 */
+    </style>
+</head>
+<body>
+    <!-- 전체 페이지 -->
+    <div class="Krikri-Page" id="Krikri-Page">
+        <!-- 사이드 바 -->
+        <div class="Side-Bar">
+            <div class="Side-Bar-Line">
+                <div class="Logo">
+                    Krikri
+                </div>
+                <div class="Menu-List">
+                    <ul>
+                        <li class="Menu-List-Links"><img src="./images/home.png" class="Links"></li>
+                        <li class="Menu-List-Links"><img src="./images/calendar.png" class="Links"></li>
+                        <li class="Menu-List-Links"><img src="./images/album.png" class="Links"></li>
+                        <li class="Menu-List-Links"><img src="./images/setting.png" class="Links"></li>
+                    </ul>
+                </div>
+                <div class="Logout">
+                    logout
+                </div>
+            </div>
+        </div>
+        <!-- 사이드 바 끝 -->
+        <!-- 메인 페이지 시작 -->
+        <div class="Krikri-Main-Page" id="Krikri-Main-Page">
+            <!-- Header 시작 -->
+            <div class="Krikri-Main-Header">
+                <div class="Header-Left" id="Header-Left">
+                    <div class="Krikri-Select" id="Krikri-Select">
+                        <form class="Search" id="Search">
+                            <button class="Img-Button" id="Img-Button" type="submit" name="click" value="">
+                                <img src="./images/search.png">
+                            </button>
+                            <input class="Search-Keyword" type="text" name="search" maxlength="255" value="" autocomplete="off" placeholder="Google 검색">
+                        </form>
+                    </div>
+                </div>
+                <div class="Header-Right" id="Header-Right">
+                    <div class="Krikri-Header">
+                        <div class="Krikri-Title" id="Krikri-Title">
+                            <h2>우리들만의 끼리끼리:)</h2>
+                            <span>2020-00-00</span>
+                        </div>
+                        <div class="Krikri-Alram" id="Krikri-Alram">
+                            <img src="./images/alram.png">
+                            <img src="./images/profile.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header 끝 -->
+            <!-- 본 메인 시작 -->
+            <div class="Krikri-Setting">
+                <div class="Setting">
+                    <div class="Setting-Header">
+                        <h4>설정</h4>
+                    </div>
+                    <div class="Setting-Main">
+                        <div class="Setting-SideBar">
+                            <ul>
+                                <li>개인정보</li>
+                                <li>채팅방</li>
+                                <li>알람</li>
+                            </ul>
+                        </div>
+                        <div class="Settting-Action">
+                            <ul>
+                                <li>이메일 <input type="text" class="abc" placeholder="krikri.com"></li>
+                                <li>닉네임 <input type="text" class="abc" placeholder="끼리끼리"></li>
+                                <li>비밀번호</li>
+                                <li><input type="password" placeholder="현재 비밀번호" class="def"></li>
+                                <li><input type="password" placeholder="새로운 비밀번호" class="def"></li>
+                                <li><input type="password" placeholder="비밀번호 재입력" class="def"></li>
+                            </ul>
+                            <button class="Setting-Save">저장하기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 본 메인 부분 끝 -->
+        </div>
+        <div class="Open-Chatting" id="Open-Chatting">
+            <img src="./images/chat.png" onclick="chatting()">
+        </div>
+        <!-- 메인 페이지 끝 -->
+    </div>
+    <!-- 전체 페이지 끝 -->
+</body>
+</html>
+
+<script>
+
+</script>
